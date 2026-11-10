@@ -1,0 +1,10 @@
+{
+  "description": "A friendly space to connect, share updates, and stay in touch with the people who matter.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
