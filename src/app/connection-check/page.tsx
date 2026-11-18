@@ -45,11 +45,12 @@ export default function ConnectionCheckPage() {
 
   useEffect(() => {
     void loadProperties();
-    if (!supabase) return;
-    const { data: listener } = supabase.auth.onAuthStateChange((event, session) => {
+    const client = supabase;
+    if (!client) return;
+    const { data: listener } = client.auth.onAuthStateChange((event, session) => {
       if (event === "SIGNED_IN") {
         setUserEmail(session?.user.email ?? null);
-        void supabase.from("properties").select("id,slug,name").order("name")
+        void client.from("properties").select("id,slug,name").order("name")
           .then(({ data, error }) => {
             if (error) {
               setProperties([]);

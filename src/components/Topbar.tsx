@@ -18,6 +18,7 @@ import {
   UserCheck,
 } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { useStore } from "@/store/store"
 import { rupiah } from "@/lib/data"
@@ -32,6 +33,7 @@ function useOutside(ref: React.RefObject<HTMLElement | null>, cb: () => void) {
 }
 
 export default function Topbar() {
+  const router = useRouter()
   const s = useStore()
   const [open, setOpen] = useState<null | "prop" | "cta" | "bell" | "search" | "user">(
     null,
@@ -51,6 +53,17 @@ export default function Topbar() {
   useOutside(bellRef, () => open === "bell" && close())
   useOutside(searchWrap, () => open === "search" && close())
   useOutside(userRef, () => open === "user" && close())
+
+  const displayName = s.userProfile?.full_name || (s.userRole === "staff" ? "Pak Darto" : "Muhamad Maulana")
+  const displayEmail = s.currentUser?.email || (s.userRole === "staff" ? "darto.staf@superkost.id" : "maulana@superkost.id")
+  const roleLabel = s.userProfile?.role === "staff" || s.userRole === "staff" ? "Penjaga Kost (Staf)" : "Owner / Manager"
+  const userInitials = displayName
+    .split(" ")
+    .filter(Boolean)
+    .map((w) => w[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase() || "SK"
 
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
@@ -456,7 +469,7 @@ export default function Topbar() {
             className="flex items-center gap-1.5 sm:gap-2 rounded-lg p-1 hover:bg-slate-100 transition-colors"
           >
             <div className="flex size-9 items-center justify-center rounded-full bg-[#1E1B4B] text-[12px] font-bold text-white ring-2 ring-indigo-500/20">
-              MM
+              {userInitials}
             </div>
             <ChevronDown
               className={`hidden sm:block size-3.5 text-slate-400 transition-transform ${
@@ -469,13 +482,13 @@ export default function Topbar() {
             <div className="absolute right-0 top-full mt-2 w-[240px] rounded-xl border border-[#E2E8F0] bg-white p-2 shadow-xl shadow-slate-900/10 z-50 animate-pop-in">
               <div className="border-b border-slate-100 px-3 py-2">
                 <p className="text-[13px] font-bold text-slate-900">
-                  Muhamad Maulana
+                  {displayName}
                 </p>
                 <p className="text-[11px] text-slate-500 truncate">
-                  maulana@superkost.id
+                  {displayEmail}
                 </p>
                 <span className="mt-1 inline-block rounded-md bg-indigo-50 px-1.5 py-0.5 text-[10px] font-semibold text-indigo-700">
-                  Owner / Manager
+                  {roleLabel}
                 </span>
               </div>
 
@@ -502,14 +515,18 @@ export default function Topbar() {
               </div>
 
               <div className="border-t border-slate-100 pt-1">
-                <Link
-                  href="/login"
-                  onClick={close}
+                <button
+                  type="button"
+                  onClick={async () => {
+                    close()
+                    await s.signOut()
+                    router.push("/login")
+                  }}
                   className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-[12.5px] font-semibold text-rose-600 hover:bg-rose-50 transition-colors"
                 >
                   <LogOut className="size-4 text-rose-500" />
                   <span>Keluar Akun (Logout)</span>
-                </Link>
+                </button>
               </div>
             </div>
           )}

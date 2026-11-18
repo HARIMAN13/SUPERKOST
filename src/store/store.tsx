@@ -2,13 +2,16 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useRef,
   useState,
   type ReactNode,
 } from "react"
+import { supabase } from "@/lib/supabase"
+import type { User } from "@supabase/supabase-js"
 import {
-  createSeed,
+  emptyDb,
   PROPERTIES,
   PERIOD,
   TODAY,
@@ -24,6 +27,13 @@ import {
   type Invoice,
 } from "@/lib/data"
 import { useWhatsApp, shortName } from "@/lib/wa"
+
+export interface UserProfile {
+  id: string
+  full_name: string
+  phone: string | null
+  role: "owner" | "staff"
+}
 
 export type Page = "dashboard" | "rooms" | "tenants" | "billing" | "deposits" | "finance" | "maintenance" | "staff" | "whatsapp"
 export type FinanceTab = "kas" | "laba"
@@ -93,7 +103,7 @@ function buildRooms(db: DB, propId: PropId): Room[] {
       )
       .map((i) => [`${i.roomNo}:${i.tenantId}`, i]),
   )
-  return db.rooms[propId].map((r) => {
+  return (db.rooms[propId] ?? []).map((r) => {
     const t = tenants.get(r.no)
     if (!t) return { ...r, status: "vacant" as const }
     const inv = invoices.get(`${r.no}:${t.id}`)
@@ -132,8 +142,10 @@ function buildRooms(db: DB, propId: PropId): Room[] {
 }
 
 function useStoreValue() {
-  const [db, setDb] = useState<DB>(createSeed)
-  const [propId, setPropId] = useState<PropId>("mulyorejo")
+  const [db, setDb] = useState<DB>(emptyDb)
+  // propId will be overwritten by loadSession once properties are fetched from Supabase.
+  // Using a placeholder that cannot match any real slug so rooms never leak from seed data.
+  const [propId, setPropId] = useState<PropId>("__init__" as PropId)
   const [page, setPage] = useState<Page>("dashboard")
   const [financeTab, setFinanceTab] = useState<FinanceTab>("kas")
   const [drawerNo, setDrawerNo] = useState<number | null>(null)
@@ -152,10 +164,335 @@ function useStoreValue() {
   )
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [userRole, setUserRole] = useState<"owner" | "staff">("owner")
+  const [currentUser, setCurrentUser] = useState<User | null>(null)
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null)
+  const [activePropertyUuid, setActivePropertyUuid] = useState<string | null>(null)
+  const [propertiesList, setPropertiesList] = useState<{ id: string; slug: string; name: string }[]>([])
+  const [isAuthLoading, setIsAuthLoading] = useState(true)
   const toastTimer = useRef<number | undefined>(undefined)
   const wa = useWhatsApp()
 
-  const property = PROPERTIES.find((p) => p.id === propId)!
+  useEffect(() => {
+    if (!supabase) {
+      setIsAuthLoading(false)
+      return
+    }
+
+    const client = supabase
+    let isMounted = true
+
+    async function loadSession() {
+      try {
+        const {
+          data: { session },
+        } = await client.auth.getSession()
+
+        if (!isMounted) return
+        setCurrentUser(session?.user ?? null)
+
+        if (!session?.user) {
+          setIsAuthLoading(false)
+          return
+        }
+
+        const { data: profile } = await client
+          .from("profiles")
+          .select("id, full_name, phone, role")
+          .eq("id", session.user.id)
+          .single()
+
+        if (isMounted && profile) {
+          setUserProfile(profile)
+          setUserRole(profile.role === "staff" ? "staff" : "owner")
+        }
+
+        const { data: props } = await client
+          .from("properties")
+          .select("id, slug, name, area")
+          .order("name")
+
+        // Jika user belum punya property → cek apakah ada pending property dari saat register
+        if ((!props || props.length === 0) && session?.user) {
+          try {
+            const raw = localStorage.getItem("sk_pending_property")
+            if (raw) {
+              const pending = JSON.parse(raw) as {
+                slug: string; name: string; city: string; totalRooms: number; userId: string
+              }
+              if (pending.userId === session.user.id) {
+                const { data: propData, error: propError } = await client
+                  .from("properties")
+                  .insert({
+                    slug: pending.slug,
+                    name: pending.name,
+                    area: pending.city,
+                    owner_id: session.user.id,
+                    default_deposit: 1000000,
+                  })
+                  .select("id")
+                  .single()
+
+                if (!propError && propData) {
+                  await client.from("property_members").insert({
+                    property_id: propData.id,
+                    user_id: session.user.id,
+                    role: "owner",
+                  })
+
+                  const count = Math.min(200, Math.max(1, pending.totalRooms || 10))
+                  const roomsToInsert = Array.from({ length: count }, (_, i) => ({
+                    property_id: propData.id,
+                    room_no: i + 1,
+                    floor: Math.floor(i / 10) + 1,
+                    type: i % 7 === 0 ? "Deluxe" : "Standard",
+                    price: i % 7 === 0 ? 1800000 : 1200000,
+                    is_vip: i % 7 === 0,
+                    current_status: "vacant",
+                  }))
+                  await client.from("rooms").insert(roomsToInsert)
+                  localStorage.removeItem("sk_pending_property")
+
+                  if (isMounted) {
+                    const freshProps = [{ id: propData.id, slug: pending.slug, name: pending.name, area: pending.city }]
+                    setPropertiesList(freshProps)
+                    setActivePropertyUuid(propData.id)
+                    setPropId(pending.slug as PropId)
+                  }
+                  return
+                }
+              }
+            }
+          } catch {
+            // Gagal buat property dari pending → lanjut tanpa property
+          }
+        }
+
+        if (isMounted && props && props.length > 0) {
+          setPropertiesList(props as { id: string; slug: string; name: string }[])
+          const matched = props.find((p) => p.slug === propId) ?? props[0]
+          setActivePropertyUuid(matched.id)
+          if (matched.slug !== propId) {
+            setPropId(matched.slug as PropId)
+          }
+        }
+      } catch {
+        // Retain fallback data when remote session lookup fails
+      } finally {
+        if (isMounted) setIsAuthLoading(false)
+      }
+    }
+
+    void loadSession()
+
+    const {
+      data: { subscription },
+    } = client.auth.onAuthStateChange((_event, session) => {
+      if (!isMounted) return
+      setCurrentUser(session?.user ?? null)
+      if (!session?.user) {
+        setUserProfile(null)
+        setActivePropertyUuid(null)
+      } else {
+        void loadSession()
+      }
+    })
+
+    return () => {
+      isMounted = false
+      subscription.unsubscribe()
+    }
+  }, [propId])
+
+  const signOut = useCallback(async () => {
+    if (supabase) {
+      await supabase.auth.signOut()
+    }
+    setCurrentUser(null)
+    setUserProfile(null)
+    setActivePropertyUuid(null)
+  }, [])
+
+  useEffect(() => {
+    if (!supabase || !activePropertyUuid) return
+
+    const client = supabase
+    let isMounted = true
+
+    async function loadData() {
+      try {
+        const [roomsRes, tenantsRes, invoicesRes, expensesRes, depositsRes, ticketsRes, unitsRes] =
+          await Promise.all([
+            client
+              .from("rooms")
+              .select("id, room_no, floor, type, price, is_vip, current_status")
+              .eq("property_id", activePropertyUuid)
+              .order("room_no"),
+            client
+              .from("tenants")
+              .select("id, name, phone, bank_name, bank_account, ktp_url, start_date, due_day, is_active, end_date, emergency_contacts(name, relation, phone), current_room_id")
+              .eq("property_id", activePropertyUuid),
+            client
+              .from("invoices")
+              .select("id, period, due_date, amount, status, paid_on, payment_method, overdue_days, room_id, tenant_id")
+              .eq("property_id", activePropertyUuid)
+              .order("due_date", { ascending: false }),
+            client
+              .from("expenses")
+              .select("id, date, category, description, amount, source")
+              .eq("property_id", activePropertyUuid)
+              .order("date", { ascending: false }),
+            client
+              .from("deposits")
+              .select("id, room_id, tenant_id, amount, received_date, status, refund_amount, refund_bank_info, refund_date, deposit_deductions(item_name, amount)")
+              .eq("property_id", activePropertyUuid),
+            client
+              .from("service_tickets")
+              .select("id, category, job_title, vendor_name, scheduled_date, cost, notes, status, created_at, room_id")
+              .eq("property_id", activePropertyUuid)
+              .order("created_at", { ascending: false }),
+            client
+              .from("ac_units")
+              .select("id, brand, pk, last_service_date, room_id")
+              .eq("property_id", activePropertyUuid),
+          ])
+
+        if (!isMounted) return
+
+        const roomsData = roomsRes.data ?? []
+
+        const roomsMap = new Map(roomsData.map((r) => [r.id, r.room_no]))
+
+        const mappedRooms = roomsData.map((r) => ({
+          no: r.room_no,
+          floor: r.floor,
+          type: r.type,
+          price: Number(r.price),
+          vip: r.is_vip,
+        }))
+
+        const mappedTenants = (tenantsRes.data ?? []).map((t) => {
+          const roomNo = t.current_room_id ? (roomsMap.get(t.current_room_id) ?? null) : null
+          const contact = Array.isArray(t.emergency_contacts) && t.emergency_contacts.length > 0
+            ? (t.emergency_contacts[0] as { name?: string; relation?: string; phone?: string })
+            : { name: "", relation: "", phone: "" }
+          return {
+            id: t.id,
+            propId,
+            roomNo,
+            name: t.name,
+            phone: t.phone,
+            emergency: {
+              name: contact.name || "",
+              rel: contact.relation || "",
+              phone: contact.phone || "",
+            },
+            start: t.start_date,
+            dueDay: t.due_day,
+            bank: t.bank_name || "BCA",
+            ktp: t.ktp_url || undefined,
+            active: t.is_active,
+            endDate: t.end_date || undefined,
+          }
+        })
+
+        const mappedInvoices = (invoicesRes.data ?? []).map((inv) => ({
+          id: inv.id,
+          propId,
+          roomNo: roomsMap.get(inv.room_id) ?? 0,
+          tenantId: inv.tenant_id,
+          period: inv.period,
+          amount: Number(inv.amount),
+          status: inv.status as Invoice["status"],
+          paidOn: inv.paid_on || undefined,
+          method: inv.payment_method || undefined,
+          overdueDays: inv.overdue_days || 0,
+        }))
+
+        const tenantNameMap = new Map(mappedTenants.map((t) => [t.id, t.name]))
+
+        const mappedDeposits = (depositsRes.data ?? []).map((dep) => ({
+          id: dep.id,
+          propId,
+          roomNo: roomsMap.get(dep.room_id) ?? 0,
+          tenantId: dep.tenant_id,
+          tenantName: tenantNameMap.get(dep.tenant_id) || "Penghuni",
+          amount: Number(dep.amount),
+          date: dep.received_date,
+          status: dep.status,
+          deductions: (dep.deposit_deductions ?? []).map((d: { item_name: string; amount: number }) => ({
+            name: d.item_name,
+            amount: Number(d.amount),
+          })),
+          refund: dep.refund_amount ? Number(dep.refund_amount) : undefined,
+          refundBank: dep.refund_bank_info || undefined,
+          refundDate: dep.refund_date || undefined,
+        }))
+
+        const mappedExpenses = (expensesRes.data ?? []).map((e) => ({
+          id: e.id,
+          propId,
+          date: e.date,
+          category: e.category,
+          desc: e.description,
+          amount: Number(e.amount),
+          source: e.source,
+        }))
+
+        const mappedUnits = (unitsRes.data ?? []).map((u) => ({
+          room: roomsMap.get(u.room_id) ?? 0,
+          brand: u.brand,
+          pk: u.pk,
+          last: u.last_service_date,
+        }))
+
+        const mappedTickets = (ticketsRes.data ?? []).map((t) => ({
+          id: t.id,
+          propId,
+          room: t.room_id ? (roomsMap.get(t.room_id) ?? null) : null,
+          category: t.category,
+          job: t.job_title,
+          vendor: t.vendor_name,
+          date: t.scheduled_date,
+          cost: Number(t.cost),
+          note: t.notes || "",
+          status: t.status,
+          createdAt: t.created_at ? t.created_at.slice(0, 10) : TODAY,
+        }))
+
+        // Fully replace all property data — no seed/mock data ever merged in
+        setDb({
+          rooms: { [propId]: mappedRooms } as DB["rooms"],
+          tenants: mappedTenants,
+          invoices: mappedInvoices,
+          deposits: mappedDeposits,
+          expenses: mappedExpenses,
+          units: { [propId]: mappedUnits } as DB["units"],
+          tickets: mappedTickets,
+        })
+      } catch {
+        // Retain current state on failure
+      }
+    }
+
+    void loadData()
+
+    return () => {
+      isMounted = false
+    }
+  }, [activePropertyUuid, propId])
+
+  const property = useMemo(() => {
+    const fromList = propertiesList.find((p) => p.slug === propId)
+    if (fromList) {
+      return {
+        id: fromList.slug as PropId,
+        name: fromList.name,
+        area: (fromList as { area?: string }).area || "Surabaya",
+      }
+    }
+    return PROPERTIES.find((p) => p.id === propId) || PROPERTIES[0]
+  }, [propertiesList, propId])
+
   const rooms = useMemo(() => buildRooms(db, propId), [db, propId])
   const tenants = useMemo(
     () => db.tenants.filter((t) => t.propId === propId),
@@ -178,7 +515,7 @@ function useStoreValue() {
         ),
     [db, propId],
   )
-  const units = db.units[propId]
+  const units = db.units[propId] ?? []
   const tickets = useMemo(
     () => db.tickets.filter((t) => t.propId === propId),
     [db, propId],
@@ -292,6 +629,16 @@ function useStoreValue() {
           : "otomasi kuitansi WA nonaktif"
       }`,
     )
+    if (supabase && activePropertyUuid) {
+      void supabase
+        .from("invoices")
+        .update({
+          status: "paid",
+          paid_on: TODAY,
+          payment_method: "Transfer BCA",
+        })
+        .eq("id", inv.id)
+    }
   }
   const rejectPayment = (roomNo: number) => {
     const inv = findInvoice(roomNo)
@@ -309,6 +656,12 @@ function useStoreValue() {
     notify(
       `Bukti transfer Kmr ${roomNo} ditolak · permintaan kirim ulang dikirim via WA`,
     )
+    if (supabase && activePropertyUuid) {
+      void supabase
+        .from("invoices")
+        .update({ status: "overdue" })
+        .eq("id", inv.id)
+    }
   }
   const recordPayment = (p: {
     roomNo: number
@@ -333,6 +686,17 @@ function useStoreValue() {
         "Kuitansi Lunas Digital",
       )
     notify(`Pembayaran Kmr ${p.roomNo} dicatat (${p.method}) · status Lunas`)
+    if (supabase && activePropertyUuid) {
+      void supabase
+        .from("invoices")
+        .update({
+          status: "paid",
+          paid_on: p.date,
+          payment_method: p.method,
+          amount: p.amount,
+        })
+        .eq("id", inv.id)
+    }
     return inv.id
   }
   const sendReminder = (roomNos: number[], tpl = "Template Tunggakan") => {
@@ -356,7 +720,7 @@ function useStoreValue() {
   // ---------- tenants ----------
   const checkIn = (f: CheckInInput) => {
     const id = `${propId}-t${f.roomNo}-${Date.now()}`
-    const room = db.rooms[propId].find((r) => r.no === f.roomNo)!
+    const room = (db.rooms[propId] ?? []).find((r) => r.no === f.roomNo) || { price: 1500000 }
     const dueDay = Math.min(28, Number(f.start.slice(8, 10)))
     const tenant: Tenant = {
       id,
@@ -406,6 +770,74 @@ function useStoreValue() {
     notify(
       `${f.name} check-in ke Kamar ${f.roomNo} · deposit & sewa bulan pertama tercatat`,
     )
+
+    if (supabase && activePropertyUuid) {
+      void (async () => {
+        try {
+          const { data: roomRow } = await supabase
+            .from("rooms")
+            .select("id")
+            .eq("property_id", activePropertyUuid)
+            .eq("room_no", f.roomNo)
+            .single()
+
+          const { data: tenantRow } = await supabase
+            .from("tenants")
+            .insert({
+              property_id: activePropertyUuid,
+              current_room_id: roomRow?.id ?? null,
+              name: f.name,
+              phone: f.phone,
+              start_date: f.start,
+              due_day: dueDay,
+              bank_name: "BCA",
+              ktp_url: f.ktp || null,
+              is_active: true,
+            })
+            .select("id")
+            .single()
+
+          if (tenantRow) {
+            if (f.emergency.name && f.emergency.phone) {
+              await supabase.from("emergency_contacts").insert({
+                tenant_id: tenantRow.id,
+                name: f.emergency.name,
+                relation: f.emergency.rel,
+                phone: f.emergency.phone,
+              })
+            }
+            await supabase.from("deposits").insert({
+              property_id: activePropertyUuid,
+              room_id: roomRow?.id ?? null,
+              tenant_id: tenantRow.id,
+              amount: f.deposit,
+              received_date: f.start,
+              status: "locked",
+            })
+            await supabase.from("invoices").insert({
+              id: `INV/2611/${f.roomNo}-${String(Date.now()).slice(-4)}`,
+              property_id: activePropertyUuid,
+              room_id: roomRow?.id ?? null,
+              tenant_id: tenantRow.id,
+              period: PERIOD,
+              due_date: f.start,
+              amount: room.price,
+              status: "paid",
+              paid_on: TODAY,
+              payment_method: f.method,
+            })
+            if (roomRow?.id) {
+              await supabase
+                .from("rooms")
+                .update({ current_status: "paid" })
+                .eq("id", roomRow.id)
+            }
+          }
+        } catch {
+          // Retain local state
+        }
+      })()
+    }
   }
   const updateTenant = (id: string, p: Partial<Tenant>) => {
     setDb((d) => ({
@@ -496,6 +928,13 @@ function useStoreValue() {
           : d.invoices,
     }))
     notify(`Tarif Kamar ${no} diperbarui`)
+    if (supabase && activePropertyUuid) {
+      void supabase
+        .from("rooms")
+        .update({ price })
+        .eq("property_id", activePropertyUuid)
+        .eq("room_no", no)
+    }
   }
   const moveRoom = (from: number, to: number) => {
     const t = db.tenants.find(
@@ -527,6 +966,16 @@ function useStoreValue() {
         { ...e, id: `${propId}-e${Date.now()}`, propId },
       ],
     }))
+    if (supabase && activePropertyUuid) {
+      void supabase.from("expenses").insert({
+        property_id: activePropertyUuid,
+        date: e.date,
+        category: e.category,
+        description: e.desc,
+        amount: e.amount,
+        source: e.source,
+      })
+    }
   }
   const removeExpense = (id: string) => {
     setDb((d) => ({ ...d, expenses: d.expenses.filter((e) => e.id !== id) }))
@@ -538,13 +987,14 @@ function useStoreValue() {
     t: Omit<Ticket, "id" | "propId" | "status" | "createdAt">,
     sendWa: boolean,
   ) => {
+    const tktId = `TKT-${String(Date.now()).slice(-5)}`
     setDb((d) => ({
       ...d,
       tickets: [
         ...d.tickets,
         {
           ...t,
-          id: `TKT-${String(Date.now()).slice(-5)}`,
+          id: tktId,
           propId,
           status: "open",
           createdAt: TODAY,
@@ -559,6 +1009,19 @@ function useStoreValue() {
         sendWa ? " · detail dikirim via WA" : ""
       }`,
     )
+    if (supabase && activePropertyUuid) {
+      void supabase.from("service_tickets").insert({
+        id: tktId,
+        property_id: activePropertyUuid,
+        category: t.category,
+        job_title: t.job,
+        vendor_name: t.vendor,
+        scheduled_date: t.date,
+        cost: t.cost,
+        notes: t.note,
+        status: "open",
+      })
+    }
   }
   const completeTicket = (id: string) => {
     const t = db.tickets.find((x) => x.id === id)
@@ -597,6 +1060,12 @@ function useStoreValue() {
         t.room ? `Kamar ${t.room}` : "Area Umum"
       } selesai · biaya Rp${t.cost.toLocaleString("id-ID")} dicatat ke Buku Kas`,
     )
+    if (supabase && activePropertyUuid) {
+      void supabase
+        .from("service_tickets")
+        .update({ status: "done" })
+        .eq("id", id)
+    }
   }
 
   // ---------- staff ----------
@@ -613,18 +1082,24 @@ function useStoreValue() {
     )
   }
 
-  const propertySummaries = useMemo(
-    () =>
-      PROPERTIES.map((p) => ({
-        ...p,
-        rooms: db.rooms[p.id].length,
-        overdue: db.invoices.filter(
-          (i) =>
-            i.propId === p.id && i.period === PERIOD && i.status === "overdue",
-        ).length,
-      })),
-    [db],
-  )
+  const propertySummaries = useMemo(() => {
+    const list = propertiesList.length > 0
+      ? propertiesList.map((p) => ({
+          id: p.slug as PropId,
+          name: p.name,
+          area: (p as { area?: string }).area || "Surabaya",
+        }))
+      : PROPERTIES
+
+    return list.map((p) => ({
+      ...p,
+      rooms: (db.rooms[p.id] ?? []).length,
+      overdue: db.invoices.filter(
+        (i) =>
+          i.propId === p.id && i.period === PERIOD && i.status === "overdue",
+      ).length,
+    }))
+  }, [db, propertiesList])
 
   return {
     db,
@@ -673,6 +1148,12 @@ function useStoreValue() {
     setMobileMenuOpen,
     userRole,
     setUserRole,
+    currentUser,
+    userProfile,
+    activePropertyUuid,
+    propertiesList,
+    isAuthLoading,
+    signOut,
     createTicket,
     completeTicket,
   }

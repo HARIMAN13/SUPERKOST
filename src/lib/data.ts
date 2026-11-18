@@ -397,6 +397,18 @@ function seedProperty(c: Cfg, db: DB) {
 const genName = (seed: number) => (no: number, idx: number) =>
   `${FIRST[(idx * 7 + seed) % FIRST.length]} ${LAST[(idx * 5 + seed + Math.floor(no / 100)) % LAST.length]}`
 
+export function emptyDb(): DB {
+  return {
+    rooms: {} as DB["rooms"],
+    tenants: [],
+    invoices: [],
+    deposits: [],
+    expenses: [],
+    units: {} as DB["units"],
+    tickets: [],
+  }
+}
+
 export function createSeed(): DB {
   const db: DB = {
     rooms: {} as DB["rooms"],
