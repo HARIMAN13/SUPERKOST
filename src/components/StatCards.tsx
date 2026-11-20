@@ -23,7 +23,7 @@ function Card({
   return (
     <div className="flex flex-col rounded-xl border border-[#E6E2D8] bg-white p-4">
       <div className="mb-3 flex items-center gap-2">
-        <span className="flex size-6 items-center justify-center rounded-md bg-[#F5EFE6] text-[#8C6D3F]">
+        <span className="flex size-6 items-center justify-center rounded-md bg-[#EEF5F3] text-[#1F5E53]">
           {icon}
         </span>
         <p className="text-[12px] font-medium text-stone-500">{label}</p>
@@ -59,10 +59,10 @@ export default function StatCards() {
         label="Tingkat Okupansi Real-time"
       >
         <div className="flex items-center justify-between">
-          <p className="font-display text-[26px] font-bold leading-none tracking-tight text-[#141413] tabular-nums">
+          <p className="font-display text-[26px] font-bold leading-none tracking-tight text-[#1C2426] tabular-nums">
             {pct}%
           </p>
-          <Pill cls="bg-[#F5EFE6] text-[#8C6D3F] ring-1 ring-inset ring-[#DFD2BE]">
+          <Pill cls="bg-[#EEF5F3] text-[#1F5E53] ring-1 ring-inset ring-[#C5DCD6]">
             Target 100%
           </Pill>
         </div>
@@ -97,7 +97,7 @@ export default function StatCards() {
         icon={<Banknote className="size-3.5" strokeWidth={2} />}
         label="Arus Kas Masuk Bulan Ini"
       >
-        <p className="font-display text-[26px] font-bold leading-none tracking-tight text-[#141413] tabular-nums">
+        <p className="font-display text-[26px] font-bold leading-none tracking-tight text-[#1C2426] tabular-nums">
           {rupiah(stats.income)}
         </p>
         <div className="mt-2">
@@ -137,7 +137,7 @@ export default function StatCards() {
         <button
           onClick={() => sendReminder(stats.overdue.map((r) => r.no))}
           disabled={!stats.overdue.length}
-          className="mt-auto flex items-center gap-1.5 pt-3 text-left text-[12px] font-semibold text-[#8C6D3F] hover:text-[#141413] disabled:text-stone-400"
+          className="mt-auto flex items-center gap-1.5 pt-3 text-left text-[12px] font-semibold text-[#1F5E53] hover:text-[#1C2426] disabled:text-stone-400"
         >
           Kirim Pengingat WA Otomatis <ArrowRight className="size-3.5" />
         </button>
@@ -147,7 +147,7 @@ export default function StatCards() {
         icon={<AirVent className="size-3.5" strokeWidth={2} />}
         label="Jadwal Servis Preventif Aset"
       >
-        <p className="font-display text-[26px] font-bold leading-none tracking-tight text-[#141413]">
+        <p className="font-display text-[26px] font-bold leading-none tracking-tight text-[#1C2426]">
           {stats.acOverdue.length
             ? `${stats.acOverdue.length} AC Perlu Cuci`
             : "Semua AC Aman"}
@@ -165,7 +165,7 @@ export default function StatCards() {
         </div>
         <button
           onClick={() => navigate("maintenance")}
-          className="mt-auto pt-3 text-left text-[11.5px] text-stone-500 hover:text-[#8C6D3F]"
+          className="mt-auto pt-3 text-left text-[11.5px] text-stone-500 hover:text-[#1F5E53]"
         >
           {ac ? (
             <>

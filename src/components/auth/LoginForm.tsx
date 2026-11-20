@@ -79,7 +79,7 @@ export default function LoginForm() {
         <div className="text-center mb-6">
           <Link
             href="/"
-            className="text-xs font-semibold text-stone-600 hover:text-[#141413] transition-colors inline-flex items-center gap-1"
+            className="text-xs font-semibold text-stone-600 hover:text-[#1C2426] transition-colors inline-flex items-center gap-1"
           >
             ← Kembali ke Beranda Superkost
           </Link>
@@ -88,12 +88,12 @@ export default function LoginForm() {
         {/* Brand */}
         <div className="text-center">
           <div className="inline-flex items-center">
-            <span className="font-display text-3xl font-bold tracking-[-0.04em] text-[#141413]">
+            <span className="font-display text-3xl font-bold tracking-[-0.04em] text-[#1C2426]">
               SUPERKOST
             </span>
             <span className="ml-1 size-2 rounded-full bg-[#9A7B4F]" />
           </div>
-          <h2 className="mt-2 text-xl sm:text-2xl font-bold tracking-tight text-[#141413]">
+          <h2 className="mt-2 text-xl sm:text-2xl font-bold tracking-tight text-[#1C2426]">
             Masuk ke Cockpit Properti
           </h2>
           <p className="mt-1 text-xs sm:text-sm text-stone-500">
@@ -111,8 +111,8 @@ export default function LoginForm() {
               onClick={() => handleRoleChange("owner")}
               className={`flex-1 rounded-lg py-2 text-xs font-semibold transition-all ${
                 role === "owner"
-                  ? "bg-[#141413] text-[#FAF8F5] shadow-2xs"
-                  : "text-stone-600 hover:text-[#141413]"
+                  ? "bg-[#1F5E53] text-[#FAF8F5] shadow-2xs"
+                  : "text-stone-600 hover:text-[#1C2426]"
               }`}
             >
               Owner / Manajer
@@ -122,8 +122,8 @@ export default function LoginForm() {
               onClick={() => handleRoleChange("staff")}
               className={`flex-1 rounded-lg py-2 text-xs font-semibold transition-all ${
                 role === "staff"
-                  ? "bg-[#141413] text-[#FAF8F5] shadow-2xs"
-                  : "text-stone-600 hover:text-[#141413]"
+                  ? "bg-[#1F5E53] text-[#FAF8F5] shadow-2xs"
+                  : "text-stone-600 hover:text-[#1C2426]"
               }`}
             >
               Penjaga Kost (Staf)
@@ -147,7 +147,7 @@ export default function LoginForm() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="nama@email.com atau 08123456789"
-                  className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#141413] outline-none placeholder:text-stone-400 focus:border-[#141413] focus:ring-2 focus:ring-[#141413]/10 transition-all"
+                  className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#1C2426] outline-none placeholder:text-stone-400 focus:border-[#1F5E53] focus:ring-2 focus:ring-[#1F5E53]/12 transition-all"
                 />
                 <Mail className="size-4 text-stone-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
@@ -167,7 +167,7 @@ export default function LoginForm() {
                     e.preventDefault();
                     alert("Petunjuk reset password akan dikirim via WhatsApp nomor terdaftar.");
                   }}
-                  className="text-[11px] font-semibold text-[#8C6D3F] hover:text-[#141413]"
+                  className="text-[11px] font-semibold text-[#1F5E53] hover:text-[#1C2426]"
                 >
                   Lupa sandi?
                 </a>
@@ -180,7 +180,7 @@ export default function LoginForm() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 pr-10 text-xs sm:text-sm text-[#141413] outline-none placeholder:text-stone-400 focus:border-[#141413] focus:ring-2 focus:ring-[#141413]/10 transition-all"
+                  className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 pr-10 text-xs sm:text-sm text-[#1C2426] outline-none placeholder:text-stone-400 focus:border-[#1F5E53] focus:ring-2 focus:ring-[#1F5E53]/12 transition-all"
                 />
                 <button
                   type="button"
@@ -203,7 +203,7 @@ export default function LoginForm() {
                   type="checkbox"
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
-                  className="rounded border-stone-300 accent-[#141413] size-4"
+                  className="rounded border-stone-300 accent-[#1F5E53] size-4"
                 />
                 <span className="text-xs text-stone-600">
                   Ingat perangkat ini selama 30 hari
@@ -221,7 +221,7 @@ export default function LoginForm() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#141413] py-3 text-xs sm:text-sm font-semibold text-[#FAF8F5] shadow-sm hover:bg-stone-800 transition-all disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#1F5E53] py-3 text-xs sm:text-sm font-semibold text-[#FAF8F5] shadow-sm hover:bg-[#184B42] transition-all disabled:opacity-50"
             >
               {isLoading ? (
                 <span>Memverifikasi Akun...</span>
@@ -238,9 +238,9 @@ export default function LoginForm() {
           <div className="mt-6 pt-5 border-t border-stone-100">
             <Link
               href="/app"
-              className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg border border-stone-200 bg-[#FAF8F5] py-2.5 text-xs font-semibold text-[#141413] hover:bg-stone-100 transition-colors"
+              className="w-full inline-flex items-center justify-center gap-1.5 rounded-lg border border-stone-200 bg-[#FAF8F5] py-2.5 text-xs font-semibold text-[#1C2426] hover:bg-stone-100 transition-colors"
             >
-              <UserCheck className="size-3.5 text-[#8C6D3F]" />
+              <UserCheck className="size-3.5 text-[#1F5E53]" />
               <span>Masuk Langsung Sebagai Mode Tamu (Live Demo)</span>
             </Link>
           </div>
@@ -250,7 +250,7 @@ export default function LoginForm() {
               Belum punya akun kos?{" "}
               <Link
                 href="/register"
-                className="font-bold text-[#8C6D3F] hover:text-[#141413]"
+                className="font-bold text-[#1F5E53] hover:text-[#1C2426]"
               >
                 Daftar sekarang (Gratis 14 hari)
               </Link>

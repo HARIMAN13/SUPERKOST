@@ -238,14 +238,14 @@ export default function CheckInModal({
               Upload Foto KTP
             </span>
             {ktp ? (
-              <div className="flex items-center gap-3 rounded-xl border border-[#DFD2BE] bg-[#F5EFE6] p-2.5">
+              <div className="flex items-center gap-3 rounded-xl border border-[#C5DCD6] bg-[#EEF5F3] p-2.5">
                 <img
                   src={ktp}
                   alt="Pratinjau KTP"
-                  className="h-[72px] w-[114px] rounded-md object-cover ring-1 ring-[#DFD2BE]"
+                  className="h-[72px] w-[114px] rounded-md object-cover ring-1 ring-[#C5DCD6]"
                 />
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-[12.5px] font-semibold text-[#141413]">
+                  <p className="truncate text-[12.5px] font-semibold text-[#1C2426]">
                     {ktpName || "Foto KTP tersimpan"}
                   </p>
                   <p className="mt-0.5 flex items-center gap-1 text-[11px] font-medium text-emerald-700">
@@ -261,7 +261,7 @@ export default function CheckInModal({
                 </button>
               </div>
             ) : (
-              <label className="flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed border-slate-300 bg-[#FAF8F5] py-5 text-[12.5px] font-medium text-slate-500 hover:border-[#8C6D3F] hover:text-[#8C6D3F]">
+              <label className="flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed border-slate-300 bg-[#FAF8F5] py-5 text-[12.5px] font-medium text-slate-500 hover:border-[#1F5E53] hover:text-[#1F5E53]">
                 <Upload className="size-4" /> Klik untuk pilih foto KTP
                 (JPG/PNG)
                 <input

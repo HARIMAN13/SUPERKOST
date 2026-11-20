@@ -21,19 +21,10 @@ import Link from "next/link";
 import { useStore, type Page, type FinanceTab } from "@/store/store";
 import { useState } from "react";
 
-const pill = (text: string, cls: string) => (
-  <span
-    className={`shrink-0 rounded-md px-1.5 py-0.5 text-[10px] font-semibold leading-none tabular-nums ${cls}`}
-  >
-    {text}
-  </span>
-);
-
 export default function MobileDrawer() {
   const s = useStore();
-  const { stats, rooms, page, financeTab, mobileMenuOpen, setMobileMenuOpen } = s;
+  const { page, financeTab, mobileMenuOpen, setMobileMenuOpen } = s;
   const [showPropPicker, setShowPropPicker] = useState(false);
-  const juta = (n: number) => `Rp${Math.round(n / 1_000_000)} Jt`;
 
   if (!mobileMenuOpen) return null;
 
@@ -42,7 +33,6 @@ export default function MobileDrawer() {
     label: string;
     page: Page;
     tab?: FinanceTab;
-    meta?: React.ReactNode;
   }[] = [
     {
       icon: LayoutDashboard,
@@ -51,74 +41,49 @@ export default function MobileDrawer() {
     },
     {
       icon: DoorOpen,
-      label: "Denah & Manajemen Kamar",
+      label: "Denah & Kamar",
       page: "rooms",
-      meta: pill(`${rooms.length} Kamar`, "bg-white/10 text-stone-200"),
     },
     {
       icon: Users,
-      label: "Data Penghuni & Kontrak",
+      label: "Data Penghuni",
       page: "tenants",
-      meta: pill(`${stats.occupied} Aktif`, "bg-white/10 text-stone-200"),
     },
     {
       icon: ReceiptText,
-      label: "Tagihan & Mesin Invoice",
+      label: "Tagihan & Invoice",
       page: "billing",
-      meta: stats.overdue.length
-        ? pill(`${stats.overdue.length} Nunggak`, "bg-[#F43F5E] text-white")
-        : pill("Lunas", "bg-[#10B981]/20 text-emerald-200"),
     },
     {
       icon: Vault,
-      label: "Rekonsiliasi Uang Deposit",
+      label: "Rekonsiliasi Deposit",
       page: "deposits",
-      meta: pill(
-        `${juta(stats.depositHeld)} Held`,
-        "bg-[#F59E0B]/15 text-[#FCD34D]"
-      ),
     },
     {
       icon: ArrowLeftRight,
-      label: "Arus Kas & Pengeluaran",
+      label: "Arus Kas & Biaya",
       page: "finance",
       tab: "kas",
-      meta: (
-        <span className="text-[10px] text-stone-400">
-          Listrik · Air · Gaji
-        </span>
-      ),
     },
     {
       icon: FileBarChart,
-      label: "Laporan Laba Bersih",
+      label: "Laporan Laba Rugi",
       page: "finance",
       tab: "laba",
-      meta: pill("XLS/PDF", "bg-white/10 text-stone-200"),
     },
     {
       icon: Wrench,
-      label: "Servis Fasilitas & Vendor",
+      label: "Servis & Vendor",
       page: "maintenance",
-      meta: stats.acOverdue.length
-        ? pill(
-            `${stats.acOverdue.length} Servis AC`,
-            "bg-[#F59E0B] text-[#141413]"
-          )
-        : undefined,
     },
     {
       icon: ClipboardCheck,
-      label: "Checklist Kerja Staf Penjaga",
+      label: "Checklist Staf",
       page: "staff",
-      meta: pill(
-        `${s.tasks.filter((t) => t.done).length}/${s.tasks.length}`,
-        "bg-white/10 text-stone-200"
-      ),
     },
     {
       icon: MessageSquareText,
-      label: "Mesin WhatsApp Gateway",
+      label: "WhatsApp Gateway",
       page: "whatsapp",
     },
   ];
@@ -132,14 +97,14 @@ export default function MobileDrawer() {
       />
 
       {/* Drawer Body */}
-      <div className="relative w-4/5 max-w-[320px] bg-[#141413] text-stone-200 flex flex-col h-full shadow-2xl animate-slide-up z-10">
+      <div className="relative w-4/5 max-w-[270px] bg-[#1C2426] text-stone-200 flex flex-col h-full shadow-2xl animate-slide-up z-10">
         {/* Header */}
-        <div className="flex h-16 items-center justify-between border-b border-white/10 px-4">
-          <div className="flex items-baseline">
-            <span className="font-display text-lg font-extrabold tracking-wider text-white">
+        <div className="flex h-15 items-center justify-between border-b border-white/10 px-4">
+          <div className="flex items-center">
+            <span className="font-display text-lg font-bold tracking-[-0.04em] text-white">
               SUPERKOST
             </span>
-            <span className="ml-0.5 size-2 rounded-full bg-[#C5A572]" />
+            <span className="ml-1 size-1.5 rounded-full bg-[#D4B483]" />
           </div>
           <button
             onClick={() => setMobileMenuOpen(false)}
@@ -157,7 +122,7 @@ export default function MobileDrawer() {
             className="w-full flex items-center justify-between rounded-lg bg-white/5 p-2 text-left hover:bg-white/10"
           >
             <div className="flex items-center gap-2">
-              <Building2 className="size-4 text-[#C5A572] shrink-0" />
+              <Building2 className="size-4 text-[#D4B483] shrink-0" />
               <div className="min-w-0">
                 <p className="text-xs font-bold text-white truncate">
                   {s.property.name}
@@ -170,7 +135,7 @@ export default function MobileDrawer() {
           </button>
 
           {showPropPicker && (
-            <div className="mt-2 space-y-1 rounded-lg bg-slate-900/90 p-1.5 border border-white/10">
+            <div className="mt-2 space-y-1 rounded-lg bg-[#141A1C] p-1.5 border border-white/10">
               {s.propertySummaries.map((p) => (
                 <button
                   key={p.id}
@@ -180,7 +145,7 @@ export default function MobileDrawer() {
                   }}
                   className={`w-full flex items-center justify-between rounded-md p-1.5 text-left text-xs ${
                     p.id === s.propId
-                      ? "bg-[#25231F] text-[#C5A572] font-bold"
+                      ? "bg-[#246358] text-[#E5C99B] font-bold"
                       : "text-stone-300 hover:bg-white/10"
                   }`}
                 >
@@ -193,8 +158,8 @@ export default function MobileDrawer() {
         </div>
 
         {/* Navigation list */}
-        <nav className="flex-1 overflow-y-auto p-3 space-y-1">
-          <p className="px-2 pb-1 text-[10px] font-semibold uppercase tracking-wider text-stone-500">
+        <nav className="flex-1 overflow-y-auto p-2.5 space-y-1">
+          <p className="px-2 pb-1 text-[10px] font-semibold uppercase tracking-wider text-stone-400">
             Modul Operasional
           </p>
           {items.map((it) => {
@@ -209,20 +174,22 @@ export default function MobileDrawer() {
                 }}
                 className={`flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-xs font-medium transition-colors ${
                   on
-                    ? "bg-[#25231F] text-[#FAF8F5] ring-1 ring-[#C5A572]/35 font-bold"
-                    : "text-stone-400 hover:bg-white/5 hover:text-white"
+                    ? "bg-gradient-to-r from-[#246358] to-[#1D5248] text-white ring-1 ring-white/15 font-semibold"
+                    : "text-stone-300/85 hover:bg-white/5 hover:text-white"
                 }`}
               >
-                <Icon className="size-4 shrink-0" strokeWidth={1.8} />
+                <Icon
+                  className={`size-4 shrink-0 ${on ? "text-[#E5C99B]" : "text-stone-400"}`}
+                  strokeWidth={1.8}
+                />
                 <span className="min-w-0 flex-1 truncate">{it.label}</span>
-                {it.meta}
               </button>
             );
           })}
         </nav>
 
         {/* Footer info */}
-        <div className="border-t border-white/10 p-3 space-y-2 bg-white/[0.02]">
+        <div className="border-t border-white/10 p-3 space-y-1.5 bg-white/[0.02]">
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}
@@ -244,4 +211,3 @@ export default function MobileDrawer() {
     </div>
   );
 }
-

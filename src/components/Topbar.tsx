@@ -142,11 +142,11 @@ export default function Topbar() {
           onClick={() => setOpen(open === "prop" ? null : "prop")}
           className="flex items-center gap-2 sm:gap-2.5 rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] py-1.5 pl-1.5 pr-2.5 sm:pr-3 hover:border-stone-300 transition-colors"
         >
-          <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-[#141413] text-[#C5A572]">
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-[#1F5E53] text-[#C5A572]">
             <Building2 className="size-4" strokeWidth={1.8} />
           </div>
           <div className="text-left hidden sm:block">
-            <p className="text-[13px] font-semibold leading-tight text-[#141413] truncate max-w-[180px] xl:max-w-none">
+            <p className="text-[13px] font-semibold leading-tight text-[#1C2426] truncate max-w-[180px] xl:max-w-none">
               {s.property.name}{" "}
               <span className="font-normal text-stone-500">
                 ({s.rooms.length} Kamar)
@@ -175,7 +175,7 @@ export default function Topbar() {
                   close()
                 }}
                 className={`flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-left hover:bg-[#FAF8F5] ${
-                  x.id === s.propId ? "bg-[#F5EFE6]" : ""
+                  x.id === s.propId ? "bg-[#EEF5F3]" : ""
                 }`}
               >
                 <Building2
@@ -183,7 +183,7 @@ export default function Topbar() {
                   strokeWidth={1.8}
                 />
                 <div className="flex-1">
-                  <p className="text-[12.5px] font-medium text-[#141413]">
+                  <p className="text-[12.5px] font-medium text-[#1C2426]">
                     {x.name}{" "}
                     <span className="text-stone-500">({x.rooms} Kamar)</span>
                   </p>
@@ -199,7 +199,7 @@ export default function Topbar() {
                   </p>
                 </div>
                 {x.id === s.propId && (
-                  <Check className="size-4 text-[#8C6D3F]" />
+                  <Check className="size-4 text-[#1F5E53]" />
                 )}
               </button>
             ))}
@@ -210,7 +210,7 @@ export default function Topbar() {
       {/* Quick link back to landing page */}
       <Link
         href="/"
-        className="hidden xl:inline-flex items-center gap-1.5 rounded-lg border border-[#E6E2D8] bg-white px-3 py-2 text-xs font-semibold text-stone-600 hover:bg-[#FAF8F5] hover:text-[#141413] transition-colors shrink-0 whitespace-nowrap"
+        className="hidden xl:inline-flex items-center gap-1.5 rounded-lg border border-[#E6E2D8] bg-white px-3 py-2 text-xs font-semibold text-stone-600 hover:bg-[#FAF8F5] hover:text-[#1C2426] transition-colors shrink-0 whitespace-nowrap"
         title="Kembali ke Halaman Depan"
       >
         <Home className="size-3.5 text-stone-500" />
@@ -247,7 +247,7 @@ export default function Topbar() {
               ? `Cari penghuni, kamar ${s.rooms[0]?.no}–${s.rooms[s.rooms.length - 1]?.no}, atau no. HP...`
               : "Cari nama penghuni atau nomor kamar..."
           }
-          className="h-10 w-full rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] pl-9 pr-3 xl:pr-16 text-[12.5px] text-[#141413] outline-none placeholder:text-stone-400 focus:border-[#141413] focus:bg-white focus:ring-2 focus:ring-[#141413]/10"
+          className="h-10 w-full rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] pl-9 pr-3 xl:pr-16 text-[12.5px] text-[#1C2426] outline-none placeholder:text-stone-400 focus:border-[#1F5E53] focus:bg-white focus:ring-2 focus:ring-[#1F5E53]/12"
         />
         <kbd className="hidden xl:inline-block pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 rounded border border-[#E6E2D8] bg-white px-1.5 py-0.5 font-sans text-[10px] font-medium text-stone-500 whitespace-nowrap">
           Ctrl K
@@ -273,14 +273,14 @@ export default function Topbar() {
                         onMouseEnter={() => setCursor(i)}
                         onClick={() => pick(r.no)}
                         className={`flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left ${
-                          i === cursor ? "bg-[#F5EFE6]" : ""
+                          i === cursor ? "bg-[#EEF5F3]" : ""
                         }`}
                       >
                         <span className="flex size-8 items-center justify-center rounded-md border border-[#E6E2D8] bg-white text-stone-500">
                           <DoorOpen className="size-4" strokeWidth={1.8} />
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="block text-[12.5px] font-semibold text-[#141413]">
+                          <span className="block text-[12.5px] font-semibold text-[#1C2426]">
                             Kamar {r.no}{" "}
                             <span className="font-normal text-stone-500">
                               · {r.type}
@@ -340,14 +340,14 @@ export default function Topbar() {
           {open === "bell" && (
             <div className="absolute right-0 top-full mt-1.5 w-[340px] sm:w-[360px] overflow-hidden rounded-xl border border-[#E6E2D8] bg-white shadow-xl shadow-stone-900/10 z-50">
               <div className="flex items-center justify-between border-b border-[#E6E2D8] px-4 py-2.5">
-                <p className="text-[13px] font-semibold text-[#141413]">
+                <p className="text-[13px] font-semibold text-[#1C2426]">
                   Notifikasi
                 </p>
                 <button
                   onClick={() =>
                     setSeen(Object.fromEntries(notifs.map((n) => [n.id, true])))
                   }
-                  className="text-[11.5px] font-semibold text-[#8C6D3F] hover:text-[#141413] disabled:text-stone-300"
+                  className="text-[11.5px] font-semibold text-[#1F5E53] hover:text-[#1C2426] disabled:text-stone-300"
                   disabled={!unread}
                 >
                   Tandai semua dibaca
@@ -377,7 +377,7 @@ export default function Topbar() {
                             <Icon className="size-3.5" />
                           </span>
                           <span className="min-w-0 flex-1">
-                            <span className="block text-[12.5px] font-semibold text-[#141413]">
+                            <span className="block text-[12.5px] font-semibold text-[#1C2426]">
                               {n.title}
                             </span>
                             <span className="block truncate text-[11px] text-stone-500">
@@ -385,7 +385,7 @@ export default function Topbar() {
                             </span>
                           </span>
                           {!seen[n.id] && (
-                            <span className="mt-1.5 size-2 rounded-full bg-[#8C6D3F]" />
+                            <span className="mt-1.5 size-2 rounded-full bg-[#1F5E53]" />
                           )}
                         </button>
                       </li>
@@ -401,7 +401,7 @@ export default function Topbar() {
         <div ref={ctaRef} className="relative shrink-0">
           <button
             onClick={() => setOpen(open === "cta" ? null : "cta")}
-            className="flex h-10 items-center gap-1.5 sm:gap-2 rounded-lg bg-[#141413] pl-2.5 sm:pl-3.5 pr-2 sm:pr-2.5 text-[12px] sm:text-[13px] font-semibold text-[#FAF8F5] hover:bg-stone-800 shrink-0 whitespace-nowrap"
+            className="flex h-10 items-center gap-1.5 sm:gap-2 rounded-lg bg-[#1F5E53] pl-2.5 sm:pl-3.5 pr-2 sm:pr-2.5 text-[12px] sm:text-[13px] font-semibold text-[#FAF8F5] hover:bg-[#184B42] shrink-0 whitespace-nowrap"
           >
             <Plus className="size-4 shrink-0 text-[#C5A572]" strokeWidth={2.4} />
             <span className="hidden sm:inline">Entri Transaksi Baru</span>
@@ -427,7 +427,7 @@ export default function Topbar() {
                   icon: UserPlus,
                   label: "Pasang Penghuni Baru",
                   sub: "Check-in & kontrak digital",
-                  c: "text-[#8C6D3F] bg-[#F5EFE6]",
+                  c: "text-[#1F5E53] bg-[#EEF5F3]",
                   go: () => s.openModal({ type: "checkIn" }),
                 },
                 {
@@ -452,7 +452,7 @@ export default function Topbar() {
                     <Icon className="size-4" strokeWidth={1.8} />
                   </span>
                   <span>
-                    <span className="block text-[12.5px] font-semibold text-[#141413]">
+                    <span className="block text-[12.5px] font-semibold text-[#1C2426]">
                       {label}
                     </span>
                     <span className="block text-[11px] text-stone-500">
@@ -472,7 +472,7 @@ export default function Topbar() {
             aria-label="Profil Pengguna"
             className="flex items-center gap-1.5 rounded-lg p-1 hover:bg-stone-100 transition-colors"
           >
-            <div className="flex size-9 items-center justify-center rounded-full bg-[#141413] text-[12px] font-bold text-[#C5A572] ring-2 ring-[#C5A572]/25">
+            <div className="flex size-9 items-center justify-center rounded-full bg-[#1F5E53] text-[12px] font-bold text-[#C5A572] ring-2 ring-[#C5A572]/25">
               {userInitials}
             </div>
             <ChevronDown
@@ -485,13 +485,13 @@ export default function Topbar() {
           {open === "user" && (
             <div className="absolute right-0 top-full mt-2 w-[240px] rounded-xl border border-[#E6E2D8] bg-white p-2 shadow-xl shadow-stone-900/10 z-50 animate-pop-in">
               <div className="border-b border-stone-100 px-3 py-2">
-                <p className="text-[13px] font-bold text-[#141413]">
+                <p className="text-[13px] font-bold text-[#1C2426]">
                   {displayName}
                 </p>
                 <p className="text-[11px] text-stone-500 truncate">
                   {displayEmail}
                 </p>
-                <span className="mt-1 inline-block rounded-md bg-[#F5EFE6] px-1.5 py-0.5 text-[10px] font-semibold text-[#8C6D3F]">
+                <span className="mt-1 inline-block rounded-md bg-[#EEF5F3] px-1.5 py-0.5 text-[10px] font-semibold text-[#1F5E53]">
                   {roleLabel}
                 </span>
               </div>

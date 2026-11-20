@@ -49,28 +49,28 @@ export default function MobileNav() {
     icon: typeof Home;
     badge?: number | null;
   }[] = [
-    {
-      id: "rooms",
-      label: "Kamar",
-      icon: DoorOpen,
-    },
-    {
-      id: "billing",
-      label: "Tagihan",
-      icon: ReceiptText,
-      badge: stats.overdue.length > 0 ? stats.overdue.length : null,
-    },
-    {
-      id: "dashboard",
-      label: "Beranda",
-      icon: Home,
-    },
-    {
-      id: "staff",
-      label: "Staf",
-      icon: ClipboardCheck,
-    },
-  ];
+      {
+        id: "rooms",
+        label: "Kamar",
+        icon: DoorOpen,
+      },
+      {
+        id: "billing",
+        label: "Tagihan",
+        icon: ReceiptText,
+        badge: stats.overdue.length > 0 ? stats.overdue.length : null,
+      },
+      {
+        id: "dashboard",
+        label: "Beranda",
+        icon: Home,
+      },
+      {
+        id: "staff",
+        label: "Staf",
+        icon: ClipboardCheck,
+      },
+    ];
 
   // Determine active slot (0..4); default to 2 (Beranda in center) or 4 (Menu) for secondary pages
   const pageIdx = navItems.findIndex((item) => item.id === page);
@@ -240,11 +240,10 @@ export default function MobileNav() {
             >
               {/* Icon inside the bar (hidden when lifted into the floating orb) */}
               <div
-                className={`relative flex h-6 items-center justify-center transition-all duration-200 ${
-                  isCurrent
+                className={`relative flex h-6 items-center justify-center transition-all duration-200 ${isCurrent
                     ? "opacity-0 -translate-y-3 pointer-events-none scale-75"
                     : "opacity-90 text-[#FAF8F5]"
-                }`}
+                  }`}
               >
                 <Icon className="size-[19px]" strokeWidth={1.9} />
                 {slot.badge && (
@@ -256,11 +255,10 @@ export default function MobileNav() {
 
               {/* Text Label — always visible for every item */}
               <span
-                className={`mt-0.5 text-[10px] leading-none tracking-wide transition-colors ${
-                  isCurrent
+                className={`mt-0.5 text-[10px] leading-none tracking-wide transition-colors ${isCurrent
                     ? "font-bold text-[#E5C99B]"
                     : "font-medium text-[#FAF8F5]/80"
-                }`}
+                  }`}
               >
                 {slot.label}
               </span>

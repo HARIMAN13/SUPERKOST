@@ -8,7 +8,13 @@ import LandingFooter from "@/components/landing/LandingFooter";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#141413] selection:bg-[#141413] selection:text-[#FAF8F5]">
+    <div
+      className="min-h-screen bg-[#FAF8F5] text-[#1C2426] selection:bg-[#1F5E53] selection:text-[#FAF8F5]"
+      style={{
+        backgroundImage:
+          "radial-gradient(at 15% 0%, rgba(212, 180, 131, 0.14) 0px, transparent 48%), radial-gradient(at 85% 8%, rgba(31, 94, 83, 0.09) 0px, transparent 48%)",
+      }}
+    >
       <LandingNavbar />
       <main>
         <HeroSection />
