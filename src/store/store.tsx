@@ -12,6 +12,7 @@ import { supabase } from "@/lib/supabase"
 import type { User } from "@supabase/supabase-js"
 import {
   emptyDb,
+  createSeed,
   PROPERTIES,
   PERIOD,
   TODAY,
@@ -142,10 +143,8 @@ function buildRooms(db: DB, propId: PropId): Room[] {
 }
 
 function useStoreValue() {
-  const [db, setDb] = useState<DB>(emptyDb)
-  // propId will be overwritten by loadSession once properties are fetched from Supabase.
-  // Using a placeholder that cannot match any real slug so rooms never leak from seed data.
-  const [propId, setPropId] = useState<PropId>("__init__" as PropId)
+  const [db, setDb] = useState<DB>(createSeed)
+  const [propId, setPropId] = useState<PropId>("mulyorejo")
   const [page, setPage] = useState<Page>("dashboard")
   const [financeTab, setFinanceTab] = useState<FinanceTab>("kas")
   const [drawerNo, setDrawerNo] = useState<number | null>(null)
@@ -219,7 +218,7 @@ function useStoreValue() {
               const pending = JSON.parse(raw) as {
                 slug: string; name: string; city: string; totalRooms: number; userId: string
               }
-              if (pending.userId === session.user.id) {
+              if (!pending.userId || pending.userId === session.user.id) {
                 const { data: propData, error: propError } = await client
                   .from("properties")
                   .insert({
@@ -240,15 +239,19 @@ function useStoreValue() {
                   })
 
                   const count = Math.min(200, Math.max(1, pending.totalRooms || 10))
-                  const roomsToInsert = Array.from({ length: count }, (_, i) => ({
-                    property_id: propData.id,
-                    room_no: i + 1,
-                    floor: Math.floor(i / 10) + 1,
-                    type: i % 7 === 0 ? "Deluxe" : "Standard",
-                    price: i % 7 === 0 ? 1800000 : 1200000,
-                    is_vip: i % 7 === 0,
-                    current_status: "vacant",
-                  }))
+                  const roomsToInsert = Array.from({ length: count }, (_, i) => {
+                    const floor = Math.floor(i / 10) + 1
+                    const roomNo = floor * 100 + (i % 10) + 1
+                    return {
+                      property_id: propData.id,
+                      room_no: roomNo,
+                      floor,
+                      type: i % 7 === 0 ? "Deluxe" : "Standard",
+                      price: i % 7 === 0 ? 1800000 : 1200000,
+                      is_vip: i % 7 === 0,
+                      current_status: "vacant",
+                    }
+                  })
                   await client.from("rooms").insert(roomsToInsert)
                   localStorage.removeItem("sk_pending_property")
 
@@ -310,6 +313,9 @@ function useStoreValue() {
     setCurrentUser(null)
     setUserProfile(null)
     setActivePropertyUuid(null)
+    setPropertiesList([])
+    setDb(createSeed())
+    setPropId("mulyorejo")
   }, [])
 
   useEffect(() => {

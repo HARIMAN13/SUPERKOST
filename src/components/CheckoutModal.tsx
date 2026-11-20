@@ -74,10 +74,10 @@ const parse = (s: string) => Number(s.replace(/\D/g, "").slice(0, 9)) || 0
 function Step({ n, title, hint }: { n: number; title: string; hint?: string }) {
   return (
     <div className="mb-2.5 flex items-center gap-2">
-      <span className="flex size-5 items-center justify-center rounded-full bg-[#1E1B4B] text-[10.5px] font-bold text-white">
+      <span className="flex size-5 items-center justify-center rounded-full bg-[#141413] text-[10.5px] font-bold text-white">
         {n}
       </span>
-      <p className="text-[12.5px] font-semibold text-[#1E1B4B]">{title}</p>
+      <p className="text-[12.5px] font-semibold text-[#141413]">{title}</p>
       {hint && <p className="text-[11.5px] text-slate-400">· {hint}</p>}
     </div>
   )
@@ -205,36 +205,36 @@ export default function CheckoutModal({
     >
       <div
         onClick={onClose}
-        className={`absolute inset-0 bg-[#0F0D2E]/55 backdrop-blur-[4px] transition-opacity duration-200 ${
+        className={`absolute inset-0 bg-[#141413]/55 backdrop-blur-[4px] transition-opacity duration-200 ${
           shown ? "opacity-100" : "opacity-0"
         }`}
       />
       <div
-        className={`relative flex max-h-[calc(100vh-24px)] sm:max-h-[calc(100vh-48px)] w-full max-w-[760px] flex-col overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-2xl shadow-indigo-950/30 transition-all duration-200 ${
+        className={`relative flex max-h-[calc(100vh-24px)] sm:max-h-[calc(100vh-48px)] w-full max-w-[760px] flex-col overflow-hidden rounded-2xl border border-[#E6E2D8] bg-white shadow-2xl shadow-stone-950/30 transition-all duration-200 ${
           shown
             ? "translate-y-0 scale-100 opacity-100"
             : "translate-y-2 scale-[0.98] opacity-0"
         }`}
       >
         {/* Header */}
-        <header className="flex items-start gap-3 bg-[#1E1B4B] px-6 py-4">
-          <span className="mt-0.5 flex size-9 items-center justify-center rounded-lg bg-white/10 text-indigo-100 ring-1 ring-white/10">
+        <header className="flex items-start gap-3 bg-[#141413] px-6 py-4">
+          <span className="mt-0.5 flex size-9 items-center justify-center rounded-lg bg-white/10 text-stone-200 ring-1 ring-white/10">
             <ShieldCheck className="size-[18px]" strokeWidth={1.9} />
           </span>
           <div className="flex-1">
             <h2 className="font-display text-[17px] font-bold tracking-tight text-white">
               Formulir Pelepasan Kamar & Clearance Deposit
             </h2>
-            <p className="mt-0.5 text-[12px] text-indigo-200/85">
-              Kamar {room.no} <span className="text-indigo-400">•</span>{" "}
-              Penghuni: {room.tenant} <span className="text-indigo-400">•</span>{" "}
+            <p className="mt-0.5 text-[12px] text-stone-300">
+              Kamar {room.no} <span className="text-[#C5A572]">•</span>{" "}
+              Penghuni: {room.tenant} <span className="text-[#C5A572]">•</span>{" "}
               Masa Sewa: {tenure} Bulan
             </p>
           </div>
           <button
             onClick={onClose}
             aria-label="Tutup"
-            className="flex size-8 items-center justify-center rounded-lg text-indigo-200 hover:bg-white/10 hover:text-white"
+            className="flex size-8 items-center justify-center rounded-lg text-stone-300 hover:bg-white/10 hover:text-white"
           >
             <X className="size-[18px]" />
           </button>
@@ -244,8 +244,8 @@ export default function CheckoutModal({
           {/* Step 1 */}
           <section>
             <Step n={1} title="Status Deposit Awal" />
-            <div className="flex items-center gap-3.5 rounded-xl border border-[#E2E8F0] px-4 py-3">
-              <span className="flex size-10 items-center justify-center rounded-lg bg-[#F5F3FF] text-[#4F46E5] ring-1 ring-[#C7D2FE]">
+            <div className="flex items-center gap-3.5 rounded-xl border border-[#E6E2D8] px-4 py-3">
+              <span className="flex size-10 items-center justify-center rounded-lg bg-[#F5EFE6] text-[#8C6D3F] ring-1 ring-[#DFD2BE]">
                 <Vault className="size-5" strokeWidth={1.9} />
               </span>
               <div className="flex-1">
@@ -256,7 +256,7 @@ export default function CheckoutModal({
                   Disetor saat check-in {d.start} via Transfer Bank
                 </p>
               </div>
-              <p className="font-display text-[18px] font-bold text-[#1E1B4B] tabular-nums">
+              <p className="font-display text-[18px] font-bold text-[#141413] tabular-nums">
                 {rupiah(d.deposit)}
               </p>
             </div>
@@ -269,10 +269,10 @@ export default function CheckoutModal({
               title="Rincian Potongan Kerusakan"
               hint="Isi nominal sesuai kondisi saat inspeksi keluar"
             />
-            <div className="overflow-hidden rounded-xl border border-[#E2E8F0]">
+            <div className="overflow-hidden rounded-xl border border-[#E6E2D8]">
               <table className="w-full text-[12.5px]">
-                <thead className="bg-[#F8FAFC] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-slate-500">
-                  <tr className="border-b border-[#E2E8F0]">
+                <thead className="bg-[#FAF8F5] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-slate-500">
+                  <tr className="border-b border-[#E6E2D8]">
                     <th className="px-4 py-2">Jenis Inventaris / Kerusakan</th>
                     <th className="py-2 pr-3">Kondisi Fisik Saat Keluar</th>
                     <th className="w-[200px] py-2 pr-4 text-right">
@@ -280,7 +280,7 @@ export default function CheckoutModal({
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#E2E8F0]">
+                <tbody className="divide-y divide-[#E6E2D8]">
                   {items.map((it) => (
                     <tr key={it.id}>
                       <td className="px-4 py-2.5">
@@ -304,7 +304,7 @@ export default function CheckoutModal({
                                 patch(it.id, { name: e.target.value })
                               }
                               placeholder="Nama item / kerusakan"
-                              className="h-8 w-full rounded-md border border-[#E2E8F0] px-2 text-[12.5px] outline-none focus:border-[#6366F1] focus:ring-3 focus:ring-[#6366F1]/15"
+                              className="h-8 w-full rounded-md border border-[#E6E2D8] px-2 text-[12.5px] outline-none focus:border-[#141413] focus:ring-3 focus:ring-[#141413]/10"
                             />
                           </div>
                         ) : (
@@ -321,7 +321,7 @@ export default function CheckoutModal({
                             {it.cond}
                           </span>
                           {it.custom && (
-                            <label className="flex cursor-pointer items-center gap-1 rounded-md border border-dashed border-slate-300 px-1.5 py-0.5 text-[10.5px] font-medium text-slate-500 hover:border-[#6366F1] hover:text-[#4F46E5]">
+                            <label className="flex cursor-pointer items-center gap-1 rounded-md border border-dashed border-slate-300 px-1.5 py-0.5 text-[10.5px] font-medium text-slate-500 hover:border-[#8C6D3F] hover:text-[#8C6D3F]">
                               <Camera className="size-3" />
                               <span className="max-w-[90px] truncate">
                                 {it.photo ?? "Foto bukti"}
@@ -353,7 +353,7 @@ export default function CheckoutModal({
                                 patch(it.id, { amount: parse(e.target.value) })
                               }
                               placeholder="0"
-                              className="h-8 w-full rounded-md border border-[#E2E8F0] pl-8 pr-2.5 text-right text-[12.5px] font-semibold text-rose-600 tabular-nums outline-none placeholder:text-slate-300 focus:border-[#6366F1] focus:ring-3 focus:ring-[#6366F1]/15"
+                              className="h-8 w-full rounded-md border border-[#E6E2D8] pl-8 pr-2.5 text-right text-[12.5px] font-semibold text-rose-600 tabular-nums outline-none placeholder:text-slate-300 focus:border-[#141413] focus:ring-3 focus:ring-[#141413]/10"
                             />
                           </div>
                         ) : (
@@ -366,7 +366,7 @@ export default function CheckoutModal({
                               })
                             }
                             title="Klik untuk menambahkan potongan"
-                            className="text-[12px] text-slate-400 hover:text-[#4F46E5]"
+                            className="text-[12px] text-slate-400 hover:text-[#8C6D3F]"
                           >
                             0 (Tanpa Potongan)
                           </button>
@@ -378,7 +378,7 @@ export default function CheckoutModal({
               </table>
               <button
                 onClick={addItem}
-                className="flex w-full items-center gap-1.5 border-t border-dashed border-[#E2E8F0] px-4 py-2.5 text-[12px] font-semibold text-[#4F46E5] hover:bg-[#F5F3FF]"
+                className="flex w-full items-center gap-1.5 border-t border-dashed border-[#E6E2D8] px-4 py-2.5 text-[12px] font-semibold text-[#8C6D3F] hover:bg-[#F5EFE6]"
               >
                 <Plus className="size-3.5" strokeWidth={2.6} /> Tambah Item
                 Kerusakan Fisik Lainnya
@@ -392,11 +392,11 @@ export default function CheckoutModal({
           {/* Step 3 */}
           <section>
             <Step n={3} title="Kalkulasi Settlement Otomatis" />
-            <div className="grid grid-cols-[1fr_auto_1.1fr] items-center gap-5 rounded-xl border border-[#C7D2FE] bg-[#F5F3FF] px-5 py-4">
+            <div className="grid grid-cols-[1fr_auto_1.1fr] items-center gap-5 rounded-xl border border-[#DFD2BE] bg-[#F5EFE6] px-5 py-4">
               <dl className="space-y-2 text-[12.5px]">
                 <div className="flex justify-between gap-3">
                   <dt className="text-slate-600">Deposit Awal</dt>
-                  <dd className="font-semibold text-[#1E1B4B] tabular-nums">
+                  <dd className="font-semibold text-[#141413] tabular-nums">
                     {rupiah(d.deposit)}
                   </dd>
                 </div>
@@ -408,15 +408,15 @@ export default function CheckoutModal({
                     - {rupiah(deductions)}
                   </dd>
                 </div>
-                <p className="flex items-center gap-1 pt-0.5 text-[10.5px] text-[#4338CA]/70">
+                <p className="flex items-center gap-1 pt-0.5 text-[10.5px] text-[#6E5634]/80">
                   <Calculator className="size-3" />{" "}
                   {items.filter((i) => i.charged && i.amount).length} item
                   dipotong · dihitung real-time
                 </p>
               </dl>
-              <span className="h-full w-px bg-[#C7D2FE]" />
+              <span className="h-full w-px bg-[#DFD2BE]" />
               <div>
-                <p className="text-[11.5px] font-medium text-[#312E81]">
+                <p className="text-[11.5px] font-medium text-[#5C4728]">
                   {refund >= 0
                     ? "Sisa Uang Jaminan yang Wajib Dikembalikan:"
                     : "Kekurangan yang Ditagihkan ke Penghuni:"}
@@ -445,7 +445,7 @@ export default function CheckoutModal({
                   <select
                     value={bank}
                     onChange={(e) => setBank(e.target.value)}
-                    className="h-10 w-full appearance-none rounded-lg border border-[#E2E8F0] bg-white pl-9 pr-8 text-[12.5px] font-medium text-slate-800 outline-none focus:border-[#6366F1] focus:ring-3 focus:ring-[#6366F1]/15"
+                    className="h-10 w-full appearance-none rounded-lg border border-[#E6E2D8] bg-white pl-9 pr-8 text-[12.5px] font-medium text-slate-800 outline-none focus:border-[#141413] focus:ring-3 focus:ring-[#141413]/10"
                   >
                     {BANKS.map((b) => (
                       <option key={b}>{b}</option>
@@ -467,7 +467,7 @@ export default function CheckoutModal({
                     className={`h-10 w-full rounded-lg border bg-white pl-9 pr-3 text-[12.5px] font-medium text-slate-800 tabular-nums outline-none focus:ring-3 ${
                       touched && !accountOk
                         ? "border-[#F43F5E] focus:ring-[#F43F5E]/15"
-                        : "border-[#E2E8F0] focus:border-[#6366F1] focus:ring-[#6366F1]/15"
+                        : "border-[#E6E2D8] focus:border-[#141413] focus:ring-[#141413]/10"
                     }`}
                   />
                 </div>
@@ -482,10 +482,10 @@ export default function CheckoutModal({
         </div>
 
         {/* Footer */}
-        <footer className="flex items-center gap-3 border-t border-[#E2E8F0] bg-[#F8FAFC] px-6 py-3.5">
+        <footer className="flex items-center gap-3 border-t border-[#E6E2D8] bg-[#FAF8F5] px-6 py-3.5">
           <button
             onClick={onClose}
-            className="h-10 rounded-lg border border-[#E2E8F0] bg-white px-5 text-[12.5px] font-semibold text-slate-700 hover:bg-slate-50"
+            className="h-10 rounded-lg border border-[#E6E2D8] bg-white px-5 text-[12.5px] font-semibold text-slate-700 hover:bg-slate-50"
           >
             Batal
           </button>
@@ -496,7 +496,7 @@ export default function CheckoutModal({
           <button
             onClick={confirm}
             disabled={busy}
-            className="flex h-10 items-center gap-2 rounded-lg bg-[#1E1B4B] px-4 text-[12.5px] font-semibold text-white hover:bg-[#312E81] disabled:opacity-80"
+            className="flex h-10 items-center gap-2 rounded-lg bg-[#141413] px-4 text-[12.5px] font-semibold text-white hover:bg-[#26231D] disabled:opacity-80"
           >
             {busy ? (
               <Loader2 className="size-4 animate-spin" />

@@ -130,12 +130,12 @@ export default function RoomDrawer({
     >
       <div
         onClick={onClose}
-        className={`absolute inset-0 bg-[#0F0D2E]/45 backdrop-blur-[3px] transition-opacity duration-250 ${
+        className={`absolute inset-0 bg-[#141413]/45 backdrop-blur-[3px] transition-opacity duration-250 ${
           shown ? "opacity-100" : "opacity-0"
         }`}
       />
       <aside
-        className={`absolute inset-y-0 right-0 flex w-full max-w-[540px] flex-col border-l border-[#E2E8F0] bg-white shadow-2xl shadow-indigo-950/20 transition-transform duration-250 ease-out ${
+        className={`absolute inset-y-0 right-0 flex w-full max-w-[540px] flex-col border-l border-[#E6E2D8] bg-white shadow-2xl shadow-stone-950/20 transition-transform duration-250 ease-out ${
           shown ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -144,7 +144,7 @@ export default function RoomDrawer({
           <div className="flex items-start gap-3">
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2.5">
-                <h2 className="font-display text-[19px] font-bold tracking-tight text-[#1E1B4B]">
+                <h2 className="font-display text-[19px] font-bold tracking-tight text-[#141413]">
                   Kamar {r.no}{" "}
                   <span className="font-semibold text-slate-300">•</span> Tipe{" "}
                   {r.type}
@@ -180,7 +180,7 @@ export default function RoomDrawer({
                 <X className="size-[18px]" />
               </button>
               {menu && (
-                <div className="absolute right-9 top-full z-10 mt-1 w-[190px] rounded-xl border border-[#E2E8F0] bg-white p-1 shadow-lg shadow-slate-900/8">
+                <div className="absolute right-9 top-full z-10 mt-1 w-[190px] rounded-xl border border-[#E6E2D8] bg-white p-1 shadow-lg shadow-slate-900/8">
                   {[
                     {
                       icon: Pencil,
@@ -214,7 +214,7 @@ export default function RoomDrawer({
           </div>
 
           {/* Tabs */}
-          <nav className="-mx-6 mt-4 flex gap-6 border-b border-[#E2E8F0] px-6">
+          <nav className="-mx-6 mt-4 flex gap-6 border-b border-[#E6E2D8] px-6">
             {([
               ["tenant", "Data Penghuni & Sewa"],
               ["inventory", "Inventaris Fasilitas"],
@@ -225,7 +225,7 @@ export default function RoomDrawer({
                 onClick={() => setTab(k)}
                 className={`relative -mb-px border-b-2 pb-2.5 text-[12.5px] transition-colors ${
                   tab === k
-                    ? "border-[#4F46E5] font-semibold text-[#1E1B4B]"
+                    ? "border-[#8C6D3F] font-semibold text-[#141413]"
                     : "border-transparent font-medium text-slate-500 hover:text-slate-800"
                 }`}
               >
@@ -236,7 +236,7 @@ export default function RoomDrawer({
         </header>
 
         {/* Body */}
-        <div className="flex-1 overflow-y-auto bg-[#F8FAFC] px-6 py-5">
+        <div className="flex-1 overflow-y-auto bg-[#FAF8F5] px-6 py-5">
           {tab === "tenant" && (
             <div className="space-y-4">
               <TenantCard r={r} d={d} />
@@ -264,7 +264,7 @@ export default function RoomDrawer({
         </div>
 
         {/* Footer */}
-        <footer className="border-t border-[#E2E8F0] bg-white px-6 py-4">
+        <footer className="border-t border-[#E6E2D8] bg-white px-6 py-4">
           <button
             onClick={() => onCheckout(r)}
             className="flex h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#F43F5E] text-[13px] font-semibold text-[#E11D48] transition-colors hover:bg-[#FFF1F2]"
@@ -288,13 +288,13 @@ function SectionLabel({ children }: { children: ReactNode }) {
 
 function TenantCard({ r, d }: { r: Room; d: Detail }) {
   return (
-    <section className="rounded-xl border border-[#E2E8F0] bg-white p-4">
+    <section className="rounded-xl border border-[#E6E2D8] bg-white p-4">
       <div className="flex items-center gap-3.5">
-        <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-[#F5F3FF] font-display text-[18px] font-bold text-[#4F46E5] ring-1 ring-[#C7D2FE]">
+        <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-[#F5EFE6] font-display text-[18px] font-bold text-[#8C6D3F] ring-1 ring-[#DFD2BE]">
           {initials(r.tenant)}
         </div>
         <div className="min-w-0 flex-1">
-          <p className="font-display text-[16px] font-bold text-[#1E1B4B]">
+          <p className="font-display text-[16px] font-bold text-[#141413]">
             {r.tenant}
           </p>
           <div className="mt-0.5 flex items-center gap-2">
@@ -320,21 +320,21 @@ function TenantCard({ r, d }: { r: Room; d: Detail }) {
       </div>
 
       <div className="mt-3.5 flex flex-wrap gap-2">
-        <span className="inline-flex items-center gap-1.5 rounded-md border border-[#E2E8F0] bg-[#F8FAFC] px-2 py-1 text-[11.5px] text-slate-600">
+        <span className="inline-flex items-center gap-1.5 rounded-md border border-[#E6E2D8] bg-[#FAF8F5] px-2 py-1 text-[11.5px] text-slate-600">
           <CalendarDays className="size-3.5 text-slate-400" /> Mulai Sewa:{" "}
           <span className="font-semibold text-slate-800">{d.start}</span>
         </span>
-        <span className="inline-flex items-center gap-1.5 rounded-md border border-[#E2E8F0] bg-[#F8FAFC] px-2 py-1 text-[11.5px] text-slate-600">
+        <span className="inline-flex items-center gap-1.5 rounded-md border border-[#E6E2D8] bg-[#FAF8F5] px-2 py-1 text-[11.5px] text-slate-600">
           <Repeat className="size-3.5 text-slate-400" /> Siklus:{" "}
           <span className="font-semibold text-slate-800">Bulanan</span> (Jatuh
           Tempo: Tgl {d.dueDay})
         </span>
       </div>
 
-      <div className="mt-4 grid grid-cols-[1fr_auto] gap-3 border-t border-[#E2E8F0] pt-4">
+      <div className="mt-4 grid grid-cols-[1fr_auto] gap-3 border-t border-[#E6E2D8] pt-4">
         <div>
           <SectionLabel>Kontak Darurat</SectionLabel>
-          <div className="flex items-center gap-2.5 rounded-lg border border-[#E2E8F0] p-2.5">
+          <div className="flex items-center gap-2.5 rounded-lg border border-[#E6E2D8] p-2.5">
             <span className="flex size-8 items-center justify-center rounded-md bg-[#F43F5E]/8 text-[#F43F5E]">
               <HeartHandshake className="size-4" strokeWidth={1.9} />
             </span>
@@ -364,7 +364,7 @@ function KtpThumb({ name, src }: { name: string; src?: string }) {
   if (src)
     return (
       <div className="w-[132px]">
-        <div className="relative h-[60px] overflow-hidden rounded-lg border border-[#C7D2FE]">
+        <div className="relative h-[60px] overflow-hidden rounded-lg border border-[#DFD2BE]">
           <img
             src={src}
             alt={`KTP ${name}`}
@@ -381,25 +381,25 @@ function KtpThumb({ name, src }: { name: string; src?: string }) {
     )
   return (
     <div className="w-[132px]">
-      <div className="relative h-[60px] overflow-hidden rounded-lg border border-[#C7D2FE] bg-[#EEF2FF] p-1.5">
+      <div className="relative h-[60px] overflow-hidden rounded-lg border border-[#DFD2BE] bg-[#F3F0EA] p-1.5">
         <div className="flex items-center justify-between">
-          <span className="text-[5.5px] font-bold uppercase tracking-wider text-[#312E81]">
+          <span className="text-[5.5px] font-bold uppercase tracking-wider text-[#5C4728]">
             Republik Indonesia
           </span>
-          <span className="h-1 w-5 rounded bg-[#312E81]/30" />
+          <span className="h-1 w-5 rounded bg-stone-700/30" />
         </div>
         <div className="mt-1 flex gap-1.5">
           <div className="flex-1 space-y-[3px] pt-0.5">
-            <div className="h-[3px] w-full rounded bg-[#312E81]/35" />
-            <p className="truncate text-[6px] font-semibold uppercase leading-none text-[#1E1B4B]">
+            <div className="h-[3px] w-full rounded bg-stone-700/35" />
+            <p className="truncate text-[6px] font-semibold uppercase leading-none text-[#141413]">
               {name}
             </p>
-            <div className="h-[3px] w-4/5 rounded bg-[#312E81]/20" />
-            <div className="h-[3px] w-3/5 rounded bg-[#312E81]/20" />
-            <div className="h-[3px] w-2/3 rounded bg-[#312E81]/20" />
+            <div className="h-[3px] w-4/5 rounded bg-stone-700/20" />
+            <div className="h-[3px] w-3/5 rounded bg-stone-700/20" />
+            <div className="h-[3px] w-2/3 rounded bg-stone-700/20" />
           </div>
-          <div className="flex h-[34px] w-[26px] items-end justify-center overflow-hidden rounded-[3px] bg-[#C7D2FE]">
-            <div className="mb-[-6px] size-[18px] rounded-full bg-[#818CF8]" />
+          <div className="flex h-[34px] w-[26px] items-end justify-center overflow-hidden rounded-[3px] bg-[#DFD2BE]">
+            <div className="mb-[-6px] size-[18px] rounded-full bg-[#C5A572]" />
           </div>
         </div>
         <span className="absolute -right-0 -top-0 flex size-4 items-center justify-center rounded-bl-md bg-[#10B981]">
@@ -415,19 +415,19 @@ function KtpThumb({ name, src }: { name: string; src?: string }) {
 
 function DepositBanner({ d }: { d: Detail }) {
   return (
-    <section className="flex gap-3 rounded-xl border border-[#C7D2FE] bg-[#F5F3FF] p-4">
-      <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white text-[#4F46E5] ring-1 ring-[#C7D2FE]">
+    <section className="flex gap-3 rounded-xl border border-[#DFD2BE] bg-[#F5EFE6] p-4">
+      <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white text-[#8C6D3F] ring-1 ring-[#DFD2BE]">
         <Vault className="size-5" strokeWidth={1.9} />
       </span>
       <div className="min-w-0">
-        <p className="text-[13.5px] font-bold text-[#1E1B4B]">
+        <p className="text-[13.5px] font-bold text-[#141413]">
           Uang Jaminan (Deposit) Tersimpan:{" "}
           <span className="tabular-nums">{rupiah(d.deposit)}</span>
         </p>
-        <p className="mt-1 text-[11.5px] leading-relaxed text-[#4338CA]/80">
+        <p className="mt-1 text-[11.5px] leading-relaxed text-[#6E5634]/90">
           Disetor saat check-in pada {d.start}{" "}
-          <span className="text-[#A5B4FC]">•</span> Status:{" "}
-          <span className="inline-flex items-center gap-1 font-semibold text-[#4338CA]">
+          <span className="text-[#C5A572]">•</span> Status:{" "}
+          <span className="inline-flex items-center gap-1 font-semibold text-[#6E5634]">
             <Lock className="size-3" strokeWidth={2.4} /> Terkunci Aman
           </span>{" "}
           & Siap Direkonsiliasi saat Checkout
@@ -451,7 +451,7 @@ function Billing({
   onApprove: () => void
 }) {
   return (
-    <section className="rounded-xl border border-[#E2E8F0] bg-white p-4">
+    <section className="rounded-xl border border-[#E6E2D8] bg-white p-4">
       <SectionLabel>Tagihan Berjalan</SectionLabel>
       {r.status === "overdue" ? (
         <>
@@ -476,7 +476,7 @@ function Billing({
             <button
               onClick={onSend}
               disabled={sent}
-              className="flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-[#4F46E5] text-[12.5px] font-semibold text-white hover:bg-[#4338CA] disabled:bg-[#10B981]"
+              className="flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-[#141413] text-[12.5px] font-semibold text-white hover:bg-stone-800 disabled:bg-[#10B981]"
             >
               {sent ? (
                 <CheckCircle2 className="size-4" />
@@ -489,7 +489,7 @@ function Billing({
             </button>
             <button
               onClick={onMarkPaid}
-              className="flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-[#E2E8F0] bg-white text-[12.5px] font-semibold text-slate-700 hover:bg-slate-50"
+              className="flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-[#E6E2D8] bg-white text-[12.5px] font-semibold text-slate-700 hover:bg-slate-50"
             >
               <HandCoins className="size-4 text-slate-500" /> Catat Pelunasan
               Manual / Terima Uang Tunai
@@ -591,16 +591,16 @@ function Inventory({ r }: { r: Room }) {
     },
   ]
   return (
-    <section className="rounded-xl border border-[#E2E8F0] bg-white">
-      <div className="flex items-center justify-between border-b border-[#E2E8F0] px-4 py-3">
-        <p className="text-[12.5px] font-semibold text-[#1E1B4B]">
+    <section className="rounded-xl border border-[#E6E2D8] bg-white">
+      <div className="flex items-center justify-between border-b border-[#E6E2D8] px-4 py-3">
+        <p className="text-[12.5px] font-semibold text-[#141413]">
           {items.filter((i) => i.st !== "na").length} Aset Terdaftar
         </p>
         <p className="text-[11px] text-slate-500">
           Dicek oleh penjaga · 01 Nov 2026
         </p>
       </div>
-      <ul className="divide-y divide-[#E2E8F0]">
+      <ul className="divide-y divide-[#E6E2D8]">
         {items.map(({ icon: Icon, name, code, note, st }) => (
           <li
             key={code}
@@ -608,7 +608,7 @@ function Inventory({ r }: { r: Room }) {
               st === "na" ? "opacity-50" : ""
             }`}
           >
-            <span className="flex size-8 items-center justify-center rounded-md border border-[#E2E8F0] text-slate-500">
+            <span className="flex size-8 items-center justify-center rounded-md border border-[#E6E2D8] text-slate-500">
               <Icon className="size-4" strokeWidth={1.8} />
             </span>
             <div className="min-w-0 flex-1">
@@ -667,10 +667,10 @@ function History({ r, d }: { r: Room; d: Detail }) {
   }
   return (
     <div className="space-y-4">
-      <section className="rounded-xl border border-[#E2E8F0] bg-white">
-        <div className="flex items-center gap-2 border-b border-[#E2E8F0] px-4 py-3">
-          <Receipt className="size-4 text-[#4F46E5]" />
-          <p className="text-[12.5px] font-semibold text-[#1E1B4B]">
+      <section className="rounded-xl border border-[#E6E2D8] bg-white">
+        <div className="flex items-center gap-2 border-b border-[#E6E2D8] px-4 py-3">
+          <Receipt className="size-4 text-[#8C6D3F]" />
+          <p className="text-[12.5px] font-semibold text-[#141413]">
             Riwayat Tagihan Sewa
           </p>
         </div>
@@ -684,7 +684,7 @@ function History({ r, d }: { r: Room; d: Detail }) {
               <th className="px-4 py-2 text-right font-semibold">Status</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#E2E8F0]">
+          <tbody className="divide-y divide-[#E6E2D8]">
             {rows.map((x) => (
               <tr key={x.p}>
                 <td className="px-4 py-2.5 font-medium text-slate-900">
@@ -708,17 +708,17 @@ function History({ r, d }: { r: Room; d: Detail }) {
         </table>
       </section>
 
-      <section className="rounded-xl border border-[#E2E8F0] bg-white">
-        <div className="flex items-center gap-2 border-b border-[#E2E8F0] px-4 py-3">
-          <ShieldCheck className="size-4 text-[#4F46E5]" />
-          <p className="text-[12.5px] font-semibold text-[#1E1B4B]">
+      <section className="rounded-xl border border-[#E6E2D8] bg-white">
+        <div className="flex items-center gap-2 border-b border-[#E6E2D8] px-4 py-3">
+          <ShieldCheck className="size-4 text-[#8C6D3F]" />
+          <p className="text-[12.5px] font-semibold text-[#141413]">
             Buku Besar Deposit
           </p>
-          <span className="ml-auto text-[12.5px] font-bold text-[#1E1B4B] tabular-nums">
+          <span className="ml-auto text-[12.5px] font-bold text-[#141413] tabular-nums">
             Saldo {rupiah(d.deposit)}
           </span>
         </div>
-        <ul className="divide-y divide-[#E2E8F0]">
+        <ul className="divide-y divide-[#E6E2D8]">
           <li className="flex items-center gap-3 px-4 py-2.5">
             <span className="flex size-7 items-center justify-center rounded-md bg-[#10B981]/10 text-[#10B981]">
               <ArrowDownLeft className="size-3.5" strokeWidth={2.4} />
@@ -736,7 +736,7 @@ function History({ r, d }: { r: Room; d: Detail }) {
             </p>
           </li>
           <li className="flex items-center gap-3 px-4 py-2.5">
-            <span className="flex size-7 items-center justify-center rounded-md bg-[#F5F3FF] text-[#4F46E5]">
+            <span className="flex size-7 items-center justify-center rounded-md bg-[#F5EFE6] text-[#8C6D3F]">
               <Lock className="size-3.5" strokeWidth={2.2} />
             </span>
             <div className="flex-1">

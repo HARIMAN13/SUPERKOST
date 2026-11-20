@@ -57,7 +57,7 @@ export default function TenantsPage() {
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Cari nama, nomor kamar, atau no. HP"
-                className="h-10 w-full rounded-lg border border-[#E2E8F0] bg-white pl-9 pr-3 text-[12.5px] outline-none placeholder:text-slate-400 focus:border-[#6366F1] focus:ring-3 focus:ring-[#6366F1]/15"
+                className="h-10 w-full rounded-lg border border-[#E6E2D8] bg-white pl-9 pr-3 text-[12.5px] outline-none placeholder:text-slate-400 focus:border-[#141413] focus:ring-3 focus:ring-[#141413]/10"
               />
             </div>
             <Btn
@@ -95,7 +95,7 @@ export default function TenantsPage() {
             </Btn>
             <button
               onClick={() => s.openModal({ type: "checkIn" })}
-              className="flex h-10 items-center gap-2 rounded-lg bg-[#4F46E5] px-4 text-[13px] font-semibold text-white hover:bg-[#4338CA]"
+              className="flex h-10 items-center gap-2 rounded-lg bg-[#141413] px-4 text-[13px] font-semibold text-white hover:bg-stone-800"
             >
               <UserPlus className="size-4" /> Check-In Penghuni Baru
             </button>
@@ -103,7 +103,7 @@ export default function TenantsPage() {
         }
       />
 
-      <div className="grid grid-cols-4 overflow-hidden rounded-xl border border-[#E2E8F0] bg-white">
+      <div className="grid grid-cols-4 overflow-hidden rounded-xl border border-[#E6E2D8] bg-white">
         {[
           [
             "Penghuni Aktif",
@@ -141,10 +141,10 @@ export default function TenantsPage() {
         ].map(([l, v, sub], i) => (
           <div
             key={l}
-            className={`px-4 py-3 ${i ? "border-l border-[#E2E8F0]" : ""}`}
+            className={`px-4 py-3 ${i ? "border-l border-[#E6E2D8]" : ""}`}
           >
             <p className="text-[11px] font-medium text-slate-500">{l}</p>
-            <p className="mt-0.5 font-display text-[18px] font-bold text-[#1E1B4B]">
+            <p className="mt-0.5 font-display text-[18px] font-bold text-[#141413]">
               {v}
             </p>
             <p className="text-[11px] text-slate-500">{sub}</p>
@@ -152,8 +152,8 @@ export default function TenantsPage() {
         ))}
       </div>
 
-      <section className="overflow-hidden rounded-xl border border-[#E2E8F0] bg-white">
-        <div className="flex items-center justify-between border-b border-[#E2E8F0] px-4 py-3">
+      <section className="overflow-hidden rounded-xl border border-[#E6E2D8] bg-white">
+        <div className="flex items-center justify-between border-b border-[#E6E2D8] px-4 py-3">
           <Tabs
             value={tab}
             onChange={setTab}
@@ -175,7 +175,7 @@ export default function TenantsPage() {
 
         {tab === "past" ? (
           <table className="w-full text-[12.5px]">
-            <thead className="bg-[#1E1B4B] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-indigo-100">
+            <thead className="bg-[#141413] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-200">
               <tr>
                 <th className="px-4 py-2.5">Nama</th>
                 <th className="py-2.5">Masa Sewa</th>
@@ -183,7 +183,7 @@ export default function TenantsPage() {
                 <th className="px-4 py-2.5 text-right">Deposit</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#E2E8F0]">
+            <tbody className="divide-y divide-[#E6E2D8]">
               {past
                 .filter((t) => match(t.name, null, t.phone))
                 .map((t) => {
@@ -214,7 +214,7 @@ export default function TenantsPage() {
                                 doc: { kind: "clearance", depositId: dep.id },
                               })
                             }
-                            className="text-[12px] font-semibold text-[#4F46E5] hover:underline"
+                            className="text-[12px] font-semibold text-[#8C6D3F] hover:underline"
                           >
                             Refund {rupiah(dep.refund ?? 0)} · Berita Acara
                           </button>
@@ -228,7 +228,7 @@ export default function TenantsPage() {
         ) : (
           <div className="max-h-[calc(100vh-360px)] min-h-[360px] overflow-y-auto">
             <table className="w-full text-[12.5px]">
-              <thead className="sticky top-0 z-10 bg-[#1E1B4B] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-indigo-100">
+              <thead className="sticky top-0 z-10 bg-[#141413] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-200">
                 <tr>
                   <th className="px-4 py-2.5">Kamar</th>
                   <th className="py-2.5 pr-3">Nama Penghuni</th>
@@ -240,12 +240,12 @@ export default function TenantsPage() {
                   <th className="px-4 py-2.5 text-right">Aksi</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E2E8F0]">
+              <tbody className="divide-y divide-[#E6E2D8]">
                 {rows.map(({ r, t, dep }) => (
                   <tr
                     key={r.no}
                     onClick={() => s.openDrawer(r.no)}
-                    className="cursor-pointer hover:bg-[#F5F3FF]/60"
+                    className="cursor-pointer hover:bg-[#F5EFE6]/60"
                   >
                     <td className="px-4 py-2.5">
                       <p className="font-semibold text-slate-900 tabular-nums">
@@ -317,7 +317,7 @@ export default function TenantsPage() {
                       <div className="flex justify-end gap-1">
                         <button
                           onClick={() => s.openDrawer(r.no)}
-                          className="inline-flex h-7 items-center gap-1 rounded-md border border-[#E2E8F0] px-2 text-[11.5px] font-semibold text-slate-600 hover:bg-white hover:text-slate-900"
+                          className="inline-flex h-7 items-center gap-1 rounded-md border border-[#E6E2D8] px-2 text-[11.5px] font-semibold text-slate-600 hover:bg-white hover:text-slate-900"
                         >
                           <Eye className="size-3.5" /> Detail
                         </button>
@@ -325,7 +325,7 @@ export default function TenantsPage() {
                           onClick={() =>
                             s.openModal({ type: "checkIn", tenantId: t.id })
                           }
-                          className="inline-flex h-7 items-center gap-1 rounded-md border border-[#E2E8F0] px-2 text-[11.5px] font-semibold text-slate-600 hover:bg-white hover:text-slate-900"
+                          className="inline-flex h-7 items-center gap-1 rounded-md border border-[#E6E2D8] px-2 text-[11.5px] font-semibold text-slate-600 hover:bg-white hover:text-slate-900"
                         >
                           <Pencil className="size-3.5" /> Edit
                         </button>

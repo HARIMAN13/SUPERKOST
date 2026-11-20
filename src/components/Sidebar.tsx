@@ -57,13 +57,13 @@ export default function Sidebar() {
       icon: DoorOpen,
       label: "Denah & Manajemen Kamar",
       page: "rooms",
-      meta: pill(`${rooms.length} Kamar`, "bg-white/10 text-indigo-100"),
+      meta: pill(`${rooms.length} Kamar`, "bg-white/[0.08] text-stone-300"),
     },
     {
       icon: Users,
       label: "Data Penghuni & Kontrak",
       page: "tenants",
-      meta: pill(`${stats.occupied} Aktif`, "bg-white/10 text-indigo-100"),
+      meta: pill(`${stats.occupied} Aktif`, "bg-white/[0.08] text-stone-300"),
     },
     {
       icon: ReceiptText,
@@ -79,7 +79,7 @@ export default function Sidebar() {
       page: "deposits",
       meta: pill(
         `${juta(stats.depositHeld)} Held`,
-        "bg-[#F59E0B]/15 text-[#FCD34D]",
+        "bg-[#C5A572]/20 text-[#D8B884]",
       ),
     },
     {
@@ -88,7 +88,7 @@ export default function Sidebar() {
       page: "finance",
       tab: "kas",
       meta: (
-        <span className="text-[10px] text-indigo-300/70">
+        <span className="text-[10px] text-stone-400">
           Listrik · Air · Gaji
         </span>
       ),
@@ -98,7 +98,7 @@ export default function Sidebar() {
       label: "Laporan Laba Bersih",
       page: "finance",
       tab: "laba",
-      meta: pill("XLS/PDF", "bg-white/10 text-indigo-100"),
+      meta: pill("XLS/PDF", "bg-white/[0.08] text-stone-300"),
     },
     {
       icon: Wrench,
@@ -107,7 +107,7 @@ export default function Sidebar() {
       meta: stats.acOverdue.length
         ? pill(
             `${stats.acOverdue.length} Servis AC`,
-            "bg-[#F59E0B] text-[#1E1B4B]",
+            "bg-[#C5A572] text-[#141413]",
           )
         : undefined,
     },
@@ -117,7 +117,7 @@ export default function Sidebar() {
       page: "staff",
       meta: pill(
         `${s.tasks.filter((t) => t.done).length}/${s.tasks.length}`,
-        "bg-white/10 text-indigo-100",
+        "bg-white/[0.08] text-stone-300",
       ),
     },
     {
@@ -128,21 +128,18 @@ export default function Sidebar() {
   ]
 
   return (
-    <aside className="hidden lg:flex fixed inset-y-0 left-0 z-30 w-[260px] flex-col bg-[#1E1B4B] text-indigo-100">
-      <div className="flex h-[72px] items-center gap-2.5 border-b border-white/[0.06] px-5">
-        <div className="flex items-baseline">
-          <span className="font-display text-[19px] font-extrabold tracking-[0.08em] text-white">
+    <aside className="hidden lg:flex fixed inset-y-0 left-0 z-30 w-[260px] flex-col bg-[#141413] text-stone-200 border-r border-stone-800/80">
+      <div className="flex h-[72px] items-center justify-between border-b border-stone-800/80 px-5">
+        <Link href="/" className="flex items-center">
+          <span className="font-display text-[19px] font-bold tracking-[-0.04em] text-[#FAF8F5]">
             SUPERKOST
           </span>
-          <span className="ml-0.5 size-2 rounded-full bg-[#6366F1]" />
-        </div>
-        <span className="rounded-md border border-white/10 bg-white/[0.04] px-1.5 py-0.5 text-[10px] font-medium text-indigo-200">
-          v1.0 Enterprise
-        </span>
+          <span className="ml-1 size-1.5 rounded-full bg-[#C5A572]" />
+        </Link>
       </div>
 
       <nav className="flex-1 overflow-y-auto px-3 py-4">
-        <p className="px-2.5 pb-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-indigo-300/60">
+        <p className="px-2.5 pb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-stone-500">
           Modul Operasional
         </p>
         <ul className="space-y-0.5">
@@ -155,15 +152,15 @@ export default function Sidebar() {
                   onClick={() => s.navigate(it.page, it.tab)}
                   className={`group flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-[12.5px] font-medium transition-colors ${
                     on
-                      ? "bg-[#4F46E5] text-white"
-                      : "text-indigo-200/85 hover:bg-white/[0.05] hover:text-white"
+                      ? "bg-[#25231F] text-[#FAF8F5] ring-1 ring-[#C5A572]/35"
+                      : "text-stone-400 hover:bg-white/[0.04] hover:text-stone-100"
                   }`}
                 >
                   <Icon
                     className={`size-4 shrink-0 ${
                       on
-                        ? "text-white"
-                        : "text-indigo-300/70 group-hover:text-indigo-100"
+                        ? "text-[#C5A572]"
+                        : "text-stone-500 group-hover:text-stone-200"
                     }`}
                     strokeWidth={1.8}
                   />
@@ -171,11 +168,8 @@ export default function Sidebar() {
                   {it.meta}
                 </button>
                 {i === 9 && (
-                  <div className="ml-9 mt-1 flex items-center gap-1.5 text-[10.5px] text-indigo-300/80">
-                    <span className="relative flex size-1.5">
-                      <span className="absolute inset-0 animate-ping rounded-full bg-[#10B981] opacity-60" />
-                      <span className="relative size-1.5 rounded-full bg-[#10B981]" />
-                    </span>
+                  <div className="ml-9 mt-1.5 flex items-center gap-1.5 text-[10.5px] text-stone-400">
+                    <span className="size-1.5 rounded-full bg-[#10B981]" />
                     Connected · Fonnte API
                   </div>
                 )}
@@ -185,16 +179,16 @@ export default function Sidebar() {
         </ul>
       </nav>
 
-      <div className="border-t border-white/[0.06] p-3 space-y-2">
-        <div className="flex w-full items-center gap-2.5 rounded-lg px-2 py-1.5 text-left bg-white/[0.02]">
-          <div className="flex size-8 items-center justify-center rounded-full bg-[#312E81] text-[11px] font-bold text-white ring-1 ring-white/10">
+      <div className="border-t border-stone-800/80 p-3 space-y-2">
+        <div className="flex w-full items-center gap-2.5 rounded-lg px-2 py-1.5 text-left bg-[#1C1C1A] border border-stone-800">
+          <div className="flex size-8 items-center justify-center rounded-full bg-[#26231D] text-[11px] font-bold text-[#C5A572] ring-1 ring-[#C5A572]/30">
             {userInitials}
           </div>
           <div className="min-w-0 flex-1">
-            <p className="truncate text-[12.5px] font-semibold text-white">
+            <p className="truncate text-[12.5px] font-semibold text-[#FAF8F5]">
               {displayName}
             </p>
-            <p className="truncate text-[10.5px] text-indigo-300/80">
+            <p className="truncate text-[10.5px] text-stone-400">
               {roleLabel}
             </p>
           </div>
@@ -203,9 +197,9 @@ export default function Sidebar() {
         <div className="space-y-0.5 pt-0.5">
           <Link
             href="/"
-            className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-left text-[12px] font-medium text-indigo-200/80 hover:bg-white/[0.06] hover:text-white transition-colors"
+            className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-left text-[12px] font-medium text-stone-400 hover:bg-white/[0.05] hover:text-[#FAF8F5] transition-colors"
           >
-            <Home className="size-4 shrink-0 text-indigo-300/70" />
+            <Home className="size-4 shrink-0 text-stone-500" />
             <span>Ke Halaman Depan</span>
           </Link>
           <button

@@ -178,7 +178,7 @@ export default function CheckInModal({
             />
           </Field>
 
-          <div className="col-span-2 mt-1 rounded-xl border border-[#E2E8F0] p-3">
+          <div className="col-span-2 mt-1 rounded-xl border border-[#E6E2D8] p-3">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
               Kontak Darurat
             </p>
@@ -238,14 +238,14 @@ export default function CheckInModal({
               Upload Foto KTP
             </span>
             {ktp ? (
-              <div className="flex items-center gap-3 rounded-xl border border-[#C7D2FE] bg-[#F5F3FF] p-2.5">
+              <div className="flex items-center gap-3 rounded-xl border border-[#DFD2BE] bg-[#F5EFE6] p-2.5">
                 <img
                   src={ktp}
                   alt="Pratinjau KTP"
-                  className="h-[72px] w-[114px] rounded-md object-cover ring-1 ring-[#C7D2FE]"
+                  className="h-[72px] w-[114px] rounded-md object-cover ring-1 ring-[#DFD2BE]"
                 />
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-[12.5px] font-semibold text-[#1E1B4B]">
+                  <p className="truncate text-[12.5px] font-semibold text-[#141413]">
                     {ktpName || "Foto KTP tersimpan"}
                   </p>
                   <p className="mt-0.5 flex items-center gap-1 text-[11px] font-medium text-emerald-700">
@@ -261,7 +261,7 @@ export default function CheckInModal({
                 </button>
               </div>
             ) : (
-              <label className="flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed border-slate-300 bg-[#F8FAFC] py-5 text-[12.5px] font-medium text-slate-500 hover:border-[#6366F1] hover:text-[#4F46E5]">
+              <label className="flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed border-slate-300 bg-[#FAF8F5] py-5 text-[12.5px] font-medium text-slate-500 hover:border-[#8C6D3F] hover:text-[#8C6D3F]">
                 <Upload className="size-4" /> Klik untuk pilih foto KTP
                 (JPG/PNG)
                 <input

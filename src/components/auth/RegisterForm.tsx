@@ -133,15 +133,19 @@ export default function RegisterForm() {
           });
 
           const count = pendingProperty.totalRooms;
-          const roomsToInsert = Array.from({ length: count }, (_, i) => ({
-            property_id: propData.id,
-            room_no: i + 1,
-            floor: Math.floor(i / 10) + 1,
-            type: i % 7 === 0 ? "Deluxe" : "Standard",
-            price: i % 7 === 0 ? 1800000 : 1200000,
-            is_vip: i % 7 === 0,
-            current_status: "vacant",
-          }));
+          const roomsToInsert = Array.from({ length: count }, (_, i) => {
+            const floor = Math.floor(i / 10) + 1;
+            const roomNo = floor * 100 + (i % 10) + 1;
+            return {
+              property_id: propData.id,
+              room_no: roomNo,
+              floor,
+              type: i % 7 === 0 ? "Deluxe" : "Standard",
+              price: i % 7 === 0 ? 1800000 : 1200000,
+              is_vip: i % 7 === 0,
+              current_status: "vacant",
+            };
+          });
           await supabase.from("rooms").insert(roomsToInsert);
           localStorage.removeItem("sk_pending_property");
         }

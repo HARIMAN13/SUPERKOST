@@ -81,18 +81,18 @@ export default function DepositsPage() {
       />
 
       <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-4">
-        <div className="flex items-center gap-4 rounded-xl border border-[#C7D2FE] bg-[#F5F3FF] p-4">
-          <span className="flex size-12 items-center justify-center rounded-xl bg-white text-[#4F46E5] ring-1 ring-[#C7D2FE]">
+        <div className="flex items-center gap-4 rounded-xl border border-[#DFD2BE] bg-[#F5EFE6] p-4">
+          <span className="flex size-12 items-center justify-center rounded-xl bg-white text-[#8C6D3F] ring-1 ring-[#DFD2BE]">
             <Vault className="size-6" strokeWidth={1.8} />
           </span>
           <div>
-            <p className="text-[12px] font-medium text-[#4338CA]">
+            <p className="text-[12px] font-medium text-[#6E5634]">
               Total Deposit Tersimpan
             </p>
-            <p className="font-display text-[24px] font-bold text-[#1E1B4B] tabular-nums">
+            <p className="font-display text-[24px] font-bold text-[#141413] tabular-nums">
               {rupiah(s.stats.depositHeld)}
             </p>
-            <p className="text-[11.5px] text-[#4338CA]/80">
+            <p className="text-[11.5px] text-[#6E5634]/90">
               ({s.stats.depositCount} Kamar Terisi) · kewajiban ke penghuni
             </p>
           </div>
@@ -119,13 +119,13 @@ export default function DepositsPage() {
             label: "Total Potongan Kerusakan",
             v: rupiah(deducted),
             sub: "masuk ke pendapatan lain",
-            c: "text-[#1E1B4B]",
+            c: "text-[#141413]",
             bg: "bg-[#F59E0B]/12 text-amber-600",
           },
         ].map((k) => (
           <div
             key={k.label}
-            className="rounded-xl border border-[#E2E8F0] bg-white p-4"
+            className="rounded-xl border border-[#E6E2D8] bg-white p-4"
           >
             <div className="flex items-center gap-2">
               <span
@@ -147,8 +147,8 @@ export default function DepositsPage() {
         ))}
       </div>
 
-      <section className="overflow-hidden rounded-xl border border-[#E2E8F0] bg-white">
-        <div className="flex items-center justify-between border-b border-[#E2E8F0] px-4 py-3">
+      <section className="overflow-hidden rounded-xl border border-[#E6E2D8] bg-white">
+        <div className="flex items-center justify-between border-b border-[#E6E2D8] px-4 py-3">
           <Tabs
             value={tab}
             onChange={setTab}
@@ -158,7 +158,7 @@ export default function DepositsPage() {
                 k: "locked",
                 label: "Terkunci Aman",
                 n: list.filter((d) => d.status === "locked").length,
-                dot: "bg-[#4F46E5]",
+                dot: "bg-[#141413]",
               },
               {
                 k: "dispute",
@@ -181,7 +181,7 @@ export default function DepositsPage() {
         </div>
         <div className="max-h-[calc(100vh-380px)] min-h-[340px] overflow-y-auto">
           <table className="w-full text-[12.5px]">
-            <thead className="sticky top-0 z-10 bg-[#1E1B4B] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-indigo-100">
+            <thead className="sticky top-0 z-10 bg-[#141413] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-200">
               <tr>
                 <th className="px-4 py-2.5">No. Kamar</th>
                 <th className="py-2.5 pr-3">Nama Penghuni</th>
@@ -192,7 +192,7 @@ export default function DepositsPage() {
                 <th className="px-4 py-2.5 text-right">Aksi</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#E2E8F0]">
+            <tbody className="divide-y divide-[#E6E2D8]">
               {shown.map((d) => {
                 const cut = (d.deductions ?? []).reduce(
                   (a, x) => a + x.amount,
@@ -245,7 +245,7 @@ export default function DepositsPage() {
                                 doc: { kind: "clearance", depositId: d.id },
                               })
                             }
-                            className="inline-flex h-7 items-center gap-1 rounded-md border border-[#E2E8F0] px-2.5 text-[11.5px] font-semibold text-slate-600 hover:bg-white"
+                            className="inline-flex h-7 items-center gap-1 rounded-md border border-[#E6E2D8] px-2.5 text-[11.5px] font-semibold text-slate-600 hover:bg-white"
                           >
                             <FileText className="size-3.5" /> Berita Acara
                           </button>
@@ -263,7 +263,7 @@ export default function DepositsPage() {
                                   ? "Selesaikan sengketa"
                                   : "Tandai sengketa"
                               }
-                              className="inline-flex h-7 items-center gap-1 rounded-md border border-[#E2E8F0] px-2 text-[11.5px] font-semibold text-slate-600 hover:bg-white"
+                              className="inline-flex h-7 items-center gap-1 rounded-md border border-[#E6E2D8] px-2 text-[11.5px] font-semibold text-slate-600 hover:bg-white"
                             >
                               <Scale className="size-3.5" />{" "}
                               {d.status === "dispute"

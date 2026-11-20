@@ -52,11 +52,11 @@ const CAT_ICON: Record<ExpenseCategory, typeof Zap> = {
   Lainnya: Tag,
 }
 const CAT_COLOR: Record<ExpenseCategory, string> = {
-  Gaji: "bg-[#4F46E5]",
+  Gaji: "bg-[#141413]",
   Air: "bg-[#0EA5E9]",
   Listrik: "bg-[#F59E0B]",
   "Servis AC": "bg-[#10B981]",
-  Internet: "bg-[#8B5CF6]",
+  Internet: "bg-[#8C6D3F]",
   Kebersihan: "bg-[#64748B]",
   Perbaikan: "bg-[#F43F5E]",
   Lainnya: "bg-[#94A3B8]",
@@ -130,7 +130,7 @@ export default function FinancePage() {
             <div className="relative">
               <CalendarDays className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
               <select
-                className="h-10 appearance-none rounded-lg border border-[#E2E8F0] bg-white pl-9 pr-8 text-[12.5px] font-semibold text-slate-800 outline-none focus:border-[#6366F1]"
+                className="h-10 appearance-none rounded-lg border border-[#E6E2D8] bg-white pl-9 pr-8 text-[12.5px] font-semibold text-slate-800 outline-none focus:border-[#141413]"
                 defaultValue="nov"
               >
                 <option value="nov">November 2026</option>
@@ -156,7 +156,7 @@ export default function FinancePage() {
       />
 
       <div className="grid grid-cols-3 gap-4">
-        <div className="rounded-xl border border-[#E2E8F0] bg-white p-4">
+        <div className="rounded-xl border border-[#E6E2D8] bg-white p-4">
           <div className="flex items-center gap-2">
             <span className="flex size-6 items-center justify-center rounded-md bg-[#10B981]/10 text-[#10B981]">
               <TrendingUp className="size-3.5" />
@@ -165,7 +165,7 @@ export default function FinancePage() {
               Total Pemasukan Sewa
             </p>
           </div>
-          <p className="mt-2 font-display text-[24px] font-bold text-[#1E1B4B] tabular-nums">
+          <p className="mt-2 font-display text-[24px] font-bold text-[#141413] tabular-nums">
             {rupiah(stats.income)}
           </p>
           <p className="text-[11.5px] text-slate-500">
@@ -179,7 +179,7 @@ export default function FinancePage() {
             )}
           </p>
         </div>
-        <div className="rounded-xl border border-[#E2E8F0] bg-white p-4">
+        <div className="rounded-xl border border-[#E6E2D8] bg-white p-4">
           <div className="flex items-center gap-2">
             <span className="flex size-6 items-center justify-center rounded-md bg-[#F43F5E]/10 text-[#F43F5E]">
               <TrendingDown className="size-3.5" />
@@ -188,7 +188,7 @@ export default function FinancePage() {
               Total Pengeluaran Operasional
             </p>
           </div>
-          <p className="mt-2 font-display text-[24px] font-bold text-[#1E1B4B] tabular-nums">
+          <p className="mt-2 font-display text-[24px] font-bold text-[#141413] tabular-nums">
             {rupiah(stats.expenseTotal)}
           </p>
           <p className="text-[11.5px] text-slate-500">
@@ -229,8 +229,8 @@ export default function FinancePage() {
       </div>
 
       {tab === "kas" ? (
-        <section className="overflow-hidden rounded-xl border border-[#E2E8F0] bg-white">
-          <div className="flex items-center justify-between gap-3 border-b border-[#E2E8F0] px-4 py-3">
+        <section className="overflow-hidden rounded-xl border border-[#E6E2D8] bg-white">
+          <div className="flex items-center justify-between gap-3 border-b border-[#E6E2D8] px-4 py-3">
             <div className="flex flex-wrap gap-1.5">
               {(["all", ...EXPENSE_CATEGORIES] as const).map((c) => {
                 const n =
@@ -244,8 +244,8 @@ export default function FinancePage() {
                     onClick={() => setCat(c)}
                     className={`rounded-full border px-2.5 py-1 text-[11.5px] font-medium ${
                       cat === c
-                        ? "border-[#4F46E5] bg-[#F5F3FF] text-[#4F46E5]"
-                        : "border-[#E2E8F0] text-slate-600 hover:bg-slate-50"
+                        ? "border-[#8C6D3F] bg-[#F5EFE6] text-[#8C6D3F]"
+                        : "border-[#E6E2D8] text-slate-600 hover:bg-slate-50"
                     }`}
                   >
                     {c === "all" ? "Semua" : c}{" "}
@@ -259,7 +259,7 @@ export default function FinancePage() {
             </Btn>
           </div>
           <table className="w-full text-[12.5px]">
-            <thead className="bg-[#1E1B4B] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-indigo-100">
+            <thead className="bg-[#141413] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-200">
               <tr>
                 <th className="px-4 py-2.5">Tanggal</th>
                 <th className="py-2.5 pr-3">Kategori</th>
@@ -269,7 +269,7 @@ export default function FinancePage() {
                 <th className="w-12 px-4 py-2.5" />
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#E2E8F0]">
+            <tbody className="divide-y divide-[#E6E2D8]">
               {shown.map((e) => {
                 const Icon = CAT_ICON[e.category]
                 return (
@@ -279,7 +279,7 @@ export default function FinancePage() {
                     </td>
                     <td className="py-2.5 pr-3">
                       <span className="inline-flex items-center gap-1.5 font-medium text-slate-700">
-                        <span className="flex size-6 items-center justify-center rounded-md border border-[#E2E8F0] text-slate-500">
+                        <span className="flex size-6 items-center justify-center rounded-md border border-[#E6E2D8] text-slate-500">
                           <Icon className="size-3.5" />
                         </span>
                         {e.category}
@@ -320,7 +320,7 @@ export default function FinancePage() {
               })}
             </tbody>
             <tfoot>
-              <tr className="border-t border-[#E2E8F0] bg-[#F8FAFC]">
+              <tr className="border-t border-[#E6E2D8] bg-[#FAF8F5]">
                 <td
                   colSpan={4}
                   className="px-4 py-2.5 text-[12px] font-semibold text-slate-600"
@@ -337,21 +337,21 @@ export default function FinancePage() {
         </section>
       ) : (
         <div className="grid grid-cols-[1.2fr_1fr] gap-4">
-          <section className="rounded-xl border border-[#E2E8F0] bg-white p-4">
+          <section className="rounded-xl border border-[#E6E2D8] bg-white p-4">
             <div className="flex items-center justify-between">
-              <h3 className="font-display text-[14px] font-bold text-[#1E1B4B]">
+              <h3 className="font-display text-[14px] font-bold text-[#141413]">
                 Cash Flow Masuk vs Keluar (6 Bulan)
               </h3>
               <div className="flex gap-3 text-[11px] text-slate-500">
                 <span className="flex items-center gap-1">
-                  <span className="size-2 rounded-sm bg-[#4F46E5]" /> Masuk
+                  <span className="size-2 rounded-sm bg-[#141413]" /> Masuk
                 </span>
                 <span className="flex items-center gap-1">
                   <span className="size-2 rounded-sm bg-[#F43F5E]" /> Keluar
                 </span>
               </div>
             </div>
-            <div className="mt-4 flex h-[220px] items-end gap-5 border-b border-[#E2E8F0] px-2">
+            <div className="mt-4 flex h-[220px] items-end gap-5 border-b border-[#E6E2D8] px-2">
               {[
                 ...HISTORY.map(
                   ([m, i, o]) =>
@@ -372,7 +372,7 @@ export default function FinancePage() {
                     <div
                       title={rupiah(i)}
                       className={`w-1/2 max-w-[22px] rounded-t ${
-                        live ? "bg-[#4F46E5]" : "bg-[#4F46E5]/45"
+                        live ? "bg-[#141413]" : "bg-[#8C6D3F]/45"
                       }`}
                       style={{ height: `${(i / max) * 100}%` }}
                     />
@@ -392,7 +392,7 @@ export default function FinancePage() {
                 <p
                   key={m}
                   className={`flex-1 text-center text-[11px] ${
-                    m === "Nov" ? "font-bold text-[#1E1B4B]" : "text-slate-500"
+                    m === "Nov" ? "font-bold text-[#141413]" : "text-slate-500"
                   }`}
                 >
                   {m}
@@ -403,19 +403,19 @@ export default function FinancePage() {
           </section>
 
           <section className="space-y-4">
-            <div className="rounded-xl border border-[#C7D2FE] bg-[#F5F3FF] p-4">
-              <p className="text-[12px] font-medium text-[#4338CA]">
+            <div className="rounded-xl border border-[#DFD2BE] bg-[#F5EFE6] p-4">
+              <p className="text-[12px] font-medium text-[#6E5634]">
                 Profit Margin Operasional
               </p>
               <div className="mt-1 flex items-end gap-3">
-                <p className="font-display text-[32px] font-extrabold leading-none text-[#1E1B4B]">
+                <p className="font-display text-[32px] font-extrabold leading-none text-[#141413]">
                   {margin.toFixed(1)}%
                 </p>
-                <p className="pb-1 text-[11.5px] text-[#4338CA]/80">
+                <p className="pb-1 text-[11.5px] text-[#6E5634]/90">
                   dari total pemasukan {rupiah(totalIncome)}
                 </p>
               </div>
-              <div className="mt-3 flex h-2.5 overflow-hidden rounded-full bg-white ring-1 ring-[#C7D2FE]">
+              <div className="mt-3 flex h-2.5 overflow-hidden rounded-full bg-white ring-1 ring-[#DFD2BE]">
                 <div
                   className="bg-[#10B981]"
                   style={{ width: `${Math.max(0, margin)}%` }}
@@ -436,9 +436,9 @@ export default function FinancePage() {
                 </span>
               </div>
             </div>
-            <div className="rounded-xl border border-[#E2E8F0] bg-white p-4">
-              <h3 className="flex items-center gap-2 font-display text-[13.5px] font-bold text-[#1E1B4B]">
-                <Receipt className="size-4 text-[#4F46E5]" /> Struktur Biaya
+            <div className="rounded-xl border border-[#E6E2D8] bg-white p-4">
+              <h3 className="flex items-center gap-2 font-display text-[13.5px] font-bold text-[#141413]">
+                <Receipt className="size-4 text-[#8C6D3F]" /> Struktur Biaya
               </h3>
               <ul className="mt-3 space-y-2.5">
                 {byCat.map(({ c, v }) => (
@@ -448,14 +448,14 @@ export default function FinancePage() {
                       <span className="text-slate-500 tabular-nums">
                         {rupiah(v)} ·{" "}
                         <b className="text-slate-800">
-                          {((v / stats.expenseTotal) * 100).toFixed(0)}%
+                          {stats.expenseTotal ? ((v / stats.expenseTotal) * 100).toFixed(0) : 0}%
                         </b>
                       </span>
                     </div>
-                    <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-[#F1F5F9]">
+                    <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-[#F3F0EA]">
                       <div
                         className={`h-full rounded-full ${CAT_COLOR[c]}`}
-                        style={{ width: `${(v / stats.expenseTotal) * 100}%` }}
+                        style={{ width: `${stats.expenseTotal ? (v / stats.expenseTotal) * 100 : 0}%` }}
                       />
                     </div>
                   </li>

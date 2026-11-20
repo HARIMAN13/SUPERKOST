@@ -38,7 +38,7 @@ export default function MobileNav() {
   ];
 
   return (
-    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#1E1B4B]/95 backdrop-blur-md border-t border-white/10 px-2 py-1 safe-pb flex justify-around items-center shadow-2xl">
+    <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#141413]/95 backdrop-blur-md border-t border-white/10 px-2 py-1 safe-pb flex justify-around items-center shadow-2xl">
       {navItems.map((item) => {
         const Icon = item.icon;
         const isActive = page === item.id;
@@ -51,7 +51,7 @@ export default function MobileNav() {
             }}
             className={`relative flex flex-col items-center justify-center py-1.5 px-3 rounded-xl transition-all ${
               isActive
-                ? "text-indigo-400 font-bold"
+                ? "text-[#C5A572] font-bold"
                 : "text-slate-400 hover:text-white"
             }`}
           >
@@ -65,7 +65,7 @@ export default function MobileNav() {
             </div>
             <span className="text-[10px] mt-1 leading-none">{item.label}</span>
             {isActive && (
-              <span className="absolute bottom-0 size-1 rounded-full bg-indigo-400" />
+              <span className="absolute bottom-0 size-1 rounded-full bg-[#C5A572]" />
             )}
           </button>
         );

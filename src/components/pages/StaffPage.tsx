@@ -40,7 +40,7 @@ export default function StaffPage() {
       icon: DoorOpen,
       title: "Cek Kamar Kosong",
       sub: "Untuk calon penghuni",
-      c: "bg-[#4F46E5] hover:bg-[#4338CA] text-white",
+      c: "bg-[#141413] hover:bg-stone-800 text-white",
       go: () => setShowVacant((v) => !v),
       badge: `${vacant.length} kamar siap huni`,
     },
@@ -62,7 +62,7 @@ export default function StaffPage() {
           <p className="text-[12px] font-medium text-slate-500">
             {fmtDate(TODAY)} · {s.property.name}
           </p>
-          <h1 className="font-display text-[24px] font-bold tracking-tight text-[#1E1B4B]">
+          <h1 className="font-display text-[24px] font-bold tracking-tight text-[#141413]">
             Halo, Pak Darto — Shift Pagi
           </h1>
         </div>
@@ -95,14 +95,14 @@ export default function StaffPage() {
       </div>
 
       {showVacant && (
-        <section className="rounded-2xl border border-[#C7D2FE] bg-[#F5F3FF] p-4">
+        <section className="rounded-2xl border border-[#DFD2BE] bg-[#F5EFE6] p-4">
           <div className="mb-3 flex items-center justify-between">
-            <h2 className="font-display text-[15px] font-bold text-[#1E1B4B]">
+            <h2 className="font-display text-[15px] font-bold text-[#141413]">
               Kamar Kosong Siap Huni ({vacant.length})
             </h2>
             <button
               onClick={() => setShowVacant(false)}
-              className="text-[12px] font-semibold text-[#4F46E5]"
+              className="text-[12px] font-semibold text-[#8C6D3F]"
             >
               Tutup
             </button>
@@ -116,9 +116,9 @@ export default function StaffPage() {
               {vacant.map((r) => (
                 <div
                   key={r.no}
-                  className="rounded-xl border border-dashed border-[#A5B4FC] bg-white p-3"
+                  className="rounded-xl border border-dashed border-[#C5A572] bg-white p-3"
                 >
-                  <p className="font-display text-[18px] font-bold text-[#1E1B4B]">
+                  <p className="font-display text-[18px] font-bold text-[#141413]">
                     {r.no}
                   </p>
                   <p className="text-[11.5px] text-slate-500">
@@ -131,7 +131,7 @@ export default function StaffPage() {
                     onClick={() =>
                       s.openModal({ type: "checkIn", roomNo: r.no })
                     }
-                    className="mt-2 flex h-8 w-full items-center justify-center gap-1 rounded-lg bg-[#4F46E5] text-[12px] font-semibold text-white hover:bg-[#4338CA]"
+                    className="mt-2 flex h-8 w-full items-center justify-center gap-1 rounded-lg bg-[#141413] text-[12px] font-semibold text-white hover:bg-stone-800"
                   >
                     <Plus className="size-3.5" strokeWidth={2.6} /> Check-In
                   </button>
@@ -143,11 +143,11 @@ export default function StaffPage() {
       )}
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.4fr_1fr]">
-        <section className="rounded-2xl border border-[#E2E8F0] bg-white">
-          <div className="flex items-center justify-between border-b border-[#E2E8F0] px-5 py-4">
+        <section className="rounded-2xl border border-[#E6E2D8] bg-white">
+          <div className="flex items-center justify-between border-b border-[#E6E2D8] px-5 py-4">
             <div className="flex items-center gap-2">
-              <ClipboardCheck className="size-5 text-[#4F46E5]" />
-              <h2 className="font-display text-[16px] font-bold text-[#1E1B4B]">
+              <ClipboardCheck className="size-5 text-[#8C6D3F]" />
+              <h2 className="font-display text-[16px] font-bold text-[#141413]">
                 Checklist Harian Staf
               </h2>
             </div>
@@ -162,7 +162,7 @@ export default function StaffPage() {
             </span>
           </div>
           <div className="px-5 pt-3">
-            <div className="h-2 overflow-hidden rounded-full bg-[#F1F5F9]">
+            <div className="h-2 overflow-hidden rounded-full bg-[#F3F0EA]">
               <div
                 className="h-full rounded-full bg-[#10B981] transition-all"
                 style={{ width: `${(done / s.tasks.length) * 100}%` }}
@@ -179,7 +179,7 @@ export default function StaffPage() {
                   className={`flex w-full items-center gap-3 rounded-xl border px-4 py-3.5 text-left transition-colors ${
                     t.done
                       ? "border-[#10B981]/30 bg-[#10B981]/[0.06]"
-                      : "border-[#E2E8F0] hover:border-[#C7D2FE] hover:bg-[#F5F3FF]"
+                      : "border-[#E6E2D8] hover:border-[#DFD2BE] hover:bg-[#F5EFE6]"
                   }`}
                 >
                   {t.done ? (
@@ -210,7 +210,7 @@ export default function StaffPage() {
               </li>
             ))}
           </ul>
-          <div className="border-t border-[#E2E8F0] p-4">
+          <div className="border-t border-[#E6E2D8] p-4">
             <Btn
               variant={done === s.tasks.length ? "success" : "secondary"}
               className="h-11 w-full text-[13px]"
@@ -240,10 +240,10 @@ export default function StaffPage() {
         </section>
 
         <div className="space-y-4">
-          <section className="rounded-2xl border border-[#E2E8F0] bg-white p-4">
+          <section className="rounded-2xl border border-[#E6E2D8] bg-white p-4">
             <div className="flex items-center gap-2">
               <Banknote className="size-5 text-[#10B981]" />
-              <h2 className="font-display text-[15px] font-bold text-[#1E1B4B]">
+              <h2 className="font-display text-[15px] font-bold text-[#141413]">
                 Uang Masuk Hari Ini
               </h2>
             </div>
@@ -260,7 +260,7 @@ export default function StaffPage() {
                 )}
               </b>
             </p>
-            <ul className="mt-3 divide-y divide-[#E2E8F0]">
+            <ul className="mt-3 divide-y divide-[#E6E2D8]">
               {cashToday.length === 0 && (
                 <li className="py-3 text-center text-[12px] text-slate-400">
                   Belum ada pembayaran hari ini.
@@ -282,14 +282,14 @@ export default function StaffPage() {
               ))}
             </ul>
           </section>
-          <section className="rounded-2xl border border-[#E2E8F0] bg-white p-4">
+          <section className="rounded-2xl border border-[#E6E2D8] bg-white p-4">
             <div className="flex items-center gap-2">
               <Wrench className="size-5 text-amber-600" />
-              <h2 className="font-display text-[15px] font-bold text-[#1E1B4B]">
+              <h2 className="font-display text-[15px] font-bold text-[#141413]">
                 Tiket Kerusakan Berjalan
               </h2>
             </div>
-            <ul className="mt-2 divide-y divide-[#E2E8F0]">
+            <ul className="mt-2 divide-y divide-[#E6E2D8]">
               {openTickets.length === 0 && (
                 <li className="py-3 text-center text-[12px] text-slate-400">
                   Tidak ada tiket terbuka.

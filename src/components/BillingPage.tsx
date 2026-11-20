@@ -121,7 +121,7 @@ export default function BillingPage({
             Tagihan & Mesin Invoice <span className="text-slate-300">/</span>{" "}
             Periode November 2026
           </p>
-          <h1 className="mt-0.5 font-display text-[19px] sm:text-[21px] font-bold tracking-tight text-[#1E1B4B]">
+          <h1 className="mt-0.5 font-display text-[19px] sm:text-[21px] font-bold tracking-tight text-[#141413]">
             Manajemen Tagihan & Rekonsiliasi Kas Sewa
           </h1>
         </div>
@@ -162,14 +162,14 @@ export default function BillingPage({
               )
               notify("Ledger November 2026 diunduh (.csv, kompatibel Excel)")
             }}
-            className="flex h-10 items-center gap-2 rounded-lg border border-[#E2E8F0] bg-white px-3.5 text-[12.5px] font-semibold text-slate-700 hover:bg-slate-50"
+            className="flex h-10 items-center gap-2 rounded-lg border border-[#E6E2D8] bg-white px-3.5 text-[12.5px] font-semibold text-slate-700 hover:bg-slate-50"
           >
             <Download className="size-4 text-slate-500" /> Ekspor Ledger
           </button>
           <button
             onClick={generate}
             disabled={generating || store.nextGenerated}
-            className="flex h-10 items-center gap-2 rounded-lg bg-[#4F46E5] px-4 text-[13px] font-semibold text-white hover:bg-[#4338CA] disabled:opacity-80"
+            className="flex h-10 items-center gap-2 rounded-lg bg-[#141413] px-4 text-[13px] font-semibold text-white hover:bg-stone-800 disabled:opacity-80"
           >
             {generating ? (
               <Loader2 className="size-4 animate-spin" />
@@ -186,19 +186,19 @@ export default function BillingPage({
       </div>
 
       {/* KPI strip */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[#E2E8F0] overflow-hidden rounded-xl border border-[#E2E8F0] bg-white">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[#E6E2D8] overflow-hidden rounded-xl border border-[#E6E2D8] bg-white">
         {[
           {
             label: "Total Tagihan November",
             v: rupiah(total),
             sub: `${invoices.length} invoice terbit`,
-            c: "text-[#1E1B4B]",
-            bar: "bg-[#4F46E5]",
+            c: "text-[#141413]",
+            bar: "bg-[#141413]",
           },
           {
             label: "Kas Terverifikasi",
             v: rupiah(sum("paid")),
-            sub: `${count("paid")} lunas · ${Math.round((sum("paid") / total) * 100)}% tertagih`,
+            sub: `${count("paid")} lunas · ${total ? Math.round((sum("paid") / total) * 100) : 0}% tertagih`,
             c: "text-emerald-700",
             bar: "bg-[#10B981]",
           },
@@ -220,7 +220,7 @@ export default function BillingPage({
           <div
             key={k.label}
             className={`relative px-4 py-3 ${
-              i ? "border-l border-[#E2E8F0]" : ""
+              i ? "border-l border-[#E6E2D8]" : ""
             }`}
           >
             <span
@@ -239,9 +239,9 @@ export default function BillingPage({
 
       <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,65fr)_minmax(0,35fr)] gap-4 xl:h-[calc(100vh-290px)] xl:min-h-[560px]">
         {/* LEFT: ledger */}
-        <section className="flex min-h-0 flex-col overflow-hidden rounded-xl border border-[#E2E8F0] bg-white">
+        <section className="flex min-h-0 flex-col overflow-hidden rounded-xl border border-[#E6E2D8] bg-white">
           <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3">
-            <div className="flex overflow-x-auto max-w-full rounded-lg bg-[#F1F5F9] p-0.5 scrollbar-none">
+            <div className="flex overflow-x-auto max-w-full rounded-lg bg-[#F3F0EA] p-0.5 scrollbar-none">
               {tabs.map(([k, label]) => {
                 const on = filter === k
                 const dot = {
@@ -275,22 +275,22 @@ export default function BillingPage({
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Cari kamar / penghuni"
-                className="h-8 w-full rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] pl-8 pr-2 text-[12px] outline-none placeholder:text-slate-400 focus:border-[#6366F1] focus:bg-white"
+                className="h-8 w-full rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] pl-8 pr-2 text-[12px] outline-none placeholder:text-slate-400 focus:border-[#141413] focus:bg-white"
               />
             </div>
           </div>
 
           {checked.size > 0 && (
-            <div className="flex items-center gap-3 border-y border-[#C7D2FE] bg-[#F5F3FF] px-4 py-2 text-[12px]">
-              <span className="font-semibold text-[#312E81]">
+            <div className="flex items-center gap-3 border-y border-[#DFD2BE] bg-[#F5EFE6] px-4 py-2 text-[12px]">
+              <span className="font-semibold text-[#5C4728]">
                 {checked.size} tagihan dipilih
               </span>
-              <span className="h-4 w-px bg-[#C7D2FE]" />
+              <span className="h-4 w-px bg-[#DFD2BE]" />
               <button
                 onClick={() =>
                   store.sendReminder([...checked], "Pengingat Tagihan Massal")
                 }
-                className="flex items-center gap-1 font-semibold text-[#4F46E5] hover:text-[#4338CA]"
+                className="flex items-center gap-1 font-semibold text-[#8C6D3F] hover:text-[#141413]"
               >
                 <Send className="size-3.5" /> Kirim WA Massal
               </button>
@@ -326,7 +326,7 @@ export default function BillingPage({
                   ])
                   notify(`Rekap ${paid.length} kuitansi diunduh (.csv)`)
                 }}
-                className="flex items-center gap-1 font-semibold text-[#4F46E5] hover:text-[#4338CA]"
+                className="flex items-center gap-1 font-semibold text-[#8C6D3F] hover:text-[#141413]"
               >
                 <FileDown className="size-3.5" /> Unduh Kuitansi
               </button>
@@ -341,7 +341,7 @@ export default function BillingPage({
 
           <div className="min-h-0 flex-1 overflow-y-auto">
             <table className="w-full text-[12.5px]">
-              <thead className="sticky top-0 z-10 bg-[#1E1B4B] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-indigo-100">
+              <thead className="sticky top-0 z-10 bg-[#141413] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-200">
                 <tr>
                   <th className="w-10 py-2.5 pl-4">
                     <Checkbox
@@ -368,7 +368,7 @@ export default function BillingPage({
                   <th className="py-2.5 pr-4 text-right">Aksi Cepat</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E2E8F0]">
+              <tbody className="divide-y divide-[#E6E2D8]">
                 {shown.map((r) => {
                   const sel = r.no === selected
                   return (
@@ -376,13 +376,13 @@ export default function BillingPage({
                       key={r.no}
                       onClick={() => setSelected(r.no)}
                       className={`cursor-pointer transition-colors ${
-                        sel ? "bg-[#F5F3FF]" : "hover:bg-slate-50"
+                        sel ? "bg-[#F5EFE6]" : "hover:bg-slate-50"
                       }`}
                     >
                       <td
                         className={`relative py-2.5 pl-4 ${
                           sel
-                            ? "before:absolute before:inset-y-0 before:left-0 before:w-[3px] before:bg-[#4F46E5]"
+                            ? "before:absolute before:inset-y-0 before:left-0 before:w-[3px] before:bg-[#141413]"
                             : ""
                         }`}
                         onClick={(e) => e.stopPropagation()}
@@ -417,7 +417,7 @@ export default function BillingPage({
                         {r.status === "verify" && (
                           <button
                             onClick={() => setSelected(r.no)}
-                            className="inline-flex h-7 items-center gap-1 rounded-md bg-[#4F46E5] px-2.5 text-[11.5px] font-semibold text-white hover:bg-[#4338CA]"
+                            className="inline-flex h-7 items-center gap-1 rounded-md bg-[#141413] px-2.5 text-[11.5px] font-semibold text-white hover:bg-stone-800"
                           >
                             Periksa Bukti <ArrowRight className="size-3.5" />
                           </button>
@@ -441,7 +441,7 @@ export default function BillingPage({
                                 },
                               })
                             }
-                            className="inline-flex h-7 items-center gap-1 rounded-md border border-[#E2E8F0] px-2.5 text-[11.5px] font-semibold text-slate-600 hover:bg-white hover:text-slate-900"
+                            className="inline-flex h-7 items-center gap-1 rounded-md border border-[#E6E2D8] px-2.5 text-[11.5px] font-semibold text-slate-600 hover:bg-white hover:text-slate-900"
                           >
                             <FileDown className="size-3.5" /> Kuitansi PDF
                           </button>
@@ -458,7 +458,7 @@ export default function BillingPage({
               </p>
             )}
           </div>
-          <div className="flex items-center justify-between border-t border-[#E2E8F0] px-4 py-2.5 text-[11.5px] text-slate-500">
+          <div className="flex items-center justify-between border-t border-[#E6E2D8] px-4 py-2.5 text-[11.5px] text-slate-500">
             <span>
               Menampilkan{" "}
               <b className="font-semibold text-slate-700">{shown.length}</b>{" "}
@@ -507,10 +507,10 @@ function Checkbox({
       onClick={onChange}
       className={`flex size-4 items-center justify-center rounded-[4px] border transition-colors ${
         on
-          ? "border-[#4F46E5] bg-[#4F46E5] text-white"
+          ? "border-[#8C6D3F] bg-[#141413] text-white"
           : dark
-            ? "border-indigo-300/50 bg-transparent"
-            : "border-slate-300 bg-white hover:border-[#6366F1]"
+            ? "border-stone-500/50 bg-transparent"
+            : "border-slate-300 bg-white hover:border-[#8C6D3F]"
       }`}
     >
       {on && <Check className="size-3" strokeWidth={3.2} />}
@@ -562,7 +562,7 @@ function Inspector({
   useEffect(() => setZoom(1), [room?.no])
 
   const shell =
-    "flex h-full min-h-0 flex-col overflow-hidden rounded-xl border border-[#E2E8F0] bg-[#F8FAFC]"
+    "flex h-full min-h-0 flex-col overflow-hidden rounded-xl border border-[#E6E2D8] bg-[#FAF8F5]"
 
   if (!room) {
     return (
@@ -587,15 +587,15 @@ function Inspector({
   const amount = room.price
 
   const header = (title: string, sub: React.ReactNode) => (
-    <div className="bg-[#1E1B4B] px-4 py-3">
-      <p className="text-[10.5px] font-semibold uppercase tracking-[0.1em] text-indigo-300">
+    <div className="bg-[#141413] px-4 py-3">
+      <p className="text-[10.5px] font-semibold uppercase tracking-[0.1em] text-[#C5A572]">
         {title}
       </p>
       <h2 className="mt-0.5 font-display text-[14px] font-bold leading-snug text-white">
         Kamar {room.no}{" "}
-        <span className="font-medium text-indigo-200">({room.tenant})</span>
+        <span className="font-medium text-stone-300">({room.tenant})</span>
       </h2>
-      <p className="mt-1 flex items-center gap-1.5 text-[11px] text-indigo-200/80">
+      <p className="mt-1 flex items-center gap-1.5 text-[11px] text-stone-400">
         {sub}
       </p>
     </div>
@@ -612,20 +612,20 @@ function Inspector({
             : `Lewat jatuh tempo ${room.overdueDays} hari · Belum ada bukti transfer`,
         )}
         <div className="flex-1 space-y-3 overflow-y-auto p-4">
-          <div className="rounded-xl border border-[#E2E8F0] bg-white p-4">
+          <div className="rounded-xl border border-[#E6E2D8] bg-white p-4">
             <div className="flex items-center justify-between">
               <p className="text-[11px] font-medium text-slate-500">
                 {room.invoiceId}
               </p>
               <StatusBadge r={room} />
             </div>
-            <p className="mt-2 font-display text-[24px] font-bold text-[#1E1B4B] tabular-nums">
+            <p className="mt-2 font-display text-[24px] font-bold text-[#141413] tabular-nums">
               {rupiah(room.price)}
             </p>
             <p className="text-[11.5px] text-slate-500">
               Sewa Kamar {room.no} ({room.type}) · November 2026
             </p>
-            <dl className="mt-3 space-y-1.5 border-t border-dashed border-[#E2E8F0] pt-3 text-[12px]">
+            <dl className="mt-3 space-y-1.5 border-t border-dashed border-[#E6E2D8] pt-3 text-[12px]">
               {[
                 ["Penghuni", room.tenant],
                 ["Jatuh tempo", "10 Nov 2026"],
@@ -649,7 +649,7 @@ function Inspector({
             </div>
           )}
         </div>
-        <div className="border-t border-[#E2E8F0] bg-white p-3">
+        <div className="border-t border-[#E6E2D8] bg-white p-3">
           {paid ? (
             <button
               onClick={() =>
@@ -658,14 +658,14 @@ function Inspector({
                   doc: { kind: "receipt", invoiceId: room.invoiceId! },
                 })
               }
-              className="flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-[#E2E8F0] text-[12.5px] font-semibold text-slate-700 hover:bg-slate-50"
+              className="flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-[#E6E2D8] text-[12.5px] font-semibold text-slate-700 hover:bg-slate-50"
             >
               <FileDown className="size-4" /> Unduh Kuitansi PDF
             </button>
           ) : (
             <button
               onClick={() => store.sendReminder([room.no])}
-              className="flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-[#4F46E5] text-[12.5px] font-semibold text-white hover:bg-[#4338CA]"
+              className="flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-[#141413] text-[12.5px] font-semibold text-white hover:bg-stone-800"
             >
               <Send className="size-4" /> Kirim Ulang Tagihan via WhatsApp
             </button>
@@ -699,14 +699,14 @@ function Inspector({
         "Verifikasi Mutasi Transfer",
         <>
           <Link2 className="size-3" /> Diunggah oleh penyewa via link WhatsApp{" "}
-          <span className="text-indigo-400">•</span> {rc.uploaded}
+          <span className="text-[#C5A572]">•</span> {rc.uploaded}
         </>,
       )}
 
       <div className="flex-1 space-y-3 overflow-y-auto p-4">
         {/* Receipt preview */}
-        <div className="overflow-hidden rounded-xl border border-[#E2E8F0] bg-white">
-          <div className="flex items-center justify-between border-b border-[#E2E8F0] px-3 py-1.5">
+        <div className="overflow-hidden rounded-xl border border-[#E6E2D8] bg-white">
+          <div className="flex items-center justify-between border-b border-[#E6E2D8] px-3 py-1.5">
             <p className="text-[11px] font-medium text-slate-500">
               bukti_transfer_{room.no}.jpg · 284 KB
             </p>
@@ -735,7 +735,7 @@ function Inspector({
           </div>
           {/* Box grows with the receipt (CSS zoom affects layout), so it never scrolls internally. */}
           <div
-            className={`relative flex justify-center overflow-hidden bg-[#EEF2F7] p-3 ${
+            className={`relative flex justify-center overflow-hidden bg-[#F3F0EA] p-3 ${
               zoom > 1 ? "cursor-zoom-out" : "cursor-zoom-in"
             }`}
             onClick={() => setZoom((z) => (z > 1 ? 1 : MAX_ZOOM))}
@@ -749,7 +749,7 @@ function Inspector({
               />
             </div>
             {zoom === 1 && (
-              <span className="pointer-events-none absolute bottom-2 right-2 flex items-center gap-1 rounded-md bg-[#1E1B4B]/80 px-1.5 py-0.5 text-[10px] font-medium text-white">
+              <span className="pointer-events-none absolute bottom-2 right-2 flex items-center gap-1 rounded-md bg-[#141413]/80 px-1.5 py-0.5 text-[10px] font-medium text-white">
                 <Maximize2 className="size-3" /> Klik untuk zoom
               </span>
             )}
@@ -770,7 +770,7 @@ function Inspector({
             {checks.map(({ icon: Icon, title, v }) => (
               <div
                 key={title}
-                className="flex items-center gap-2.5 rounded-lg border border-[#E2E8F0] bg-white px-3 py-2"
+                className="flex items-center gap-2.5 rounded-lg border border-[#E6E2D8] bg-white px-3 py-2"
               >
                 <span className="flex size-5 shrink-0 items-center justify-center rounded-full bg-[#10B981] text-white">
                   <Check className="size-3" strokeWidth={3.2} />
@@ -789,7 +789,7 @@ function Inspector({
       </div>
 
       {/* Sticky actions */}
-      <div className="flex gap-2 border-t border-[#E2E8F0] bg-white p-3">
+      <div className="flex gap-2 border-t border-[#E6E2D8] bg-white p-3">
         <button
           onClick={() => onReject(room.no)}
           className="flex min-h-11 basis-[40%] items-center justify-center rounded-lg border border-[#F43F5E] px-2 text-center text-[11.5px] font-semibold leading-tight text-[#E11D48] hover:bg-[#FFF1F2]"

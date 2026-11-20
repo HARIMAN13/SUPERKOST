@@ -91,7 +91,7 @@ export default function MaintenancePage() {
         actions={
           <button
             onClick={() => s.openModal({ type: "ticket" })}
-            className="flex h-10 items-center gap-2 rounded-lg bg-[#4F46E5] px-4 text-[13px] font-semibold text-white hover:bg-[#4338CA]"
+            className="flex h-10 items-center gap-2 rounded-lg bg-[#141413] px-4 text-[13px] font-semibold text-white hover:bg-stone-800"
           >
             <Plus className="size-4" strokeWidth={2.4} /> Buat Tiket Servis Baru
           </button>
@@ -116,7 +116,7 @@ export default function MaintenancePage() {
           icon={<AlertTriangle className="size-4" />}
           label="Prioritas Servis"
           value={`${need} Unit Perlu Servis Segera`}
-          valueCls={need ? "text-[#E11D48]" : "text-[#1E1B4B]"}
+          valueCls={need ? "text-[#E11D48]" : "text-[#141413]"}
           danger={need > 0}
         >
           {need > 0 ? (
@@ -139,12 +139,12 @@ export default function MaintenancePage() {
           label="Biaya Servis Bulan Ini"
           value={rupiah(acTotal)}
         >
-          <Tag cls="bg-[#F5F3FF] text-[#4F46E5] ring-[#C7D2FE]">
+          <Tag cls="bg-[#F5EFE6] text-[#8C6D3F] ring-[#DFD2BE]">
             <Droplets className="size-3" /> {acCosts.length} Unit Dicuci
           </Tag>
           <button
             onClick={() => s.navigate("finance", "kas")}
-            className="text-[11.5px] font-medium text-[#4F46E5] hover:underline"
+            className="text-[11.5px] font-medium text-[#8C6D3F] hover:underline"
           >
             · Lihat di Buku Kas
           </button>
@@ -152,17 +152,17 @@ export default function MaintenancePage() {
       </div>
 
       {otherOpen.length > 0 && (
-        <section className="rounded-xl border border-[#E2E8F0] bg-white">
-          <div className="flex items-center gap-2 border-b border-[#E2E8F0] px-4 py-3">
-            <ClipboardList className="size-4 text-[#4F46E5]" />
-            <h2 className="font-display text-[14px] font-bold text-[#1E1B4B]">
+        <section className="rounded-xl border border-[#E6E2D8] bg-white">
+          <div className="flex items-center gap-2 border-b border-[#E6E2D8] px-4 py-3">
+            <ClipboardList className="size-4 text-[#8C6D3F]" />
+            <h2 className="font-display text-[14px] font-bold text-[#141413]">
               Tiket Fasilitas Berjalan
             </h2>
             <span className="rounded-full bg-[#F59E0B]/12 px-2 py-0.5 text-[10.5px] font-semibold text-amber-700">
               {otherOpen.length} Terbuka
             </span>
           </div>
-          <ul className="divide-y divide-[#E2E8F0]">
+          <ul className="divide-y divide-[#E6E2D8]">
             {otherOpen.map((t) => (
               <TicketRow
                 key={t.id}
@@ -174,11 +174,11 @@ export default function MaintenancePage() {
         </section>
       )}
 
-      <section className="rounded-xl border border-[#E2E8F0] bg-white">
-        <div className="flex items-center justify-between gap-4 border-b border-[#E2E8F0] px-4 py-3">
+      <section className="rounded-xl border border-[#E6E2D8] bg-white">
+        <div className="flex items-center justify-between gap-4 border-b border-[#E6E2D8] px-4 py-3">
           <div className="flex items-center gap-2">
-            <CalendarCheck className="size-4 text-[#4F46E5]" />
-            <h2 className="font-display text-[14px] font-bold text-[#1E1B4B]">
+            <CalendarCheck className="size-4 text-[#8C6D3F]" />
+            <h2 className="font-display text-[14px] font-bold text-[#141413]">
               Status Siklus Cuci AC Berkala
             </h2>
             <span className="text-[12px] text-slate-500">
@@ -224,12 +224,12 @@ export default function MaintenancePage() {
             Tidak ada unit pada filter ini.
           </p>
         )}
-        <div className="flex items-center gap-4 border-t border-[#E2E8F0] px-4 py-2.5 text-[11px] text-slate-500">
+        <div className="flex items-center gap-4 border-t border-[#E6E2D8] px-4 py-2.5 text-[11px] text-slate-500">
           {[
             ["bg-[#F43F5E]", "Wajib Servis (≥ 5 bulan)"],
             ["bg-[#F59E0B]", "Jadwal Bulan Depan (4–5 bulan)"],
             ["bg-[#10B981]", "Kondisi Prima (< 4 bulan)"],
-            ["bg-[#4F46E5]", "Teknisi Dijadwalkan"],
+            ["bg-[#141413]", "Teknisi Dijadwalkan"],
           ].map(([c, l]) => (
             <span key={l} className="flex items-center gap-1.5">
               <span className={`size-2 rounded-sm ${c}`} /> {l}
@@ -241,7 +241,7 @@ export default function MaintenancePage() {
 
       <section>
         <div className="mb-2.5 flex items-center justify-between">
-          <h2 className="font-display text-[14px] font-bold text-[#1E1B4B]">
+          <h2 className="font-display text-[14px] font-bold text-[#141413]">
             Direktori Teknisi & Toko Langganan Kost
           </h2>
         </div>
@@ -252,16 +252,16 @@ export default function MaintenancePage() {
             return (
               <div
                 key={v.name}
-                className="flex flex-col rounded-xl border border-[#E2E8F0] bg-white p-4"
+                className="flex flex-col rounded-xl border border-[#E6E2D8] bg-white p-4"
               >
                 <div className="flex items-start gap-3">
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#F5F3FF] text-[#4F46E5] ring-1 ring-[#C7D2FE]">
+                  <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#F5EFE6] text-[#8C6D3F] ring-1 ring-[#DFD2BE]">
                     <Icon className="size-5" strokeWidth={1.9} />
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="flex items-center gap-1 text-[13px] font-bold text-[#1E1B4B]">
+                    <p className="flex items-center gap-1 text-[13px] font-bold text-[#141413]">
                       {v.name}{" "}
-                      <BadgeCheck className="size-3.5 text-[#4F46E5]" />
+                      <BadgeCheck className="size-3.5 text-[#8C6D3F]" />
                     </p>
                     <p className="text-[11.5px] text-slate-500">{v.role}</p>
                   </div>
@@ -284,13 +284,13 @@ export default function MaintenancePage() {
                   {v.tags.map((t) => (
                     <span
                       key={t}
-                      className="rounded bg-[#F8FAFC] px-1.5 py-0.5 text-[10.5px] font-medium text-slate-600 ring-1 ring-inset ring-[#E2E8F0]"
+                      className="rounded bg-[#FAF8F5] px-1.5 py-0.5 text-[10.5px] font-medium text-slate-600 ring-1 ring-inset ring-[#E6E2D8]"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
-                <div className="mt-3 flex items-center gap-2 border-t border-[#E2E8F0] pt-3 text-[12px]">
+                <div className="mt-3 flex items-center gap-2 border-t border-[#E6E2D8] pt-3 text-[12px]">
                   <CIcon className="size-3.5 text-slate-400" />
                   <span className="text-slate-500">{v.contact.label}:</span>
                   <span className="font-semibold text-slate-800 tabular-nums">
@@ -314,7 +314,7 @@ export default function MaintenancePage() {
                 ) : (
                   <button
                     onClick={() => setCatalog(true)}
-                    className="mt-3 flex h-9 items-center justify-center gap-1.5 rounded-lg border border-[#E2E8F0] text-[12.5px] font-semibold text-slate-700 hover:bg-slate-50"
+                    className="mt-3 flex h-9 items-center justify-center gap-1.5 rounded-lg border border-[#E6E2D8] text-[12.5px] font-semibold text-slate-700 hover:bg-slate-50"
                   >
                     <BookOpen className="size-4 text-slate-500" /> Lihat Katalog
                   </button>
@@ -375,14 +375,14 @@ function CatalogModal({ onClose }: { onClose: () => void }) {
       }
     >
       <table className="w-full text-[12.5px]">
-        <thead className="bg-[#F8FAFC] text-left text-[10.5px] font-semibold uppercase tracking-wider text-slate-500">
+        <thead className="bg-[#FAF8F5] text-left text-[10.5px] font-semibold uppercase tracking-wider text-slate-500">
           <tr>
             <th className="px-5 py-2">Barang</th>
             <th className="py-2 text-right">Harga</th>
             <th className="w-[120px] px-5 py-2 text-right">Jumlah</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-[#E2E8F0]">
+        <tbody className="divide-y divide-[#E6E2D8]">
           {CATALOG.map(([n, unit, p]) => (
             <tr key={n}>
               <td className="px-5 py-2.5 font-medium text-slate-800">{n}</td>
@@ -400,7 +400,7 @@ function CatalogModal({ onClose }: { onClose: () => void }) {
                       [n]: Math.max(0, Number(e.target.value) || 0),
                     }))
                   }
-                  className="h-8 w-16 rounded-md border border-[#E2E8F0] px-2 text-right tabular-nums outline-none focus:border-[#6366F1]"
+                  className="h-8 w-16 rounded-md border border-[#E6E2D8] px-2 text-right tabular-nums outline-none focus:border-[#141413]"
                 />
               </td>
             </tr>
@@ -440,7 +440,7 @@ function Stat({
   icon,
   label,
   value,
-  valueCls = "text-[#1E1B4B]",
+  valueCls = "text-[#141413]",
   danger,
   children,
 }: {
@@ -452,13 +452,13 @@ function Stat({
   children: ReactNode
 }) {
   return (
-    <div className="rounded-xl border border-[#E2E8F0] bg-white p-4">
+    <div className="rounded-xl border border-[#E6E2D8] bg-white p-4">
       <div className="flex items-center gap-2">
         <span
           className={`flex size-6 items-center justify-center rounded-md ${
             danger
               ? "bg-[#F43F5E]/10 text-[#F43F5E]"
-              : "bg-[#F5F3FF] text-[#4F46E5]"
+              : "bg-[#F5EFE6] text-[#8C6D3F]"
           }`}
         >
           {icon}
@@ -512,7 +512,7 @@ function UnitCard({
       label: "Jadwal Bulan Depan",
     },
     healthy: {
-      border: "border-[#E2E8F0]",
+      border: "border-[#E6E2D8]",
       bar: "bg-[#10B981]",
       tag: "bg-[#10B981]/10 text-emerald-700",
       label: "Kondisi Prima",
@@ -522,7 +522,7 @@ function UnitCard({
   return (
     <div
       className={`flex flex-col rounded-[10px] border bg-white p-2.5 ${
-        ticket ? "border-[#C7D2FE]" : st.border
+        ticket ? "border-[#DFD2BE]" : st.border
       } ${h === "overdue" && !ticket ? "ring-2 ring-[#F43F5E]/10" : ""}`}
     >
       <div className="flex items-center justify-between gap-1">
@@ -531,7 +531,7 @@ function UnitCard({
         </p>
         <span
           className={`rounded px-1.5 py-0.5 text-[9.5px] font-semibold ${
-            ticket ? "bg-[#F5F3FF] text-[#4F46E5]" : st.tag
+            ticket ? "bg-[#F5EFE6] text-[#8C6D3F]" : st.tag
           }`}
         >
           {ticket ? "Dijadwalkan" : st.label}
@@ -552,7 +552,7 @@ function UnitCard({
         ({ago(u.last)})
       </p>
       <div
-        className="mt-2 h-1 overflow-hidden rounded-full bg-[#F1F5F9]"
+        className="mt-2 h-1 overflow-hidden rounded-full bg-[#F3F0EA]"
         title={`${Math.round(pct)}% dari siklus 5 bulan`}
       >
         <div
@@ -562,7 +562,7 @@ function UnitCard({
       </div>
       {ticket ? (
         <div className="mt-2">
-          <p className="truncate text-[10px] text-[#4F46E5]">
+          <p className="truncate text-[10px] text-[#8C6D3F]">
             {ticket.vendor} · {fmt(ticket.date)}
           </p>
           <button

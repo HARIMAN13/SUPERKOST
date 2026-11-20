@@ -125,12 +125,12 @@ export default function Topbar() {
   const unread = notifs.filter((n) => !seen[n.id]).length
 
   return (
-    <header className="sticky top-0 z-20 flex h-[72px] items-center gap-3 sm:gap-5 border-b border-[#E2E8F0] bg-white px-3 sm:px-6">
+    <header className="sticky top-0 z-20 flex h-[72px] items-center gap-2.5 sm:gap-3.5 border-b border-[#E6E2D8] bg-white/95 backdrop-blur-md px-3 sm:px-6">
       {/* Mobile hamburger menu toggle */}
       <button
         type="button"
         onClick={() => s.setMobileMenuOpen(true)}
-        className="lg:hidden flex size-9 shrink-0 items-center justify-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50"
+        className="lg:hidden flex size-9 shrink-0 items-center justify-center rounded-lg border border-[#E6E2D8] text-stone-700 hover:bg-stone-100"
         aria-label="Buka menu navigasi"
       >
         <Menu className="size-5" />
@@ -140,30 +140,31 @@ export default function Topbar() {
       <div ref={propRef} className="relative shrink-0">
         <button
           onClick={() => setOpen(open === "prop" ? null : "prop")}
-          className="flex items-center gap-2 sm:gap-2.5 rounded-lg border border-[#E2E8F0] py-1.5 pl-1.5 pr-2.5 sm:pr-3 hover:bg-slate-50"
+          className="flex items-center gap-2 sm:gap-2.5 rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] py-1.5 pl-1.5 pr-2.5 sm:pr-3 hover:border-stone-300 transition-colors"
         >
-          <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-[#F5F3FF] text-[#4F46E5]">
+          <div className="flex size-8 shrink-0 items-center justify-center rounded-md bg-[#141413] text-[#C5A572]">
             <Building2 className="size-4" strokeWidth={1.8} />
           </div>
           <div className="text-left hidden sm:block">
-            <p className="text-[13px] font-semibold leading-tight text-slate-900 truncate max-w-[140px] sm:max-w-none">
+            <p className="text-[13px] font-semibold leading-tight text-[#141413] truncate max-w-[180px] xl:max-w-none">
               {s.property.name}{" "}
-              <span className="font-normal text-slate-500">
+              <span className="font-normal text-stone-500">
                 ({s.rooms.length} Kamar)
               </span>
             </p>
-            <p className="text-[11px] leading-tight text-slate-500">
+            <p className="text-[11px] leading-tight text-stone-500">
               {s.property.area}
             </p>
           </div>
           <ChevronDown
-            className={`ml-0.5 sm:ml-1 size-4 text-slate-400 transition-transform ${open === "prop" ? "rotate-180" : ""
-              }`}
+            className={`ml-0.5 size-4 text-stone-400 transition-transform ${
+              open === "prop" ? "rotate-180" : ""
+            }`}
           />
         </button>
         {open === "prop" && (
-          <div className="absolute left-0 top-full mt-1.5 w-[320px] rounded-xl border border-[#E2E8F0] bg-white p-1.5 shadow-lg shadow-slate-900/5">
-            <p className="px-2 pb-1 pt-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+          <div className="absolute left-0 top-full mt-1.5 w-[320px] rounded-xl border border-[#E6E2D8] bg-white p-1.5 shadow-xl shadow-stone-900/10 z-50">
+            <p className="px-2 pb-1 pt-1 text-[10px] font-semibold uppercase tracking-wider text-stone-400">
               Portofolio Properti
             </p>
             {s.propertySummaries.map((x) => (
@@ -173,23 +174,24 @@ export default function Topbar() {
                   if (x.id !== s.propId) s.switchProperty(x.id)
                   close()
                 }}
-                className={`flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-left hover:bg-slate-50 ${x.id === s.propId ? "bg-[#F5F3FF]" : ""
-                  }`}
+                className={`flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-left hover:bg-[#FAF8F5] ${
+                  x.id === s.propId ? "bg-[#F5EFE6]" : ""
+                }`}
               >
                 <Building2
-                  className="size-4 text-slate-400"
+                  className="size-4 text-stone-500"
                   strokeWidth={1.8}
                 />
                 <div className="flex-1">
-                  <p className="text-[12.5px] font-medium text-slate-900">
+                  <p className="text-[12.5px] font-medium text-[#141413]">
                     {x.name}{" "}
-                    <span className="text-slate-500">({x.rooms} Kamar)</span>
+                    <span className="text-stone-500">({x.rooms} Kamar)</span>
                   </p>
-                  <p className="text-[11px] text-slate-500">
+                  <p className="text-[11px] text-stone-500">
                     {x.area} ·{" "}
                     <span
                       className={
-                        x.overdue ? "text-rose-600" : "text-emerald-600"
+                        x.overdue ? "text-rose-600" : "text-emerald-700"
                       }
                     >
                       {x.overdue} nunggak
@@ -197,7 +199,7 @@ export default function Topbar() {
                   </p>
                 </div>
                 {x.id === s.propId && (
-                  <Check className="size-4 text-[#4F46E5]" />
+                  <Check className="size-4 text-[#8C6D3F]" />
                 )}
               </button>
             ))}
@@ -208,16 +210,19 @@ export default function Topbar() {
       {/* Quick link back to landing page */}
       <Link
         href="/"
-        className="hidden md:inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors shrink-0"
+        className="hidden xl:inline-flex items-center gap-1.5 rounded-lg border border-[#E6E2D8] bg-white px-3 py-2 text-xs font-semibold text-stone-600 hover:bg-[#FAF8F5] hover:text-[#141413] transition-colors shrink-0 whitespace-nowrap"
         title="Kembali ke Halaman Depan"
       >
-        <Home className="size-3.5 text-slate-500" />
+        <Home className="size-3.5 text-stone-500" />
         <span>Ke Beranda</span>
       </Link>
 
-      {/* Global search */}
-      <div ref={searchWrap} className="relative min-w-0 max-w-[560px] flex-1 hidden md:block">
-        <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
+      {/* Global search — proper min-width so it never collapses or overlaps */}
+      <div
+        ref={searchWrap}
+        className="relative min-w-[200px] max-w-[440px] flex-1 hidden md:block"
+      >
+        <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-400" />
         <input
           ref={searchRef}
           value={q}
@@ -237,16 +242,20 @@ export default function Topbar() {
               searchRef.current?.blur()
             }
           }}
-          placeholder={`Cari nama penghuni, nomor kamar ${s.rooms[0]?.no}-${s.rooms[s.rooms.length - 1]?.no}, atau no. telepon...`}
-          className="h-10 w-full rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] pl-9 pr-16 text-[12.5px] text-slate-900 outline-none placeholder:text-slate-400 focus:border-[#6366F1] focus:bg-white focus:ring-3 focus:ring-[#6366F1]/15"
+          placeholder={
+            s.rooms.length
+              ? `Cari penghuni, kamar ${s.rooms[0]?.no}–${s.rooms[s.rooms.length - 1]?.no}, atau no. HP...`
+              : "Cari nama penghuni atau nomor kamar..."
+          }
+          className="h-10 w-full rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] pl-9 pr-3 xl:pr-16 text-[12.5px] text-[#141413] outline-none placeholder:text-stone-400 focus:border-[#141413] focus:bg-white focus:ring-2 focus:ring-[#141413]/10"
         />
-        <kbd className="absolute right-2.5 top-1/2 -translate-y-1/2 rounded border border-[#E2E8F0] bg-white px-1.5 py-0.5 font-sans text-[10px] font-medium text-slate-500">
+        <kbd className="hidden xl:inline-block pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 rounded border border-[#E6E2D8] bg-white px-1.5 py-0.5 font-sans text-[10px] font-medium text-stone-500 whitespace-nowrap">
           Ctrl K
         </kbd>
         {open === "search" && q.trim() && (
-          <div className="absolute left-0 right-0 top-full mt-1.5 overflow-hidden rounded-xl border border-[#E2E8F0] bg-white shadow-lg shadow-slate-900/5">
+          <div className="absolute left-0 right-0 top-full mt-1.5 overflow-hidden rounded-xl border border-[#E6E2D8] bg-white shadow-xl shadow-stone-900/10 z-50">
             {results.length === 0 ? (
-              <p className="px-4 py-6 text-center text-[12px] text-slate-500">
+              <p className="px-4 py-6 text-center text-[12px] text-stone-500">
                 Tidak ada kamar atau penghuni yang cocok dengan &ldquo;{q}&rdquo;.
               </p>
             ) : (
@@ -256,27 +265,28 @@ export default function Topbar() {
                     paid: ["Lunas", "text-emerald-700 bg-[#10B981]/10"],
                     overdue: ["Nunggak", "text-rose-700 bg-[#F43F5E]/10"],
                     verify: ["Verifikasi", "text-amber-700 bg-[#F59E0B]/12"],
-                    vacant: ["Kosong", "text-slate-600 bg-slate-100"],
+                    vacant: ["Kosong", "text-stone-600 bg-stone-100"],
                   }[r.status]
                   return (
                     <li key={r.no}>
                       <button
                         onMouseEnter={() => setCursor(i)}
                         onClick={() => pick(r.no)}
-                        className={`flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left ${i === cursor ? "bg-[#F5F3FF]" : ""
-                          }`}
+                        className={`flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left ${
+                          i === cursor ? "bg-[#F5EFE6]" : ""
+                        }`}
                       >
-                        <span className="flex size-8 items-center justify-center rounded-md border border-[#E2E8F0] bg-white text-slate-500">
+                        <span className="flex size-8 items-center justify-center rounded-md border border-[#E6E2D8] bg-white text-stone-500">
                           <DoorOpen className="size-4" strokeWidth={1.8} />
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="block text-[12.5px] font-semibold text-slate-900">
+                          <span className="block text-[12.5px] font-semibold text-[#141413]">
                             Kamar {r.no}{" "}
-                            <span className="font-normal text-slate-500">
+                            <span className="font-normal text-stone-500">
                               · {r.type}
                             </span>
                           </span>
-                          <span className="block truncate text-[11px] text-slate-500">
+                          <span className="block truncate text-[11px] text-stone-500">
                             {r.tenant ?? `Siap huni · ${rupiah(r.price)}`}
                           </span>
                         </span>
@@ -286,7 +296,7 @@ export default function Topbar() {
                           {st[0]}
                         </span>
                         {i === cursor && (
-                          <CornerDownLeft className="size-3.5 text-slate-400" />
+                          <CornerDownLeft className="size-3.5 text-stone-400" />
                         )}
                       </button>
                     </li>
@@ -298,29 +308,27 @@ export default function Topbar() {
         )}
       </div>
 
-      <div className="ml-auto flex items-center gap-2 sm:gap-3">
-        <div className="hidden xl:flex items-center gap-2 rounded-lg border border-[#10B981]/25 bg-[#10B981]/[0.06] px-2.5 py-1.5">
-          <span className="relative flex size-2">
-            <span className="absolute inset-0 animate-ping rounded-full bg-[#10B981] opacity-60" />
-            <span className="relative size-2 rounded-full bg-[#10B981]" />
-          </span>
-          <div className="leading-tight">
+      <div className="ml-auto flex items-center gap-2 sm:gap-2.5 shrink-0">
+        <div className="hidden 2xl:flex items-center gap-2 rounded-lg border border-[#10B981]/25 bg-[#10B981]/[0.06] px-2.5 py-1.5 shrink-0">
+          <span className="size-2 rounded-full bg-[#10B981]" />
+          <div className="leading-tight whitespace-nowrap">
             <p className="text-[10px] font-medium uppercase tracking-wide text-emerald-700/80">
               WA Auto-Billing
             </p>
             <p className="text-[11.5px] font-semibold text-emerald-800">
-              Cron Job Aktif (08:00 WIB)
+              Aktif (08:00 WIB)
             </p>
           </div>
         </div>
 
         {/* Notifications */}
-        <div ref={bellRef} className="relative">
+        <div ref={bellRef} className="relative shrink-0">
           <button
             onClick={() => setOpen(open === "bell" ? null : "bell")}
             aria-label="Notifikasi"
-            className={`relative flex size-10 items-center justify-center rounded-lg border border-[#E2E8F0] text-slate-600 hover:bg-slate-50 ${open === "bell" ? "bg-slate-50" : ""
-              }`}
+            className={`relative flex size-10 items-center justify-center rounded-lg border border-[#E6E2D8] text-stone-600 hover:bg-[#FAF8F5] ${
+              open === "bell" ? "bg-[#FAF8F5]" : ""
+            }`}
           >
             <Bell className="size-[18px]" strokeWidth={1.8} />
             {unread > 0 && (
@@ -330,27 +338,27 @@ export default function Topbar() {
             )}
           </button>
           {open === "bell" && (
-            <div className="absolute right-0 top-full mt-1.5 w-[360px] overflow-hidden rounded-xl border border-[#E2E8F0] bg-white shadow-lg shadow-slate-900/5">
-              <div className="flex items-center justify-between border-b border-[#E2E8F0] px-4 py-2.5">
-                <p className="text-[13px] font-semibold text-[#1E1B4B]">
+            <div className="absolute right-0 top-full mt-1.5 w-[340px] sm:w-[360px] overflow-hidden rounded-xl border border-[#E6E2D8] bg-white shadow-xl shadow-stone-900/10 z-50">
+              <div className="flex items-center justify-between border-b border-[#E6E2D8] px-4 py-2.5">
+                <p className="text-[13px] font-semibold text-[#141413]">
                   Notifikasi
                 </p>
                 <button
                   onClick={() =>
                     setSeen(Object.fromEntries(notifs.map((n) => [n.id, true])))
                   }
-                  className="text-[11.5px] font-semibold text-[#4F46E5] hover:text-[#4338CA] disabled:text-slate-300"
+                  className="text-[11.5px] font-semibold text-[#8C6D3F] hover:text-[#141413] disabled:text-stone-300"
                   disabled={!unread}
                 >
                   Tandai semua dibaca
                 </button>
               </div>
               {notifs.length === 0 ? (
-                <p className="px-4 py-8 text-center text-[12px] text-slate-500">
+                <p className="px-4 py-8 text-center text-[12px] text-stone-500">
                   Tidak ada peringatan. Operasional aman.
                 </p>
               ) : (
-                <ul className="max-h-[360px] divide-y divide-[#E2E8F0] overflow-y-auto">
+                <ul className="max-h-[360px] divide-y divide-[#E6E2D8] overflow-y-auto">
                   {notifs.map((n) => {
                     const Icon = n.icon
                     return (
@@ -361,7 +369,7 @@ export default function Topbar() {
                             close()
                             n.go()
                           }}
-                          className="flex w-full items-start gap-3 px-4 py-3 text-left hover:bg-slate-50"
+                          className="flex w-full items-start gap-3 px-4 py-3 text-left hover:bg-[#FAF8F5]"
                         >
                           <span
                             className={`mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-md ${n.tone}`}
@@ -369,15 +377,15 @@ export default function Topbar() {
                             <Icon className="size-3.5" />
                           </span>
                           <span className="min-w-0 flex-1">
-                            <span className="block text-[12.5px] font-semibold text-slate-900">
+                            <span className="block text-[12.5px] font-semibold text-[#141413]">
                               {n.title}
                             </span>
-                            <span className="block truncate text-[11px] text-slate-500">
+                            <span className="block truncate text-[11px] text-stone-500">
                               {n.sub}
                             </span>
                           </span>
                           {!seen[n.id] && (
-                            <span className="mt-1.5 size-2 rounded-full bg-[#4F46E5]" />
+                            <span className="mt-1.5 size-2 rounded-full bg-[#8C6D3F]" />
                           )}
                         </button>
                       </li>
@@ -390,22 +398,23 @@ export default function Topbar() {
         </div>
 
         {/* Primary CTA */}
-        <div ref={ctaRef} className="relative">
+        <div ref={ctaRef} className="relative shrink-0">
           <button
             onClick={() => setOpen(open === "cta" ? null : "cta")}
-            className="flex h-10 items-center gap-1.5 sm:gap-2 rounded-lg bg-[#4F46E5] pl-2.5 sm:pl-3.5 pr-2 sm:pr-2.5 text-[12px] sm:text-[13px] font-semibold text-white hover:bg-[#4338CA] shrink-0"
+            className="flex h-10 items-center gap-1.5 sm:gap-2 rounded-lg bg-[#141413] pl-2.5 sm:pl-3.5 pr-2 sm:pr-2.5 text-[12px] sm:text-[13px] font-semibold text-[#FAF8F5] hover:bg-stone-800 shrink-0 whitespace-nowrap"
           >
-            <Plus className="size-4 shrink-0" strokeWidth={2.4} />
+            <Plus className="size-4 shrink-0 text-[#C5A572]" strokeWidth={2.4} />
             <span className="hidden sm:inline">Entri Transaksi Baru</span>
             <span className="sm:hidden">Transaksi</span>
-            <span className="ml-0.5 sm:ml-1 h-5 w-px bg-white/25" />
+            <span className="ml-0.5 sm:ml-1 h-5 w-px bg-white/20" />
             <ChevronDown
-              className={`size-3.5 sm:size-4 transition-transform ${open === "cta" ? "rotate-180" : ""
-                }`}
+              className={`size-3.5 sm:size-4 transition-transform ${
+                open === "cta" ? "rotate-180" : ""
+              }`}
             />
           </button>
           {open === "cta" && (
-            <div className="absolute right-0 top-full mt-1.5 w-[260px] rounded-xl border border-[#E2E8F0] bg-white p-1.5 shadow-lg shadow-slate-900/5">
+            <div className="absolute right-0 top-full mt-1.5 w-[260px] rounded-xl border border-[#E6E2D8] bg-white p-1.5 shadow-xl shadow-stone-900/10 z-50">
               {[
                 {
                   icon: Wallet,
@@ -418,7 +427,7 @@ export default function Topbar() {
                   icon: UserPlus,
                   label: "Pasang Penghuni Baru",
                   sub: "Check-in & kontrak digital",
-                  c: "text-[#4F46E5] bg-[#F5F3FF]",
+                  c: "text-[#8C6D3F] bg-[#F5EFE6]",
                   go: () => s.openModal({ type: "checkIn" }),
                 },
                 {
@@ -435,7 +444,7 @@ export default function Topbar() {
                     close()
                     go()
                   }}
-                  className="flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-left hover:bg-slate-50"
+                  className="flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-left hover:bg-[#FAF8F5]"
                 >
                   <span
                     className={`flex size-8 items-center justify-center rounded-md ${c}`}
@@ -443,10 +452,10 @@ export default function Topbar() {
                     <Icon className="size-4" strokeWidth={1.8} />
                   </span>
                   <span>
-                    <span className="block text-[12.5px] font-semibold text-slate-900">
+                    <span className="block text-[12.5px] font-semibold text-[#141413]">
                       {label}
                     </span>
-                    <span className="block text-[11px] text-slate-500">
+                    <span className="block text-[11px] text-stone-500">
                       {sub}
                     </span>
                   </span>
@@ -457,31 +466,32 @@ export default function Topbar() {
         </div>
 
         {/* User profile dropdown with Logout & Back */}
-        <div ref={userRef} className="relative">
+        <div ref={userRef} className="relative shrink-0">
           <button
             onClick={() => setOpen(open === "user" ? null : "user")}
             aria-label="Profil Pengguna"
-            className="flex items-center gap-1.5 sm:gap-2 rounded-lg p-1 hover:bg-slate-100 transition-colors"
+            className="flex items-center gap-1.5 rounded-lg p-1 hover:bg-stone-100 transition-colors"
           >
-            <div className="flex size-9 items-center justify-center rounded-full bg-[#1E1B4B] text-[12px] font-bold text-white ring-2 ring-indigo-500/20">
+            <div className="flex size-9 items-center justify-center rounded-full bg-[#141413] text-[12px] font-bold text-[#C5A572] ring-2 ring-[#C5A572]/25">
               {userInitials}
             </div>
             <ChevronDown
-              className={`hidden sm:block size-3.5 text-slate-400 transition-transform ${open === "user" ? "rotate-180" : ""
-                }`}
+              className={`hidden sm:block size-3.5 text-stone-400 transition-transform ${
+                open === "user" ? "rotate-180" : ""
+              }`}
             />
           </button>
 
           {open === "user" && (
-            <div className="absolute right-0 top-full mt-2 w-[240px] rounded-xl border border-[#E2E8F0] bg-white p-2 shadow-xl shadow-slate-900/10 z-50 animate-pop-in">
-              <div className="border-b border-slate-100 px-3 py-2">
-                <p className="text-[13px] font-bold text-slate-900">
+            <div className="absolute right-0 top-full mt-2 w-[240px] rounded-xl border border-[#E6E2D8] bg-white p-2 shadow-xl shadow-stone-900/10 z-50 animate-pop-in">
+              <div className="border-b border-stone-100 px-3 py-2">
+                <p className="text-[13px] font-bold text-[#141413]">
                   {displayName}
                 </p>
-                <p className="text-[11px] text-slate-500 truncate">
+                <p className="text-[11px] text-stone-500 truncate">
                   {displayEmail}
                 </p>
-                <span className="mt-1 inline-block rounded-md bg-indigo-50 px-1.5 py-0.5 text-[10px] font-semibold text-indigo-700">
+                <span className="mt-1 inline-block rounded-md bg-[#F5EFE6] px-1.5 py-0.5 text-[10px] font-semibold text-[#8C6D3F]">
                   {roleLabel}
                 </span>
               </div>
@@ -490,9 +500,9 @@ export default function Topbar() {
                 <Link
                   href="/"
                   onClick={close}
-                  className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-[12.5px] font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+                  className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-[12.5px] font-medium text-stone-700 hover:bg-[#FAF8F5] transition-colors"
                 >
-                  <Home className="size-4 text-slate-500" />
+                  <Home className="size-4 text-stone-500" />
                   <span>Ke Halaman Depan</span>
                 </Link>
 
@@ -501,14 +511,14 @@ export default function Topbar() {
                     close()
                     s.navigate("staff")
                   }}
-                  className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-[12.5px] font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+                  className="flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-[12.5px] font-medium text-stone-700 hover:bg-[#FAF8F5] transition-colors"
                 >
-                  <UserCheck className="size-4 text-slate-500" />
+                  <UserCheck className="size-4 text-stone-500" />
                   <span>Mode Kasir Staf (Pak Darto)</span>
                 </button>
               </div>
 
-              <div className="border-t border-slate-100 pt-1">
+              <div className="border-t border-stone-100 pt-1">
                 <button
                   type="button"
                   onClick={async () => {

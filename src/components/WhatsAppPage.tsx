@@ -65,7 +65,7 @@ function Toggle({
         onChange()
       }}
       className={`relative h-5 w-9 shrink-0 rounded-full transition-colors ${
-        on ? "bg-[#4F46E5]" : "bg-slate-300"
+        on ? "bg-[#141413]" : "bg-slate-300"
       }`}
     >
       <span
@@ -146,7 +146,7 @@ export default function WhatsAppPage({
             Mesin WhatsApp Gateway <span className="text-slate-300">/</span>{" "}
             Otomasi & Outbox
           </p>
-          <h1 className="mt-0.5 font-display text-[21px] font-bold tracking-tight text-[#1E1B4B]">
+          <h1 className="mt-0.5 font-display text-[21px] font-bold tracking-tight text-[#141413]">
             Pusat Otomasi Notifikasi WhatsApp & Gateway
           </h1>
         </div>
@@ -157,8 +157,8 @@ export default function WhatsAppPage({
       </div>
 
       {/* Gateway status bar */}
-      <section className="flex items-center gap-5 rounded-xl border border-[#E2E8F0] bg-white px-4 py-3">
-        <span className="flex size-10 items-center justify-center rounded-lg bg-[#F5F3FF] text-[#4F46E5] ring-1 ring-[#C7D2FE]">
+      <section className="flex items-center gap-5 rounded-xl border border-[#E6E2D8] bg-white px-4 py-3">
+        <span className="flex size-10 items-center justify-center rounded-lg bg-[#F5EFE6] text-[#8C6D3F] ring-1 ring-[#DFD2BE]">
           <MessageSquareText className="size-5" strokeWidth={1.9} />
         </span>
         <div className="min-w-0">
@@ -173,7 +173,7 @@ export default function WhatsAppPage({
             </span>
           </p>
           <p className="mt-0.5 flex items-center gap-1.5 text-[11.5px] text-slate-500">
-            <Server className="size-3.5 text-[#4F46E5]" /> Fonnte API{" "}
+            <Server className="size-3.5 text-[#8C6D3F]" /> Fonnte API{" "}
             <span className="text-slate-300">•</span> Node ID: SBY-01
           </p>
         </div>
@@ -203,14 +203,14 @@ export default function WhatsAppPage({
               / {QUOTA.toLocaleString("id-ID")} Pesan Terpakai
             </p>
           </div>
-          <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-[#EEF2FF]">
+          <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-[#F3F0EA]">
             <div
               className={`h-full rounded-full transition-all ${
                 pct >= 95
                   ? "bg-[#F43F5E]"
                   : pct >= 85
                     ? "bg-[#F59E0B]"
-                    : "bg-[#4F46E5]"
+                    : "bg-[#141413]"
               }`}
               style={{ width: `${pct}%` }}
             />
@@ -223,12 +223,12 @@ export default function WhatsAppPage({
 
       <div className="grid h-[calc(100vh-292px)] min-h-[560px] grid-cols-[minmax(0,40fr)_minmax(0,60fr)] gap-4">
         {/* LEFT: rules + editor */}
-        <section className="flex min-h-0 flex-col overflow-hidden rounded-xl border border-[#E2E8F0] bg-white">
-          <div className="flex items-center justify-between border-b border-[#E2E8F0] px-4 py-3">
-            <h2 className="font-display text-[13.5px] font-bold text-[#1E1B4B]">
+        <section className="flex min-h-0 flex-col overflow-hidden rounded-xl border border-[#E6E2D8] bg-white">
+          <div className="flex items-center justify-between border-b border-[#E6E2D8] px-4 py-3">
+            <h2 className="font-display text-[13.5px] font-bold text-[#141413]">
               Aturan Penagihan Otomatis (Cron Job Harian)
             </h2>
-            <span className="rounded-full bg-[#F5F3FF] px-2 py-0.5 text-[10.5px] font-semibold text-[#4F46E5]">
+            <span className="rounded-full bg-[#F5EFE6] px-2 py-0.5 text-[10.5px] font-semibold text-[#8C6D3F]">
               {rules.filter((r) => r.on).length}/4 Aktif
             </span>
           </div>
@@ -245,15 +245,15 @@ export default function WhatsAppPage({
                       onKeyDown={(e) => e.key === "Enter" && setActive(r.id)}
                       className={`flex cursor-pointer items-center gap-3 rounded-lg border px-3 py-2.5 transition-colors ${
                         sel
-                          ? "border-[#C7D2FE] bg-[#F5F3FF]"
-                          : "border-[#E2E8F0] hover:bg-slate-50"
+                          ? "border-[#DFD2BE] bg-[#F5EFE6]"
+                          : "border-[#E6E2D8] hover:bg-slate-50"
                       } ${r.on ? "" : "opacity-60"}`}
                     >
                       <span
                         className={`flex size-8 shrink-0 items-center justify-center rounded-md ${
                           sel
-                            ? "bg-white text-[#4F46E5]"
-                            : "bg-[#F8FAFC] text-slate-500"
+                            ? "bg-white text-[#8C6D3F]"
+                            : "bg-[#FAF8F5] text-slate-500"
                         }`}
                       >
                         {r.time ? (
@@ -274,7 +274,7 @@ export default function WhatsAppPage({
                               onChange={(e) =>
                                 patchRule(r.id, { time: e.target.value })
                               }
-                              className="rounded border border-transparent bg-transparent font-medium text-slate-700 outline-none hover:border-[#E2E8F0] focus:border-[#6366F1]"
+                              className="rounded border border-transparent bg-transparent font-medium text-slate-700 outline-none hover:border-[#E6E2D8] focus:border-[#141413]"
                             >
                               {[
                                 "07:00",
@@ -290,7 +290,7 @@ export default function WhatsAppPage({
                               ))}
                             </select>
                           ) : (
-                            <span className="font-medium text-[#4F46E5]">
+                            <span className="font-medium text-[#8C6D3F]">
                               Instant Trigger
                             </span>
                           )}
@@ -322,12 +322,12 @@ export default function WhatsAppPage({
             </ul>
 
             {/* Template editor */}
-            <div className="border-t border-[#E2E8F0] p-4">
+            <div className="border-t border-[#E6E2D8] p-4">
               <div className="flex items-center justify-between">
-                <p className="text-[12.5px] font-semibold text-[#1E1B4B]">
+                <p className="text-[12.5px] font-semibold text-[#141413]">
                   Editor Template Dinamis
                 </p>
-                <span className="rounded bg-[#F5F3FF] px-1.5 py-0.5 text-[10.5px] font-semibold text-[#4F46E5]">
+                <span className="rounded bg-[#F5EFE6] px-1.5 py-0.5 text-[10.5px] font-semibold text-[#8C6D3F]">
                   {rule.tag}
                 </span>
               </div>
@@ -339,7 +339,7 @@ export default function WhatsAppPage({
                   <button
                     key={t}
                     onClick={() => insertTag(t)}
-                    className="rounded-md border border-[#C7D2FE] bg-[#F5F3FF] px-1.5 py-0.5 font-mono text-[10.5px] font-medium text-[#4338CA] hover:border-[#4F46E5] hover:bg-[#EEF2FF]"
+                    className="rounded-md border border-[#DFD2BE] bg-[#F5EFE6] px-1.5 py-0.5 font-mono text-[10.5px] font-medium text-[#6E5634] hover:border-[#8C6D3F] hover:bg-[#ECE5D8]"
                   >
                     {`{${t}}`}
                   </button>
@@ -350,7 +350,7 @@ export default function WhatsAppPage({
                 value={draft}
                 onChange={(e) => setDraft(e.target.value)}
                 rows={4}
-                className="mt-2.5 w-full resize-none rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] px-3 py-2 text-[12px] leading-relaxed text-slate-800 outline-none focus:border-[#6366F1] focus:bg-white focus:ring-3 focus:ring-[#6366F1]/15"
+                className="mt-2.5 w-full resize-none rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] px-3 py-2 text-[12px] leading-relaxed text-slate-800 outline-none focus:border-[#141413] focus:bg-white focus:ring-3 focus:ring-[#141413]/10"
               />
               <div className="mt-1 flex justify-between text-[10.5px] text-slate-400">
                 <span>{draft.length} karakter</span>
@@ -374,7 +374,7 @@ export default function WhatsAppPage({
                 <button
                   onClick={() => setDraft(rule.template)}
                   disabled={!dirty}
-                  className="flex h-8 items-center gap-1.5 rounded-lg border border-[#E2E8F0] px-3 text-[12px] font-semibold text-slate-600 hover:bg-slate-50 disabled:opacity-40"
+                  className="flex h-8 items-center gap-1.5 rounded-lg border border-[#E6E2D8] px-3 text-[12px] font-semibold text-slate-600 hover:bg-slate-50 disabled:opacity-40"
                 >
                   <RotateCcw className="size-3.5" /> Reset
                 </button>
@@ -384,7 +384,7 @@ export default function WhatsAppPage({
                     notify(`Template "${rule.name}" disimpan`)
                   }}
                   disabled={!dirty}
-                  className="flex h-8 flex-1 items-center justify-center gap-1.5 rounded-lg bg-[#4F46E5] text-[12px] font-semibold text-white hover:bg-[#4338CA] disabled:opacity-40"
+                  className="flex h-8 flex-1 items-center justify-center gap-1.5 rounded-lg bg-[#141413] text-[12px] font-semibold text-white hover:bg-stone-800 disabled:opacity-40"
                 >
                   <Save className="size-3.5" /> Simpan Template
                 </button>
@@ -394,9 +394,9 @@ export default function WhatsAppPage({
         </section>
 
         {/* RIGHT: outbox */}
-        <section className="flex min-h-0 flex-col overflow-hidden rounded-xl border border-[#E2E8F0] bg-white">
-          <div className="flex items-center gap-3 border-b border-[#E2E8F0] px-4 py-3">
-            <h2 className="font-display text-[13.5px] font-bold text-[#1E1B4B]">
+        <section className="flex min-h-0 flex-col overflow-hidden rounded-xl border border-[#E6E2D8] bg-white">
+          <div className="flex items-center gap-3 border-b border-[#E6E2D8] px-4 py-3">
+            <h2 className="font-display text-[13.5px] font-bold text-[#141413]">
               Antrean Pesan Terkirim Hari Ini (Real-Time Outbox)
             </h2>
             <span className="flex items-center gap-1 rounded-full bg-[#10B981]/10 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700">
@@ -404,23 +404,23 @@ export default function WhatsAppPage({
             </span>
             <button
               onClick={() => setBroadcast(true)}
-              className="ml-auto flex h-9 items-center gap-1.5 rounded-lg bg-[#F59E0B] px-3 text-[12px] font-semibold text-[#1E1B4B] hover:bg-[#D97706] hover:text-white"
+              className="ml-auto flex h-9 items-center gap-1.5 rounded-lg bg-[#F59E0B] px-3 text-[12px] font-semibold text-[#141413] hover:bg-[#D97706] hover:text-white"
             >
               <Megaphone className="size-4" strokeWidth={2} /> Broadcast
               Pengumuman Massal (Semua Penghuni)
             </button>
           </div>
 
-          <div className="grid grid-cols-4 border-b border-[#E2E8F0]">
+          <div className="grid grid-cols-4 border-b border-[#E6E2D8]">
             {[
-              ["Total Pesan Hari Ini", outbox.length, "text-[#1E1B4B]"],
+              ["Total Pesan Hari Ini", outbox.length, "text-[#141413]"],
               ["Terkirim", delivered, "text-emerald-700"],
-              ["Terbaca", read, "text-[#4F46E5]"],
+              ["Terbaca", read, "text-[#8C6D3F]"],
               ["Gagal", 0, "text-slate-400"],
             ].map(([l, v, c], i) => (
               <div
                 key={l as string}
-                className={`px-4 py-2 ${i ? "border-l border-[#E2E8F0]" : ""}`}
+                className={`px-4 py-2 ${i ? "border-l border-[#E6E2D8]" : ""}`}
               >
                 <p className="text-[10.5px] text-slate-500">{l}</p>
                 <p
@@ -446,14 +446,14 @@ export default function WhatsAppPage({
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Cari kamar / template"
-                className="h-8 w-full rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] pl-8 pr-2 text-[12px] outline-none placeholder:text-slate-400 focus:border-[#6366F1] focus:bg-white"
+                className="h-8 w-full rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] pl-8 pr-2 text-[12px] outline-none placeholder:text-slate-400 focus:border-[#141413] focus:bg-white"
               />
             </div>
           </div>
 
-          <div className="min-h-0 flex-1 overflow-y-auto border-t border-[#E2E8F0]">
+          <div className="min-h-0 flex-1 overflow-y-auto border-t border-[#E6E2D8]">
             <table className="w-full text-[12.5px]">
-              <thead className="sticky top-0 z-10 bg-[#F8FAFC] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-slate-500 shadow-[0_1px_0_#E2E8F0]">
+              <thead className="sticky top-0 z-10 bg-[#FAF8F5] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-slate-500 shadow-[0_1px_0_#E6E2D8]">
                 <tr>
                   <th className="px-4 py-2">Waktu</th>
                   <th className="py-2 pr-3">Penerima</th>
@@ -462,7 +462,7 @@ export default function WhatsAppPage({
                   <th className="px-4 py-2 text-right">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E2E8F0]">
+              <tbody className="divide-y divide-[#E6E2D8]">
                 {shown.map((m) => (
                   <tr
                     key={m.id}
@@ -486,7 +486,7 @@ export default function WhatsAppPage({
                         className={`rounded px-1.5 py-0.5 text-[10.5px] font-semibold ${
                           m.tpl === "Broadcast"
                             ? "bg-[#F59E0B]/12 text-amber-700"
-                            : "bg-[#F5F3FF] text-[#4F46E5]"
+                            : "bg-[#F5EFE6] text-[#8C6D3F]"
                         }`}
                       >
                         {m.tpl}
@@ -508,7 +508,7 @@ export default function WhatsAppPage({
                           <CheckCheck
                             className={`size-3.5 ${
                               m.status === "read"
-                                ? "text-[#4F46E5]"
+                                ? "text-[#8C6D3F]"
                                 : "text-emerald-600"
                             }`}
                             strokeWidth={2.4}
@@ -526,13 +526,13 @@ export default function WhatsAppPage({
               </p>
             )}
           </div>
-          <div className="flex items-center gap-4 border-t border-[#E2E8F0] px-4 py-2 text-[11px] text-slate-500">
+          <div className="flex items-center gap-4 border-t border-[#E6E2D8] px-4 py-2 text-[11px] text-slate-500">
             <span className="flex items-center gap-1">
               <CheckCheck className="size-3.5 text-emerald-600" /> Terkirim ke
               perangkat
             </span>
             <span className="flex items-center gap-1">
-              <CheckCheck className="size-3.5 text-[#4F46E5]" /> Dibaca penghuni
+              <CheckCheck className="size-3.5 text-[#8C6D3F]" /> Dibaca penghuni
             </span>
             <span className="ml-auto">Log disimpan 90 hari untuk audit</span>
           </div>
@@ -601,15 +601,15 @@ function BroadcastDialog({
     >
       <div
         onClick={onClose}
-        className="absolute inset-0 bg-[#0F0D2E]/50 backdrop-blur-[3px]"
+        className="absolute inset-0 bg-[#141413]/50 backdrop-blur-[3px]"
       />
-      <div className="relative w-[520px] overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-2xl">
-        <header className="flex items-center gap-3 border-b border-[#E2E8F0] px-5 py-4">
+      <div className="relative w-[520px] overflow-hidden rounded-2xl border border-[#E6E2D8] bg-white shadow-2xl">
+        <header className="flex items-center gap-3 border-b border-[#E6E2D8] px-5 py-4">
           <span className="flex size-9 items-center justify-center rounded-lg bg-[#F59E0B]/12 text-amber-600">
             <Megaphone className="size-[18px]" />
           </span>
           <div className="flex-1">
-            <h3 className="font-display text-[15px] font-bold text-[#1E1B4B]">
+            <h3 className="font-display text-[15px] font-bold text-[#141413]">
               Broadcast Pengumuman Massal
             </h3>
             <p className="text-[11.5px] text-slate-500">
@@ -629,12 +629,12 @@ function BroadcastDialog({
             value={text}
             onChange={(e) => setText(e.target.value)}
             rows={5}
-            className="w-full resize-none rounded-lg border border-[#E2E8F0] px-3 py-2 text-[12.5px] leading-relaxed outline-none focus:border-[#6366F1] focus:ring-3 focus:ring-[#6366F1]/15"
+            className="w-full resize-none rounded-lg border border-[#E6E2D8] px-3 py-2 text-[12.5px] leading-relaxed outline-none focus:border-[#141413] focus:ring-3 focus:ring-[#141413]/10"
           />
           <div
             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-[11.5px] ${
               enough
-                ? "bg-[#F5F3FF] text-[#312E81]"
+                ? "bg-[#F5EFE6] text-[#5C4728]"
                 : "bg-[#FFF1F2] text-rose-700"
             }`}
           >
@@ -647,17 +647,17 @@ function BroadcastDialog({
             {Math.max(0, remaining - recipients).toLocaleString("id-ID")}
           </div>
         </div>
-        <footer className="flex justify-end gap-2 border-t border-[#E2E8F0] bg-[#F8FAFC] px-5 py-3">
+        <footer className="flex justify-end gap-2 border-t border-[#E6E2D8] bg-[#FAF8F5] px-5 py-3">
           <button
             onClick={onClose}
-            className="h-9 rounded-lg border border-[#E2E8F0] bg-white px-4 text-[12.5px] font-semibold text-slate-700 hover:bg-slate-50"
+            className="h-9 rounded-lg border border-[#E6E2D8] bg-white px-4 text-[12.5px] font-semibold text-slate-700 hover:bg-slate-50"
           >
             Batal
           </button>
           <button
             onClick={onSend}
             disabled={!enough || !text.trim()}
-            className="flex h-9 items-center gap-1.5 rounded-lg bg-[#F59E0B] px-4 text-[12.5px] font-semibold text-[#1E1B4B] hover:bg-[#D97706] hover:text-white disabled:opacity-50"
+            className="flex h-9 items-center gap-1.5 rounded-lg bg-[#F59E0B] px-4 text-[12.5px] font-semibold text-[#141413] hover:bg-[#D97706] hover:text-white disabled:opacity-50"
           >
             <Send className="size-3.5" /> Kirim ke {recipients} Penghuni
           </button>

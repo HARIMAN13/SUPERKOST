@@ -25,13 +25,13 @@ export default function RoomsPage() {
         actions={
           <button
             onClick={() => s.openModal({ type: "checkIn" })}
-            className="flex h-10 items-center gap-2 rounded-lg bg-[#4F46E5] px-4 text-[13px] font-semibold text-white hover:bg-[#4338CA]"
+            className="flex h-10 items-center gap-2 rounded-lg bg-[#141413] px-4 text-[13px] font-semibold text-white hover:bg-stone-800"
           >
             <UserPlus className="size-4" /> Check-In Penghuni Baru
           </button>
         }
       />
-      <div className="grid grid-cols-4 overflow-hidden rounded-xl border border-[#E2E8F0] bg-white">
+      <div className="grid grid-cols-2 lg:grid-cols-4 overflow-hidden rounded-xl border border-[#E6E2D8] bg-white">
         {[
           [
             "Total Kamar",
@@ -41,7 +41,7 @@ export default function RoomsPage() {
           [
             "Terisi",
             `${s.stats.occupied} kamar`,
-            `${((s.stats.occupied / s.rooms.length) * 100).toFixed(1)}% okupansi`,
+            `${s.rooms.length ? ((s.stats.occupied / s.rooms.length) * 100).toFixed(1) : "0"}% okupansi`,
           ],
           [
             "Kosong & Siap Huni",
@@ -52,26 +52,28 @@ export default function RoomsPage() {
           ],
           [
             "Tarif per Tipe",
-            types
-              .map((t) =>
-                `${t} ${rupiah(s.rooms.find((r) => r.type === t)!.price / 1000)}rb`.replace(
-                  "Rp",
-                  "",
-                ),
-              )
-              .join(" · "),
+            types.length
+              ? types
+                  .map((t) =>
+                    `${t} ${rupiah(s.rooms.find((r) => r.type === t)!.price / 1000)}rb`.replace(
+                      "Rp",
+                      "",
+                    ),
+                  )
+                  .join(" · ")
+              : "—",
             "ubah via drawer > Edit Tarif",
           ],
         ].map(([l, v, sub], i) => (
           <div
             key={l}
-            className={`px-4 py-3 ${i ? "border-l border-[#E2E8F0]" : ""}`}
+            className={`px-4 py-3 ${i ? "border-l border-[#E6E2D8]" : ""}`}
           >
-            <p className="text-[11px] font-medium text-slate-500">{l}</p>
-            <p className="mt-0.5 truncate font-display text-[17px] font-bold text-[#1E1B4B]">
+            <p className="text-[11px] font-medium text-stone-500">{l}</p>
+            <p className="mt-0.5 truncate font-display text-[17px] font-bold text-[#141413]">
               {v}
             </p>
-            <p className="text-[11px] text-slate-500">{sub}</p>
+            <p className="text-[11px] text-stone-500">{sub}</p>
           </div>
         ))}
       </div>
@@ -79,7 +81,7 @@ export default function RoomsPage() {
         rooms={s.rooms}
         onAction={onAction}
         onOpen={(r) => s.openDrawer(r.no)}
-        cols="grid-cols-8"
+        cols="grid-cols-2 sm:grid-cols-4 md:grid-cols-6 xl:grid-cols-8"
       />
     </div>
   )

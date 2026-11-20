@@ -21,17 +21,17 @@ function RoomCard({
 }) {
   if (r.status === "vacant") {
     return (
-      <div className="flex min-h-[118px] flex-col rounded-[10px] border border-dashed border-[#CBD5E1] bg-[#F1F5F9] p-2.5">
-        <p className="text-[12px] font-semibold text-slate-600">
+      <div className="flex min-h-[118px] flex-col rounded-[10px] border border-dashed border-[#D6D1C7] bg-[#F3F0EA] p-2.5">
+        <p className="text-[12px] font-semibold text-stone-600">
           Kmr {r.no}{" "}
-          <span className="font-normal text-slate-400">(Kosong)</span>
+          <span className="font-normal text-stone-400">(Kosong)</span>
         </p>
-        <p className="mt-1 text-[10.5px] text-slate-500">
+        <p className="mt-1 text-[10.5px] text-stone-500">
           Siap Huni · {rupiah(r.price)}
         </p>
         <button
           onClick={() => onAction(r)}
-          className="mt-auto flex h-6 items-center justify-center gap-1 rounded-md border border-[#C7D2FE] bg-white text-[10.5px] font-semibold text-[#4F46E5] hover:bg-[#F5F3FF]"
+          className="mt-auto flex h-6 items-center justify-center gap-1 rounded-md border border-[#DFD2BE] bg-white text-[10.5px] font-semibold text-[#8C6D3F] hover:bg-[#F5EFE6]"
         >
           <Plus className="size-3" strokeWidth={2.6} /> Check-In
         </button>
@@ -41,7 +41,7 @@ function RoomCard({
 
   const s = {
     paid: {
-      border: "border-[#E2E8F0]",
+      border: "border-[#E6E2D8]",
       bar: "bg-[#10B981]",
       tag: "bg-[#10B981]/10 text-emerald-700",
       label: `Lunas (Hingga ${r.paidUntil})`,
@@ -66,23 +66,23 @@ function RoomCard({
       tabIndex={0}
       onClick={() => onOpen(r)}
       onKeyDown={(e) => e.key === "Enter" && onOpen(r)}
-      className={`relative flex min-h-[118px] cursor-pointer flex-col overflow-hidden rounded-[10px] border bg-white p-2.5 pt-3 text-left transition-shadow outline-none hover:shadow-md hover:shadow-slate-900/5 focus-visible:ring-2 focus-visible:ring-[#6366F1]/40 ${s.border}`}
+      className={`relative flex min-h-[118px] cursor-pointer flex-col overflow-hidden rounded-[10px] border bg-white p-2.5 pt-3 text-left transition-shadow outline-none hover:shadow-md hover:shadow-stone-900/5 focus-visible:ring-2 focus-visible:ring-[#8C6D3F]/40 ${s.border}`}
     >
       <span className={`absolute inset-x-0 top-0 h-[3px] ${s.bar}`} />
       <div className="flex items-center justify-between">
-        <p className="text-[12px] font-semibold text-slate-900">
+        <p className="text-[12px] font-semibold text-[#141413]">
           Kmr {r.no}{" "}
-          <span className="font-normal text-slate-400">({r.type})</span>
+          <span className="font-normal text-stone-400">({r.type})</span>
         </p>
         {r.vip && (
           <Crown
-            className="size-3.5 text-[#F59E0B]"
+            className="size-3.5 text-[#C5A572]"
             strokeWidth={2}
             aria-label="VIP"
           />
         )}
       </div>
-      <p className="mt-0.5 truncate text-[11.5px] text-slate-600">{r.tenant}</p>
+      <p className="mt-0.5 truncate text-[11.5px] text-stone-600">{r.tenant}</p>
       <span
         className={`mt-1.5 self-start rounded px-1.5 py-0.5 text-[10px] font-semibold ${s.tag}`}
       >
@@ -90,7 +90,7 @@ function RoomCard({
       </span>
       <div className="mt-auto">
         {r.status === "paid" && (
-          <p className="text-[11.5px] font-semibold text-slate-900 tabular-nums">
+          <p className="text-[11.5px] font-semibold text-[#141413] tabular-nums">
             {rupiah(r.price)}
           </p>
         )}
@@ -153,18 +153,18 @@ export default function RoomGrid({
   )
 
   return (
-    <section className="rounded-xl border border-[#E2E8F0] bg-white">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E2E8F0] px-4 py-3">
+    <section className="rounded-xl border border-[#E6E2D8] bg-white">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E6E2D8] px-4 py-3">
         <div className="flex items-center gap-2">
-          <LayoutGrid className="size-4 text-[#4F46E5]" strokeWidth={2} />
-          <h2 className="whitespace-nowrap font-display text-[14px] font-bold text-slate-900">
+          <LayoutGrid className="size-4 text-[#8C6D3F]" strokeWidth={2} />
+          <h2 className="whitespace-nowrap font-display text-[14px] font-bold text-[#141413]">
             Visualisasi Denah Kamar Real-Time
           </h2>
           <span className="flex items-center gap-1 rounded-full bg-[#10B981]/10 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700">
             <span className="size-1.5 rounded-full bg-[#10B981]" /> Live
           </span>
         </div>
-        <div className="flex overflow-x-auto max-w-full rounded-lg bg-[#F1F5F9] p-0.5 scrollbar-none">
+        <div className="flex overflow-x-auto max-w-full rounded-lg bg-[#F3F0EA] p-0.5 scrollbar-none">
           {tabs.map((t) => {
             const on = filter === t.k
             const danger = t.k === "overdue"
@@ -175,11 +175,11 @@ export default function RoomGrid({
                 className={`whitespace-nowrap rounded-md px-2.5 py-1 text-[11.5px] font-medium transition-colors ${
                   on
                     ? danger
-                      ? "bg-white text-rose-600 shadow-sm"
-                      : "bg-white text-slate-900 shadow-sm"
+                      ? "bg-white text-rose-600 shadow-2xs"
+                      : "bg-white text-[#141413] shadow-2xs"
                     : danger
                       ? "text-rose-500 hover:text-rose-600"
-                      : "text-slate-500 hover:text-slate-800"
+                      : "text-stone-500 hover:text-[#141413]"
                 }`}
               >
                 {t.label}{" "}
@@ -195,7 +195,7 @@ export default function RoomGrid({
           <div className="space-y-3">
             {floors.map((f) => (
               <div key={f}>
-                <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.1em] text-slate-400">
+                <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.1em] text-stone-400">
                   Lantai {f}
                 </p>
                 <div className={`grid ${cols} gap-2`}>
@@ -220,24 +220,24 @@ export default function RoomGrid({
             ))}
           </div>
         ) : (
-          <p className="py-16 text-center text-[12.5px] text-slate-500">
+          <p className="py-16 text-center text-[12.5px] text-stone-500">
             Tidak ada kamar yang menunggak. Arus kas sehat.
           </p>
         )}
 
-        <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-4 border-t border-[#E2E8F0] pt-3 text-[11px] text-slate-500">
+        <div className="mt-4 flex flex-wrap items-center gap-2 sm:gap-4 border-t border-[#E6E2D8] pt-3 text-[11px] text-stone-500">
           {[
             ["bg-[#10B981]", "Terisi & Lunas"],
             ["bg-[#F43F5E]", "Nunggak"],
             ["bg-[#F59E0B]", "Verifikasi Transfer"],
-            ["bg-[#E2E8F0]", "Kosong & Siap Huni"],
+            ["bg-[#E6E2D8]", "Kosong & Siap Huni"],
           ].map(([c, l]) => (
             <span key={l} className="flex items-center gap-1.5">
               <span className={`size-2 rounded-sm ${c}`} /> {l}
             </span>
           ))}
           <span className="ml-auto flex items-center gap-1.5">
-            <Crown className="size-3 text-[#F59E0B]" /> Penghuni VIP
+            <Crown className="size-3 text-[#C5A572]" /> Penghuni VIP
           </span>
         </div>
       </div>

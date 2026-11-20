@@ -31,10 +31,10 @@ function Widget({
   children: ReactNode
 }) {
   return (
-    <section className="rounded-xl border border-[#E2E8F0] bg-white">
-      <div className="flex items-center gap-2 border-b border-[#E2E8F0] px-4 py-3">
-        <span className="text-[#4F46E5]">{icon}</span>
-        <h3 className="font-display text-[13px] font-bold text-slate-900">
+    <section className="rounded-xl border border-[#E6E2D8] bg-white">
+      <div className="flex items-center gap-2 border-b border-[#E6E2D8] px-4 py-3">
+        <span className="text-[#8C6D3F]">{icon}</span>
+        <h3 className="font-display text-[13px] font-bold text-[#141413]">
           {title}
         </h3>
         {count}
@@ -47,17 +47,17 @@ function Widget({
 
 function Receipt({ bank }: { bank: string }) {
   return (
-    <div className="flex h-[52px] w-[38px] shrink-0 flex-col rounded-md border border-[#E2E8F0] bg-[#F8FAFC] p-1">
-      <div className="flex h-2 items-center justify-center rounded-[2px] bg-[#312E81] text-[5px] font-bold text-white">
+    <div className="flex h-[52px] w-[38px] shrink-0 flex-col rounded-md border border-[#E6E2D8] bg-[#FAF8F5] p-1">
+      <div className="flex h-2 items-center justify-center rounded-[2px] bg-[#141413] text-[5px] font-bold text-[#FAF8F5]">
         {bank}
       </div>
       <div className="mx-auto mt-1 flex size-3 items-center justify-center rounded-full bg-[#10B981]">
         <CheckCheck className="size-2 text-white" strokeWidth={3} />
       </div>
       <div className="mt-1 space-y-[2px]">
-        <div className="h-[2px] w-full rounded bg-slate-300" />
-        <div className="h-[2px] w-3/4 rounded bg-slate-300" />
-        <div className="h-[2px] w-full rounded bg-slate-200" />
+        <div className="h-[2px] w-full rounded bg-stone-300" />
+        <div className="h-[2px] w-3/4 rounded bg-stone-300" />
+        <div className="h-[2px] w-full rounded bg-stone-200" />
       </div>
     </div>
   )
@@ -85,7 +85,6 @@ export default function RightFeeds({
 }) {
   const { tenants, expenses, invoices, navigate } = useStore()
   const queue = rooms.filter((r) => r.status === "verify")
-  // Tenants whose due day falls 1 or 3 days after today (cron H-1 / H-3 targets).
   const today = Number(TODAY.slice(8, 10))
   const radar = rooms
     .filter((r) => r.status === "paid" && r.tenantId)
@@ -129,34 +128,34 @@ export default function RightFeeds({
         }
       >
         {queue.length === 0 ? (
-          <p className="flex items-center justify-center gap-1.5 px-4 py-6 text-[12px] text-slate-500">
+          <p className="flex items-center justify-center gap-1.5 px-4 py-6 text-[12px] text-stone-500">
             <CheckCheck className="size-4 text-[#10B981]" /> Semua bukti
             transfer sudah diverifikasi.
           </p>
         ) : (
-          <ul className="divide-y divide-[#E2E8F0]">
+          <ul className="divide-y divide-[#E6E2D8]">
             {queue.map((r, i) => (
               <li key={r.no} className="flex gap-3 px-4 py-3">
                 <Receipt bank={banks[i % banks.length]} />
                 <div className="min-w-0 flex-1">
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
-                      <p className="truncate text-[12.5px] font-semibold text-slate-900">
+                      <p className="truncate text-[12.5px] font-semibold text-[#141413]">
                         {r.tenant}
                       </p>
-                      <p className="text-[11px] text-slate-500">
+                      <p className="text-[11px] text-stone-500">
                         Kmr {r.no} · Diunggah {i === 0 ? "12 mnt" : "1 jam"}{" "}
                         lalu
                       </p>
                     </div>
-                    <p className="text-[12.5px] font-bold text-slate-900 tabular-nums">
+                    <p className="text-[12.5px] font-bold text-[#141413] tabular-nums">
                       {rupiah(r.price)}
                     </p>
                   </div>
                   <div className="mt-2 flex gap-1.5">
                     <button
                       onClick={() => onReject(r.no)}
-                      className="h-7 flex-1 rounded-md border border-[#E2E8F0] text-[11.5px] font-semibold text-slate-600 hover:border-[#F43F5E]/40 hover:text-rose-600"
+                      className="h-7 flex-1 rounded-md border border-[#E6E2D8] text-[11.5px] font-semibold text-stone-600 hover:border-[#F43F5E]/40 hover:text-rose-600"
                     >
                       Tolak
                     </button>
@@ -178,14 +177,14 @@ export default function RightFeeds({
         icon={<CalendarClock className="size-4" strokeWidth={2} />}
         title="Radar Jatuh Tempo WhatsApp"
         count={
-          <span className="rounded-full bg-[#F5F3FF] px-1.5 py-0.5 text-[10px] font-semibold text-[#4F46E5]">
+          <span className="rounded-full bg-[#F5EFE6] px-1.5 py-0.5 text-[10px] font-semibold text-[#8C6D3F]">
             48 Jam
           </span>
         }
       >
-        <ul className="divide-y divide-[#E2E8F0]">
+        <ul className="divide-y divide-[#E6E2D8]">
           {radar.length === 0 && (
-            <li className="px-4 py-5 text-center text-[12px] text-slate-500">
+            <li className="px-4 py-5 text-center text-[12px] text-stone-500">
               Tidak ada jatuh tempo dalam 48 jam ke depan.
             </li>
           )}
@@ -201,13 +200,13 @@ export default function RightFeeds({
                 >
                   {t.h}
                 </span>
-                <p className="text-[12px] font-semibold text-slate-900">
+                <p className="text-[12px] font-semibold text-[#141413]">
                   {t.name}
                 </p>
-                <p className="text-[11px] text-slate-500">Kmr {t.room}</p>
-                <p className="ml-auto text-[11px] text-slate-500">{t.due}</p>
+                <p className="text-[11px] text-stone-500">Kmr {t.room}</p>
+                <p className="ml-auto text-[11px] text-stone-500">{t.due}</p>
               </div>
-              <div className="mt-1.5 rounded-lg rounded-tl-sm bg-[#10B981]/[0.07] px-2.5 py-1.5 text-[11px] leading-snug text-slate-700">
+              <div className="mt-1.5 rounded-lg rounded-tl-sm bg-[#10B981]/[0.07] px-2.5 py-1.5 text-[11px] leading-snug text-stone-700">
                 {t.msg}
               </div>
               <p className="mt-1 flex items-center gap-1 text-[10.5px] font-medium text-emerald-700">
@@ -225,7 +224,7 @@ export default function RightFeeds({
         action={
           <button
             onClick={() => navigate("finance", "kas")}
-            className="flex items-center gap-0.5 text-[11.5px] font-semibold text-[#4F46E5] hover:text-[#4338CA]"
+            className="flex items-center gap-0.5 text-[11.5px] font-semibold text-[#8C6D3F] hover:text-[#141413]"
           >
             Semua <ArrowUpRight className="size-3.5" />
           </button>
@@ -238,9 +237,9 @@ export default function RightFeeds({
               +{rupiah(inToday)}
             </p>
           </div>
-          <div className="rounded-lg bg-[#F5F3FF] px-2.5 py-2">
-            <p className="text-[10.5px] text-[#4F46E5]">Keluar hari ini</p>
-            <p className="text-[13px] font-bold text-slate-900 tabular-nums">
+          <div className="rounded-lg bg-[#F5EFE6] px-2.5 py-2">
+            <p className="text-[10.5px] text-[#8C6D3F]">Keluar hari ini</p>
+            <p className="text-[13px] font-bold text-[#141413] tabular-nums">
               -{rupiah(outToday)}
             </p>
           </div>
@@ -253,18 +252,18 @@ export default function RightFeeds({
               const time = date === TODAY ? "Hari ini" : fmtShort(date)
               return (
                 <li key={id} className="flex items-center gap-2.5 py-1.5">
-                  <span className="flex size-7 items-center justify-center rounded-md border border-[#E2E8F0] text-slate-500">
+                  <span className="flex size-7 items-center justify-center rounded-md border border-[#E6E2D8] text-stone-500">
                     <Icon className="size-3.5" strokeWidth={1.8} />
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-[12px] font-medium text-slate-900">
+                    <p className="truncate text-[12px] font-medium text-[#141413]">
                       {label}
                     </p>
-                    <p className="text-[10.5px] text-slate-500">
+                    <p className="text-[10.5px] text-stone-500">
                       {cat} · {time}
                     </p>
                   </div>
-                  <p className="text-[12px] font-semibold text-slate-900 tabular-nums">
+                  <p className="text-[12px] font-semibold text-[#141413] tabular-nums">
                     -{rupiah(amt)}
                   </p>
                 </li>
