@@ -9,33 +9,67 @@ import {
   ArrowRight,
   Mail,
   UserCheck,
+  AlertCircle,
 } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 export default function LoginForm() {
   const router = useRouter();
   const [role, setRole] = useState<"owner" | "staff">("owner");
   const [email, setEmail] = useState("maulana@superkost.id");
-  const [password, setPassword] = useState("••••••••");
+  const [password, setPassword] = useState("Superkost2026!");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleRoleChange = (newRole: "owner" | "staff") => {
     setRole(newRole);
+    setErrorMessage(null);
     if (newRole === "owner") {
       setEmail("maulana@superkost.id");
+      setPassword("Superkost2026!");
     } else {
       setEmail("darto.staf@superkost.id");
+      setPassword("");
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage(null);
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
+
+    if (!supabase) {
+      setTimeout(() => {
+        setIsLoading(false);
+        router.push("/app");
+      }, 400);
+      return;
+    }
+
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
+
+      if (error) {
+        setErrorMessage(
+          error.message === "Invalid login credentials"
+            ? "Email atau kata sandi tidak cocok. Silakan periksa kembali."
+            : error.message
+        );
+        setIsLoading(false);
+        return;
+      }
+
       router.push("/app");
-    }, 600);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Terjadi kesalahan saat masuk.";
+      setErrorMessage(msg);
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -176,6 +210,13 @@ export default function LoginForm() {
                 </span>
               </label>
             </div>
+
+            {errorMessage && (
+              <div className="flex items-start gap-2 rounded-lg bg-rose-50 border border-rose-200 p-3 text-xs text-rose-700">
+                <AlertCircle className="size-4 shrink-0 text-rose-600 mt-0.5" />
+                <span>{errorMessage}</span>
+              </div>
+            )}
 
             <button
               type="submit"
