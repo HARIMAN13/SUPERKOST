@@ -91,21 +91,21 @@ export default function HeroSection() {
             </div>
 
             {/* Dashboard Inner Preview */}
-            <div className="mt-3 rounded-xl bg-[#1F5E53] p-5 sm:p-7 text-[#FAF8F5] overflow-hidden relative border border-stone-800">
+            <div className="mt-3 rounded-xl bg-[#1C2426] p-5 sm:p-7 text-[#FAF8F5] overflow-hidden relative border border-white/10">
               {/* Cockpit Mini Metrics */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
-                <div className="rounded-xl bg-[#1C1C1A] border border-stone-800 p-4">
+                <div className="rounded-xl bg-[#242F31] border border-white/[0.08] p-4">
                   <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
                     Okupansi Real-Time
                   </p>
                   <p className="font-display text-xl sm:text-2xl font-bold text-[#FAF8F5] mt-1.5">
                     93.3%
                   </p>
-                  <p className="text-[11px] text-[#C5A572] mt-1">
+                  <p className="text-[11px] text-[#D4B483] mt-1">
                     28 Kamar Terisi · 2 Kosong
                   </p>
                 </div>
-                <div className="rounded-xl bg-[#1C1C1A] border border-stone-800 p-4">
+                <div className="rounded-xl bg-[#242F31] border border-white/[0.08] p-4">
                   <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
                     Arus Kas Masuk (Nov)
                   </p>
@@ -116,18 +116,18 @@ export default function HeroSection() {
                     86% dari target tagihan
                   </p>
                 </div>
-                <div className="rounded-xl bg-[#1C1C1A] border border-stone-800 p-4">
+                <div className="rounded-xl bg-[#242F31] border border-white/[0.08] p-4">
                   <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
                     Deposit Terkunci
                   </p>
-                  <p className="font-display text-xl sm:text-2xl font-bold text-[#C5A572] mt-1.5">
+                  <p className="font-display text-xl sm:text-2xl font-bold text-[#D4B483] mt-1.5">
                     Rp28.000.000
                   </p>
                   <p className="text-[11px] text-stone-400 mt-1">
                     Terpisah dari kas harian
                   </p>
                 </div>
-                <div className="rounded-xl bg-[#1C1C1A] border border-stone-800 p-4">
+                <div className="rounded-xl bg-[#242F31] border border-white/[0.08] p-4">
                   <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
                     Pemeliharaan Unit
                   </p>

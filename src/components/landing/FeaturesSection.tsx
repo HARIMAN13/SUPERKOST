@@ -144,7 +144,7 @@ export default function FeaturesSection() {
         </div>
 
         {/* Feature Active Card Display */}
-        <div className="mt-10 mx-auto max-w-5xl rounded-2xl border border-stone-800 bg-[#1F5E53] text-[#FAF8F5] p-7 sm:p-12 shadow-xl animate-fade-in relative overflow-hidden">
+        <div className="mt-10 mx-auto max-w-5xl rounded-2xl border border-white/10 bg-[#1C2426] text-[#FAF8F5] p-7 sm:p-12 shadow-xl animate-fade-in relative overflow-hidden">
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="md:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2 rounded-md border border-[#C5A572]/30 bg-[#C5A572]/10 px-3 py-1 text-xs font-semibold text-[#D8B884]">
@@ -177,8 +177,8 @@ export default function FeaturesSection() {
             </div>
 
             <div className="md:col-span-5 flex flex-col items-center justify-center">
-              <div className="w-full rounded-xl bg-[#1C1C1A] border border-stone-800 p-6 space-y-4">
-                <div className="flex items-center justify-between border-b border-stone-800 pb-3">
+              <div className="w-full rounded-xl bg-[#242F31] border border-white/10 p-6 space-y-4">
+                <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">
                     Simulasi Interaktif
                   </span>

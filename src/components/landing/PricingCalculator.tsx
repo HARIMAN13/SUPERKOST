@@ -88,7 +88,7 @@ export default function PricingCalculator() {
               </div>
             </div>
 
-            <div className="rounded-xl bg-[#1F5E53] text-[#FAF8F5] p-6 space-y-4 border border-stone-800">
+            <div className="rounded-xl bg-[#1C2426] text-[#FAF8F5] p-6 space-y-4 border border-white/10">
               <div>
                 <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
                   Estimasi Omzet Sewa Bulanan
@@ -98,7 +98,7 @@ export default function PricingCalculator() {
                 </p>
               </div>
 
-              <div className="border-t border-stone-800 pt-3.5 space-y-2.5">
+              <div className="border-t border-white/10 pt-3.5 space-y-2.5">
                 <div className="flex items-center justify-between text-xs">
                   <span className="text-stone-400">
                     Potensi piutang macet terlindungi:
@@ -198,8 +198,8 @@ export default function PricingCalculator() {
           </div>
 
           {/* Paket Tahunan */}
-          <div className="rounded-2xl border border-stone-800 bg-[#1F5E53] text-[#FAF8F5] p-7 sm:p-9 shadow-xl relative flex flex-col justify-between">
-            <div className="absolute -top-3.5 right-6 rounded-full border border-[#C5A572]/40 bg-[#1C1C1A] px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#C5A572]">
+          <div className="rounded-2xl border border-white/10 bg-[#1C2426] text-[#FAF8F5] p-7 sm:p-9 shadow-xl relative flex flex-col justify-between">
+            <div className="absolute -top-3.5 right-6 rounded-full border border-[#D4B483]/40 bg-[#1F5E53] px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#FAF8F5]">
               Rekomendasi Eksekutif
             </div>
 
