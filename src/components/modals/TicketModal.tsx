@@ -93,7 +93,7 @@ export default function TicketModal({
               onClick={() => changeCat(c)}
               className={`rounded-lg border px-3 py-1.5 text-[12px] font-semibold ${
                 cat === c
-                  ? "border-[#8A6543] bg-[#F6EFE6] text-[#8A6543]"
+                  ? "border-[#5C432C] bg-[#F6EFE6] text-[#5C432C]"
                   : "border-[#E6E2D8] text-slate-600 hover:bg-slate-50"
               }`}
             >
@@ -151,7 +151,7 @@ export default function TicketModal({
             className={inputCls}
           />
         </Field>
-        <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-dashed border-slate-300 px-3 py-2 text-[12px] text-slate-500 hover:border-[#8A6543] hover:text-[#8A6543]">
+        <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-dashed border-slate-300 px-3 py-2 text-[12px] text-slate-500 hover:border-[#5C432C] hover:text-[#5C432C]">
           <Camera className="size-4" />{" "}
           <span className="truncate">
             {photo || "Lampirkan foto kerusakan (opsional)"}
@@ -163,12 +163,12 @@ export default function TicketModal({
             onChange={(e) => setPhoto(e.target.files?.[0]?.name ?? "")}
           />
         </label>
-        <label className="flex cursor-pointer items-center gap-2 rounded-lg bg-[#F6EFE6] px-3 py-2 text-[12px] text-[#8A6543]">
+        <label className="flex cursor-pointer items-center gap-2 rounded-lg bg-[#F6EFE6] px-3 py-2 text-[12px] text-[#5C432C]">
           <input
             type="checkbox"
             checked={sendWa}
             onChange={(e) => setSendWa(e.target.checked)}
-            className="size-4 accent-[#8A6543]"
+            className="size-4 accent-[#5C432C]"
           />{" "}
           Kirim detail ke vendor via WA
         </label>

@@ -25,7 +25,7 @@ export default function RoomsPage() {
         actions={
           <button
             onClick={() => s.openModal({ type: "checkIn" })}
-            className="flex h-10 items-center gap-2 rounded-lg bg-[#8A6543] px-4 text-[13px] font-semibold text-white hover:bg-[#735335]"
+            className="flex h-10 items-center gap-2 rounded-lg bg-[#5C432C] px-4 text-[13px] font-semibold text-white hover:bg-[#483422]"
           >
             <UserPlus className="size-4" /> Check-In Penghuni Baru
           </button>
@@ -70,7 +70,7 @@ export default function RoomsPage() {
             className={`px-4 py-3 ${i ? "border-l border-[#E6E2D8]" : ""}`}
           >
             <p className="text-[11px] font-medium text-stone-500">{l}</p>
-            <p className="mt-0.5 truncate font-display text-[17px] font-bold text-[#2B221E]">
+            <p className="mt-0.5 truncate font-display text-[17px] font-bold text-[#2B211A]">
               {v}
             </p>
             <p className="text-[11px] text-stone-500">{sub}</p>

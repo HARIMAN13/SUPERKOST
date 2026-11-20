@@ -109,10 +109,10 @@ export default function FeaturesSection() {
     <section id="fitur" className="py-24 bg-[#FAF8F5] border-b border-stone-200/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#8A6543]">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#5C432C]">
             Arsitektur Sistem
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#2B221E]">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#2B211A]">
             Enam Modul Inti Pengelolaan Properti
           </h2>
           <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
@@ -132,8 +132,8 @@ export default function FeaturesSection() {
                 onClick={() => setActiveTab(i)}
                 className={`flex items-center gap-2.5 rounded-xl px-4.5 py-3 text-xs sm:text-[13px] font-semibold transition-all border ${
                   on
-                    ? "bg-[#8A6543] text-[#FAF8F5] border-[#8A6543] shadow-sm"
-                    : "bg-white text-stone-600 border-stone-200/90 hover:border-stone-300 hover:text-[#2B221E]"
+                    ? "bg-[#5C432C] text-[#FAF8F5] border-[#5C432C] shadow-sm"
+                    : "bg-white text-stone-600 border-stone-200/90 hover:border-stone-300 hover:text-[#2B211A]"
                 }`}
               >
                 <FIcon className={`size-4 ${on ? "text-[#C5A572]" : "text-stone-400"}`} />
@@ -144,7 +144,7 @@ export default function FeaturesSection() {
         </div>
 
         {/* Feature Active Card Display */}
-        <div className="mt-10 mx-auto max-w-5xl rounded-2xl border border-white/10 bg-[#332924] text-[#FAF8F5] p-7 sm:p-12 shadow-xl animate-fade-in relative overflow-hidden">
+        <div className="mt-10 mx-auto max-w-5xl rounded-2xl border border-white/10 bg-[#423020] text-[#FAF8F5] p-7 sm:p-12 shadow-xl animate-fade-in relative overflow-hidden">
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="md:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2 rounded-md border border-[#C5A572]/30 bg-[#C5A572]/10 px-3 py-1 text-xs font-semibold text-[#D8B884]">
@@ -177,7 +177,7 @@ export default function FeaturesSection() {
             </div>
 
             <div className="md:col-span-5 flex flex-col items-center justify-center">
-              <div className="w-full rounded-xl bg-[#3F332D] border border-white/10 p-6 space-y-4">
+              <div className="w-full rounded-xl bg-[#4D3825] border border-white/10 p-6 space-y-4">
                 <div className="flex items-center justify-between border-b border-white/10 pb-3">
                   <span className="text-xs font-semibold uppercase tracking-wider text-stone-400">
                     Simulasi Interaktif
@@ -193,7 +193,7 @@ export default function FeaturesSection() {
                 </p>
                 <a
                   href="/app"
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-[#FAF8F5] px-4 py-3 text-xs font-bold text-[#2B221E] hover:bg-stone-200 transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-[#FAF8F5] px-4 py-3 text-xs font-bold text-[#2B211A] hover:bg-stone-200 transition-colors"
                 >
                   <span>Eksplorasi {current.title}</span>
                   <ArrowUpRight className="size-3.5" />

@@ -50,7 +50,7 @@ export default function PaymentModal({
           <span className="mx-auto flex size-12 items-center justify-center rounded-full bg-[#10B981]/12">
             <CheckCircle2 className="size-6 text-[#10B981]" />
           </span>
-          <p className="mt-3 font-display text-[22px] font-bold text-[#2B221E] tabular-nums">
+          <p className="mt-3 font-display text-[22px] font-bold text-[#2B211A] tabular-nums">
             {rupiah(amount)}
           </p>
           <p className="text-[12.5px] text-slate-500">
@@ -142,12 +142,12 @@ export default function PaymentModal({
             />
           </Field>
           <div className="flex items-end">
-            <label className="flex h-9 w-full cursor-pointer items-center gap-2 rounded-lg bg-[#F6EFE6] px-3 text-[12px] text-[#8A6543]">
+            <label className="flex h-9 w-full cursor-pointer items-center gap-2 rounded-lg bg-[#F6EFE6] px-3 text-[12px] text-[#5C432C]">
               <input
                 type="checkbox"
                 checked={sendWa}
                 onChange={(e) => setSendWa(e.target.checked)}
-                className="size-4 accent-[#8A6543]"
+                className="size-4 accent-[#5C432C]"
               />{" "}
               Kirim kuitansi via WA
             </label>

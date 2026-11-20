@@ -40,7 +40,7 @@ export default function StaffPage() {
       icon: DoorOpen,
       title: "Cek Kamar Kosong",
       sub: "Untuk calon penghuni",
-      c: "bg-[#8A6543] hover:bg-[#735335] text-white",
+      c: "bg-[#5C432C] hover:bg-[#483422] text-white",
       go: () => setShowVacant((v) => !v),
       badge: `${vacant.length} kamar siap huni`,
     },
@@ -62,7 +62,7 @@ export default function StaffPage() {
           <p className="text-[12px] font-medium text-slate-500">
             {fmtDate(TODAY)} · {s.property.name}
           </p>
-          <h1 className="font-display text-[24px] font-bold tracking-tight text-[#2B221E]">
+          <h1 className="font-display text-[24px] font-bold tracking-tight text-[#2B211A]">
             Halo, Pak Darto — Shift Pagi
           </h1>
         </div>
@@ -97,12 +97,12 @@ export default function StaffPage() {
       {showVacant && (
         <section className="rounded-2xl border border-[#E2D3C1] bg-[#F6EFE6] p-4">
           <div className="mb-3 flex items-center justify-between">
-            <h2 className="font-display text-[15px] font-bold text-[#2B221E]">
+            <h2 className="font-display text-[15px] font-bold text-[#2B211A]">
               Kamar Kosong Siap Huni ({vacant.length})
             </h2>
             <button
               onClick={() => setShowVacant(false)}
-              className="text-[12px] font-semibold text-[#8A6543]"
+              className="text-[12px] font-semibold text-[#5C432C]"
             >
               Tutup
             </button>
@@ -118,7 +118,7 @@ export default function StaffPage() {
                   key={r.no}
                   className="rounded-xl border border-dashed border-[#C5A572] bg-white p-3"
                 >
-                  <p className="font-display text-[18px] font-bold text-[#2B221E]">
+                  <p className="font-display text-[18px] font-bold text-[#2B211A]">
                     {r.no}
                   </p>
                   <p className="text-[11.5px] text-slate-500">
@@ -131,7 +131,7 @@ export default function StaffPage() {
                     onClick={() =>
                       s.openModal({ type: "checkIn", roomNo: r.no })
                     }
-                    className="mt-2 flex h-8 w-full items-center justify-center gap-1 rounded-lg bg-[#8A6543] text-[12px] font-semibold text-white hover:bg-[#735335]"
+                    className="mt-2 flex h-8 w-full items-center justify-center gap-1 rounded-lg bg-[#5C432C] text-[12px] font-semibold text-white hover:bg-[#483422]"
                   >
                     <Plus className="size-3.5" strokeWidth={2.6} /> Check-In
                   </button>
@@ -146,8 +146,8 @@ export default function StaffPage() {
         <section className="rounded-2xl border border-[#E6E2D8] bg-white">
           <div className="flex items-center justify-between border-b border-[#E6E2D8] px-5 py-4">
             <div className="flex items-center gap-2">
-              <ClipboardCheck className="size-5 text-[#8A6543]" />
-              <h2 className="font-display text-[16px] font-bold text-[#2B221E]">
+              <ClipboardCheck className="size-5 text-[#5C432C]" />
+              <h2 className="font-display text-[16px] font-bold text-[#2B211A]">
                 Checklist Harian Staf
               </h2>
             </div>
@@ -243,7 +243,7 @@ export default function StaffPage() {
           <section className="rounded-2xl border border-[#E6E2D8] bg-white p-4">
             <div className="flex items-center gap-2">
               <Banknote className="size-5 text-[#10B981]" />
-              <h2 className="font-display text-[15px] font-bold text-[#2B221E]">
+              <h2 className="font-display text-[15px] font-bold text-[#2B211A]">
                 Uang Masuk Hari Ini
               </h2>
             </div>
@@ -285,7 +285,7 @@ export default function StaffPage() {
           <section className="rounded-2xl border border-[#E6E2D8] bg-white p-4">
             <div className="flex items-center gap-2">
               <Wrench className="size-5 text-amber-600" />
-              <h2 className="font-display text-[15px] font-bold text-[#2B221E]">
+              <h2 className="font-display text-[15px] font-bold text-[#2B211A]">
                 Tiket Kerusakan Berjalan
               </h2>
             </div>

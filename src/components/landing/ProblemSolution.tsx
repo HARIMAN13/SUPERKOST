@@ -35,10 +35,10 @@ export default function ProblemSolution() {
     <section id="solusi" className="py-24 bg-[#F3F0EA] border-b border-stone-200/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#8A6543]">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#5C432C]">
             Transformasi Operasional
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#2B221E]">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#2B211A]">
             Tinggalkan Cara Manual, Beralih ke Sistem Terpadu
           </h2>
           <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
@@ -54,10 +54,10 @@ export default function ProblemSolution() {
               className="rounded-2xl border border-stone-200/90 bg-[#FAF8F5] p-6 sm:p-7 shadow-2xs transition-all hover:border-stone-300"
             >
               <div className="flex items-center gap-3 mb-5">
-                <span className="font-mono text-xs font-semibold text-[#8A6543] border border-[#C5A572]/40 bg-[#C5A572]/10 px-2.5 py-0.5 rounded">
+                <span className="font-mono text-xs font-semibold text-[#5C432C] border border-[#C5A572]/40 bg-[#C5A572]/10 px-2.5 py-0.5 rounded">
                   0{idx + 1}
                 </span>
-                <h3 className="font-display text-base sm:text-lg font-bold text-[#2B221E]">
+                <h3 className="font-display text-base sm:text-lg font-bold text-[#2B211A]">
                   {item.topic}
                 </h3>
               </div>
@@ -80,14 +80,14 @@ export default function ProblemSolution() {
 
                 {/* Cara Superkost */}
                 <div className="flex items-start gap-3.5 rounded-xl bg-white border border-stone-200/90 p-4.5 shadow-2xs">
-                  <div className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#8A6543] text-[#C5A572]">
+                  <div className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#5C432C] text-[#C5A572]">
                     <Check className="size-3.5" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold text-[#8A6543] uppercase tracking-wider">
+                    <p className="text-[11px] font-bold text-[#5C432C] uppercase tracking-wider">
                       Standar Eksekutif Superkost
                     </p>
-                    <p className="mt-1.5 text-xs sm:text-[13.5px] text-[#2B221E] leading-relaxed">
+                    <p className="mt-1.5 text-xs sm:text-[13.5px] text-[#2B211A] leading-relaxed">
                       {item.good}
                     </p>
                   </div>

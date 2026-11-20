@@ -245,7 +245,7 @@ export default function CheckInModal({
                   className="h-[72px] w-[114px] rounded-md object-cover ring-1 ring-[#E2D3C1]"
                 />
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-[12.5px] font-semibold text-[#2B221E]">
+                  <p className="truncate text-[12.5px] font-semibold text-[#2B211A]">
                     {ktpName || "Foto KTP tersimpan"}
                   </p>
                   <p className="mt-0.5 flex items-center gap-1 text-[11px] font-medium text-emerald-700">
@@ -261,7 +261,7 @@ export default function CheckInModal({
                 </button>
               </div>
             ) : (
-              <label className="flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed border-slate-300 bg-[#FAF8F5] py-5 text-[12.5px] font-medium text-slate-500 hover:border-[#8A6543] hover:text-[#8A6543]">
+              <label className="flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-dashed border-slate-300 bg-[#FAF8F5] py-5 text-[12.5px] font-medium text-slate-500 hover:border-[#5C432C] hover:text-[#5C432C]">
                 <Upload className="size-4" /> Klik untuk pilih foto KTP
                 (JPG/PNG)
                 <input

@@ -57,7 +57,7 @@ export default function TenantsPage() {
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Cari nama, nomor kamar, atau no. HP"
-                className="h-10 w-full rounded-lg border border-[#E6E2D8] bg-white pl-9 pr-3 text-[12.5px] outline-none placeholder:text-slate-400 focus:border-[#8A6543] focus:ring-3 focus:ring-[#8A6543]/15"
+                className="h-10 w-full rounded-lg border border-[#E6E2D8] bg-white pl-9 pr-3 text-[12.5px] outline-none placeholder:text-slate-400 focus:border-[#5C432C] focus:ring-3 focus:ring-[#5C432C]/15"
               />
             </div>
             <Btn
@@ -95,7 +95,7 @@ export default function TenantsPage() {
             </Btn>
             <button
               onClick={() => s.openModal({ type: "checkIn" })}
-              className="flex h-10 items-center gap-2 rounded-lg bg-[#8A6543] px-4 text-[13px] font-semibold text-white hover:bg-[#735335]"
+              className="flex h-10 items-center gap-2 rounded-lg bg-[#5C432C] px-4 text-[13px] font-semibold text-white hover:bg-[#483422]"
             >
               <UserPlus className="size-4" /> Check-In Penghuni Baru
             </button>
@@ -144,7 +144,7 @@ export default function TenantsPage() {
             className={`px-4 py-3 ${i ? "border-l border-[#E6E2D8]" : ""}`}
           >
             <p className="text-[11px] font-medium text-slate-500">{l}</p>
-            <p className="mt-0.5 font-display text-[18px] font-bold text-[#2B221E]">
+            <p className="mt-0.5 font-display text-[18px] font-bold text-[#2B211A]">
               {v}
             </p>
             <p className="text-[11px] text-slate-500">{sub}</p>
@@ -175,7 +175,7 @@ export default function TenantsPage() {
 
         {tab === "past" ? (
           <table className="w-full text-[12.5px]">
-            <thead className="bg-[#F4EFE8] border-b border-[#E6E2D8] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-600">
+            <thead className="bg-[#F3EFE8] border-b border-[#E6E2D8] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-600">
               <tr>
                 <th className="px-4 py-2.5">Nama</th>
                 <th className="py-2.5">Masa Sewa</th>
@@ -214,7 +214,7 @@ export default function TenantsPage() {
                                 doc: { kind: "clearance", depositId: dep.id },
                               })
                             }
-                            className="text-[12px] font-semibold text-[#8A6543] hover:underline"
+                            className="text-[12px] font-semibold text-[#5C432C] hover:underline"
                           >
                             Refund {rupiah(dep.refund ?? 0)} · Berita Acara
                           </button>
@@ -228,7 +228,7 @@ export default function TenantsPage() {
         ) : (
           <div className="max-h-[calc(100vh-360px)] min-h-[360px] overflow-y-auto">
             <table className="w-full text-[12.5px]">
-              <thead className="sticky top-0 z-10 bg-[#F4EFE8] border-b border-[#E6E2D8] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-600">
+              <thead className="sticky top-0 z-10 bg-[#F3EFE8] border-b border-[#E6E2D8] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-600">
                 <tr>
                   <th className="px-4 py-2.5">Kamar</th>
                   <th className="py-2.5 pr-3">Nama Penghuni</th>

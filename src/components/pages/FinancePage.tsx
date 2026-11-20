@@ -52,11 +52,11 @@ const CAT_ICON: Record<ExpenseCategory, typeof Zap> = {
   Lainnya: Tag,
 }
 const CAT_COLOR: Record<ExpenseCategory, string> = {
-  Gaji: "bg-[#8A6543]",
+  Gaji: "bg-[#5C432C]",
   Air: "bg-[#0EA5E9]",
   Listrik: "bg-[#F59E0B]",
   "Servis AC": "bg-[#10B981]",
-  Internet: "bg-[#8A6543]",
+  Internet: "bg-[#5C432C]",
   Kebersihan: "bg-[#64748B]",
   Perbaikan: "bg-[#F43F5E]",
   Lainnya: "bg-[#94A3B8]",
@@ -130,7 +130,7 @@ export default function FinancePage() {
             <div className="relative">
               <CalendarDays className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
               <select
-                className="h-10 appearance-none rounded-lg border border-[#E6E2D8] bg-white pl-9 pr-8 text-[12.5px] font-semibold text-slate-800 outline-none focus:border-[#8A6543]"
+                className="h-10 appearance-none rounded-lg border border-[#E6E2D8] bg-white pl-9 pr-8 text-[12.5px] font-semibold text-slate-800 outline-none focus:border-[#5C432C]"
                 defaultValue="nov"
               >
                 <option value="nov">November 2026</option>
@@ -165,7 +165,7 @@ export default function FinancePage() {
               Total Pemasukan Sewa
             </p>
           </div>
-          <p className="mt-2 font-display text-[24px] font-bold text-[#2B221E] tabular-nums">
+          <p className="mt-2 font-display text-[24px] font-bold text-[#2B211A] tabular-nums">
             {rupiah(stats.income)}
           </p>
           <p className="text-[11.5px] text-slate-500">
@@ -188,7 +188,7 @@ export default function FinancePage() {
               Total Pengeluaran Operasional
             </p>
           </div>
-          <p className="mt-2 font-display text-[24px] font-bold text-[#2B221E] tabular-nums">
+          <p className="mt-2 font-display text-[24px] font-bold text-[#2B211A] tabular-nums">
             {rupiah(stats.expenseTotal)}
           </p>
           <p className="text-[11.5px] text-slate-500">
@@ -244,7 +244,7 @@ export default function FinancePage() {
                     onClick={() => setCat(c)}
                     className={`rounded-full border px-2.5 py-1 text-[11.5px] font-medium ${
                       cat === c
-                        ? "border-[#8A6543] bg-[#F6EFE6] text-[#8A6543]"
+                        ? "border-[#5C432C] bg-[#F6EFE6] text-[#5C432C]"
                         : "border-[#E6E2D8] text-slate-600 hover:bg-slate-50"
                     }`}
                   >
@@ -259,7 +259,7 @@ export default function FinancePage() {
             </Btn>
           </div>
           <table className="w-full text-[12.5px]">
-            <thead className="bg-[#F4EFE8] border-b border-[#E6E2D8] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-600">
+            <thead className="bg-[#F3EFE8] border-b border-[#E6E2D8] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-600">
               <tr>
                 <th className="px-4 py-2.5">Tanggal</th>
                 <th className="py-2.5 pr-3">Kategori</th>
@@ -339,12 +339,12 @@ export default function FinancePage() {
         <div className="grid grid-cols-[1.2fr_1fr] gap-4">
           <section className="rounded-xl border border-[#E6E2D8] bg-white p-4">
             <div className="flex items-center justify-between">
-              <h3 className="font-display text-[14px] font-bold text-[#2B221E]">
+              <h3 className="font-display text-[14px] font-bold text-[#2B211A]">
                 Cash Flow Masuk vs Keluar (6 Bulan)
               </h3>
               <div className="flex gap-3 text-[11px] text-slate-500">
                 <span className="flex items-center gap-1">
-                  <span className="size-2 rounded-sm bg-[#8A6543]" /> Masuk
+                  <span className="size-2 rounded-sm bg-[#5C432C]" /> Masuk
                 </span>
                 <span className="flex items-center gap-1">
                   <span className="size-2 rounded-sm bg-[#F43F5E]" /> Keluar
@@ -372,7 +372,7 @@ export default function FinancePage() {
                     <div
                       title={rupiah(i)}
                       className={`w-1/2 max-w-[22px] rounded-t ${
-                        live ? "bg-[#8A6543]" : "bg-[#8A6543]/45"
+                        live ? "bg-[#5C432C]" : "bg-[#5C432C]/45"
                       }`}
                       style={{ height: `${(i / max) * 100}%` }}
                     />
@@ -392,7 +392,7 @@ export default function FinancePage() {
                 <p
                   key={m}
                   className={`flex-1 text-center text-[11px] ${
-                    m === "Nov" ? "font-bold text-[#2B221E]" : "text-slate-500"
+                    m === "Nov" ? "font-bold text-[#2B211A]" : "text-slate-500"
                   }`}
                 >
                   {m}
@@ -404,14 +404,14 @@ export default function FinancePage() {
 
           <section className="space-y-4">
             <div className="rounded-xl border border-[#E2D3C1] bg-[#F6EFE6] p-4">
-              <p className="text-[12px] font-medium text-[#8A6543]">
+              <p className="text-[12px] font-medium text-[#5C432C]">
                 Profit Margin Operasional
               </p>
               <div className="mt-1 flex items-end gap-3">
-                <p className="font-display text-[32px] font-extrabold leading-none text-[#2B221E]">
+                <p className="font-display text-[32px] font-extrabold leading-none text-[#2B211A]">
                   {margin.toFixed(1)}%
                 </p>
-                <p className="pb-1 text-[11.5px] text-[#8A6543]/90">
+                <p className="pb-1 text-[11.5px] text-[#5C432C]/90">
                   dari total pemasukan {rupiah(totalIncome)}
                 </p>
               </div>
@@ -437,8 +437,8 @@ export default function FinancePage() {
               </div>
             </div>
             <div className="rounded-xl border border-[#E6E2D8] bg-white p-4">
-              <h3 className="flex items-center gap-2 font-display text-[13.5px] font-bold text-[#2B221E]">
-                <Receipt className="size-4 text-[#8A6543]" /> Struktur Biaya
+              <h3 className="flex items-center gap-2 font-display text-[13.5px] font-bold text-[#2B211A]">
+                <Receipt className="size-4 text-[#5C432C]" /> Struktur Biaya
               </h3>
               <ul className="mt-3 space-y-2.5">
                 {byCat.map(({ c, v }) => (

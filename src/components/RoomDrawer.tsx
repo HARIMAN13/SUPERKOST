@@ -130,7 +130,7 @@ export default function RoomDrawer({
     >
       <div
         onClick={onClose}
-        className={`absolute inset-0 bg-[#332924]/45 backdrop-blur-[3px] transition-opacity duration-250 ${
+        className={`absolute inset-0 bg-[#423020]/45 backdrop-blur-[3px] transition-opacity duration-250 ${
           shown ? "opacity-100" : "opacity-0"
         }`}
       />
@@ -144,7 +144,7 @@ export default function RoomDrawer({
           <div className="flex items-start gap-3">
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2.5">
-                <h2 className="font-display text-[19px] font-bold tracking-tight text-[#2B221E]">
+                <h2 className="font-display text-[19px] font-bold tracking-tight text-[#2B211A]">
                   Kamar {r.no}{" "}
                   <span className="font-semibold text-slate-300">•</span> Tipe{" "}
                   {r.type}
@@ -225,7 +225,7 @@ export default function RoomDrawer({
                 onClick={() => setTab(k)}
                 className={`relative -mb-px border-b-2 pb-2.5 text-[12.5px] transition-colors ${
                   tab === k
-                    ? "border-[#8A6543] font-semibold text-[#2B221E]"
+                    ? "border-[#5C432C] font-semibold text-[#2B211A]"
                     : "border-transparent font-medium text-slate-500 hover:text-slate-800"
                 }`}
               >
@@ -290,11 +290,11 @@ function TenantCard({ r, d }: { r: Room; d: Detail }) {
   return (
     <section className="rounded-xl border border-[#E6E2D8] bg-white p-4">
       <div className="flex items-center gap-3.5">
-        <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-[#F6EFE6] font-display text-[18px] font-bold text-[#8A6543] ring-1 ring-[#E2D3C1]">
+        <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-[#F6EFE6] font-display text-[18px] font-bold text-[#5C432C] ring-1 ring-[#E2D3C1]">
           {initials(r.tenant)}
         </div>
         <div className="min-w-0 flex-1">
-          <p className="font-display text-[16px] font-bold text-[#2B221E]">
+          <p className="font-display text-[16px] font-bold text-[#2B211A]">
             {r.tenant}
           </p>
           <div className="mt-0.5 flex items-center gap-2">
@@ -383,7 +383,7 @@ function KtpThumb({ name, src }: { name: string; src?: string }) {
     <div className="w-[132px]">
       <div className="relative h-[60px] overflow-hidden rounded-lg border border-[#E2D3C1] bg-[#F3F0EA] p-1.5">
         <div className="flex items-center justify-between">
-          <span className="text-[5.5px] font-bold uppercase tracking-wider text-[#8A6543]">
+          <span className="text-[5.5px] font-bold uppercase tracking-wider text-[#5C432C]">
             Republik Indonesia
           </span>
           <span className="h-1 w-5 rounded bg-stone-700/30" />
@@ -391,7 +391,7 @@ function KtpThumb({ name, src }: { name: string; src?: string }) {
         <div className="mt-1 flex gap-1.5">
           <div className="flex-1 space-y-[3px] pt-0.5">
             <div className="h-[3px] w-full rounded bg-stone-700/35" />
-            <p className="truncate text-[6px] font-semibold uppercase leading-none text-[#2B221E]">
+            <p className="truncate text-[6px] font-semibold uppercase leading-none text-[#2B211A]">
               {name}
             </p>
             <div className="h-[3px] w-4/5 rounded bg-stone-700/20" />
@@ -416,18 +416,18 @@ function KtpThumb({ name, src }: { name: string; src?: string }) {
 function DepositBanner({ d }: { d: Detail }) {
   return (
     <section className="flex gap-3 rounded-xl border border-[#E2D3C1] bg-[#F6EFE6] p-4">
-      <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white text-[#8A6543] ring-1 ring-[#E2D3C1]">
+      <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white text-[#5C432C] ring-1 ring-[#E2D3C1]">
         <Vault className="size-5" strokeWidth={1.9} />
       </span>
       <div className="min-w-0">
-        <p className="text-[13.5px] font-bold text-[#2B221E]">
+        <p className="text-[13.5px] font-bold text-[#2B211A]">
           Uang Jaminan (Deposit) Tersimpan:{" "}
           <span className="tabular-nums">{rupiah(d.deposit)}</span>
         </p>
-        <p className="mt-1 text-[11.5px] leading-relaxed text-[#8A6543]/90">
+        <p className="mt-1 text-[11.5px] leading-relaxed text-[#5C432C]/90">
           Disetor saat check-in pada {d.start}{" "}
           <span className="text-[#C5A572]">•</span> Status:{" "}
-          <span className="inline-flex items-center gap-1 font-semibold text-[#8A6543]">
+          <span className="inline-flex items-center gap-1 font-semibold text-[#5C432C]">
             <Lock className="size-3" strokeWidth={2.4} /> Terkunci Aman
           </span>{" "}
           & Siap Direkonsiliasi saat Checkout
@@ -476,7 +476,7 @@ function Billing({
             <button
               onClick={onSend}
               disabled={sent}
-              className="flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-[#8A6543] text-[12.5px] font-semibold text-white hover:bg-[#735335] disabled:bg-[#10B981]"
+              className="flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-[#5C432C] text-[12.5px] font-semibold text-white hover:bg-[#483422] disabled:bg-[#10B981]"
             >
               {sent ? (
                 <CheckCircle2 className="size-4" />
@@ -593,7 +593,7 @@ function Inventory({ r }: { r: Room }) {
   return (
     <section className="rounded-xl border border-[#E6E2D8] bg-white">
       <div className="flex items-center justify-between border-b border-[#E6E2D8] px-4 py-3">
-        <p className="text-[12.5px] font-semibold text-[#2B221E]">
+        <p className="text-[12.5px] font-semibold text-[#2B211A]">
           {items.filter((i) => i.st !== "na").length} Aset Terdaftar
         </p>
         <p className="text-[11px] text-slate-500">
@@ -669,8 +669,8 @@ function History({ r, d }: { r: Room; d: Detail }) {
     <div className="space-y-4">
       <section className="rounded-xl border border-[#E6E2D8] bg-white">
         <div className="flex items-center gap-2 border-b border-[#E6E2D8] px-4 py-3">
-          <Receipt className="size-4 text-[#8A6543]" />
-          <p className="text-[12.5px] font-semibold text-[#2B221E]">
+          <Receipt className="size-4 text-[#5C432C]" />
+          <p className="text-[12.5px] font-semibold text-[#2B211A]">
             Riwayat Tagihan Sewa
           </p>
         </div>
@@ -710,11 +710,11 @@ function History({ r, d }: { r: Room; d: Detail }) {
 
       <section className="rounded-xl border border-[#E6E2D8] bg-white">
         <div className="flex items-center gap-2 border-b border-[#E6E2D8] px-4 py-3">
-          <ShieldCheck className="size-4 text-[#8A6543]" />
-          <p className="text-[12.5px] font-semibold text-[#2B221E]">
+          <ShieldCheck className="size-4 text-[#5C432C]" />
+          <p className="text-[12.5px] font-semibold text-[#2B211A]">
             Buku Besar Deposit
           </p>
-          <span className="ml-auto text-[12.5px] font-bold text-[#2B221E] tabular-nums">
+          <span className="ml-auto text-[12.5px] font-bold text-[#2B211A] tabular-nums">
             Saldo {rupiah(d.deposit)}
           </span>
         </div>
@@ -736,7 +736,7 @@ function History({ r, d }: { r: Room; d: Detail }) {
             </p>
           </li>
           <li className="flex items-center gap-3 px-4 py-2.5">
-            <span className="flex size-7 items-center justify-center rounded-md bg-[#F6EFE6] text-[#8A6543]">
+            <span className="flex size-7 items-center justify-center rounded-md bg-[#F6EFE6] text-[#5C432C]">
               <Lock className="size-3.5" strokeWidth={2.2} />
             </span>
             <div className="flex-1">

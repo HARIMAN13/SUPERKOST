@@ -65,7 +65,7 @@ function Toggle({
         onChange()
       }}
       className={`relative h-5 w-9 shrink-0 rounded-full transition-colors ${
-        on ? "bg-[#8A6543]" : "bg-slate-300"
+        on ? "bg-[#5C432C]" : "bg-slate-300"
       }`}
     >
       <span
@@ -146,7 +146,7 @@ export default function WhatsAppPage({
             Mesin WhatsApp Gateway <span className="text-slate-300">/</span>{" "}
             Otomasi & Outbox
           </p>
-          <h1 className="mt-0.5 font-display text-[21px] font-bold tracking-tight text-[#2B221E]">
+          <h1 className="mt-0.5 font-display text-[21px] font-bold tracking-tight text-[#2B211A]">
             Pusat Otomasi Notifikasi WhatsApp & Gateway
           </h1>
         </div>
@@ -158,7 +158,7 @@ export default function WhatsAppPage({
 
       {/* Gateway status bar */}
       <section className="flex items-center gap-5 rounded-xl border border-[#E6E2D8] bg-white px-4 py-3">
-        <span className="flex size-10 items-center justify-center rounded-lg bg-[#F6EFE6] text-[#8A6543] ring-1 ring-[#E2D3C1]">
+        <span className="flex size-10 items-center justify-center rounded-lg bg-[#F6EFE6] text-[#5C432C] ring-1 ring-[#E2D3C1]">
           <MessageSquareText className="size-5" strokeWidth={1.9} />
         </span>
         <div className="min-w-0">
@@ -173,7 +173,7 @@ export default function WhatsAppPage({
             </span>
           </p>
           <p className="mt-0.5 flex items-center gap-1.5 text-[11.5px] text-slate-500">
-            <Server className="size-3.5 text-[#8A6543]" /> Fonnte API{" "}
+            <Server className="size-3.5 text-[#5C432C]" /> Fonnte API{" "}
             <span className="text-slate-300">•</span> Node ID: SBY-01
           </p>
         </div>
@@ -210,7 +210,7 @@ export default function WhatsAppPage({
                   ? "bg-[#F43F5E]"
                   : pct >= 85
                     ? "bg-[#F59E0B]"
-                    : "bg-[#8A6543]"
+                    : "bg-[#5C432C]"
               }`}
               style={{ width: `${pct}%` }}
             />
@@ -225,10 +225,10 @@ export default function WhatsAppPage({
         {/* LEFT: rules + editor */}
         <section className="flex min-h-0 flex-col overflow-hidden rounded-xl border border-[#E6E2D8] bg-white">
           <div className="flex items-center justify-between border-b border-[#E6E2D8] px-4 py-3">
-            <h2 className="font-display text-[13.5px] font-bold text-[#2B221E]">
+            <h2 className="font-display text-[13.5px] font-bold text-[#2B211A]">
               Aturan Penagihan Otomatis (Cron Job Harian)
             </h2>
-            <span className="rounded-full bg-[#F6EFE6] px-2 py-0.5 text-[10.5px] font-semibold text-[#8A6543]">
+            <span className="rounded-full bg-[#F6EFE6] px-2 py-0.5 text-[10.5px] font-semibold text-[#5C432C]">
               {rules.filter((r) => r.on).length}/4 Aktif
             </span>
           </div>
@@ -252,7 +252,7 @@ export default function WhatsAppPage({
                       <span
                         className={`flex size-8 shrink-0 items-center justify-center rounded-md ${
                           sel
-                            ? "bg-white text-[#8A6543]"
+                            ? "bg-white text-[#5C432C]"
                             : "bg-[#FAF8F5] text-slate-500"
                         }`}
                       >
@@ -274,7 +274,7 @@ export default function WhatsAppPage({
                               onChange={(e) =>
                                 patchRule(r.id, { time: e.target.value })
                               }
-                              className="rounded border border-transparent bg-transparent font-medium text-slate-700 outline-none hover:border-[#E6E2D8] focus:border-[#8A6543]"
+                              className="rounded border border-transparent bg-transparent font-medium text-slate-700 outline-none hover:border-[#E6E2D8] focus:border-[#5C432C]"
                             >
                               {[
                                 "07:00",
@@ -290,7 +290,7 @@ export default function WhatsAppPage({
                               ))}
                             </select>
                           ) : (
-                            <span className="font-medium text-[#8A6543]">
+                            <span className="font-medium text-[#5C432C]">
                               Instant Trigger
                             </span>
                           )}
@@ -324,10 +324,10 @@ export default function WhatsAppPage({
             {/* Template editor */}
             <div className="border-t border-[#E6E2D8] p-4">
               <div className="flex items-center justify-between">
-                <p className="text-[12.5px] font-semibold text-[#2B221E]">
+                <p className="text-[12.5px] font-semibold text-[#2B211A]">
                   Editor Template Dinamis
                 </p>
-                <span className="rounded bg-[#F6EFE6] px-1.5 py-0.5 text-[10.5px] font-semibold text-[#8A6543]">
+                <span className="rounded bg-[#F6EFE6] px-1.5 py-0.5 text-[10.5px] font-semibold text-[#5C432C]">
                   {rule.tag}
                 </span>
               </div>
@@ -339,7 +339,7 @@ export default function WhatsAppPage({
                   <button
                     key={t}
                     onClick={() => insertTag(t)}
-                    className="rounded-md border border-[#E2D3C1] bg-[#F6EFE6] px-1.5 py-0.5 font-mono text-[10.5px] font-medium text-[#8A6543] hover:border-[#8A6543] hover:bg-[#ECE5D8]"
+                    className="rounded-md border border-[#E2D3C1] bg-[#F6EFE6] px-1.5 py-0.5 font-mono text-[10.5px] font-medium text-[#5C432C] hover:border-[#5C432C] hover:bg-[#ECE5D8]"
                   >
                     {`{${t}}`}
                   </button>
@@ -350,7 +350,7 @@ export default function WhatsAppPage({
                 value={draft}
                 onChange={(e) => setDraft(e.target.value)}
                 rows={4}
-                className="mt-2.5 w-full resize-none rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] px-3 py-2 text-[12px] leading-relaxed text-slate-800 outline-none focus:border-[#8A6543] focus:bg-white focus:ring-3 focus:ring-[#8A6543]/15"
+                className="mt-2.5 w-full resize-none rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] px-3 py-2 text-[12px] leading-relaxed text-slate-800 outline-none focus:border-[#5C432C] focus:bg-white focus:ring-3 focus:ring-[#5C432C]/15"
               />
               <div className="mt-1 flex justify-between text-[10.5px] text-slate-400">
                 <span>{draft.length} karakter</span>
@@ -384,7 +384,7 @@ export default function WhatsAppPage({
                     notify(`Template "${rule.name}" disimpan`)
                   }}
                   disabled={!dirty}
-                  className="flex h-8 flex-1 items-center justify-center gap-1.5 rounded-lg bg-[#8A6543] text-[12px] font-semibold text-white hover:bg-[#735335] disabled:opacity-40"
+                  className="flex h-8 flex-1 items-center justify-center gap-1.5 rounded-lg bg-[#5C432C] text-[12px] font-semibold text-white hover:bg-[#483422] disabled:opacity-40"
                 >
                   <Save className="size-3.5" /> Simpan Template
                 </button>
@@ -396,7 +396,7 @@ export default function WhatsAppPage({
         {/* RIGHT: outbox */}
         <section className="flex min-h-0 flex-col overflow-hidden rounded-xl border border-[#E6E2D8] bg-white">
           <div className="flex items-center gap-3 border-b border-[#E6E2D8] px-4 py-3">
-            <h2 className="font-display text-[13.5px] font-bold text-[#2B221E]">
+            <h2 className="font-display text-[13.5px] font-bold text-[#2B211A]">
               Antrean Pesan Terkirim Hari Ini (Real-Time Outbox)
             </h2>
             <span className="flex items-center gap-1 rounded-full bg-[#10B981]/10 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700">
@@ -404,7 +404,7 @@ export default function WhatsAppPage({
             </span>
             <button
               onClick={() => setBroadcast(true)}
-              className="ml-auto flex h-9 items-center gap-1.5 rounded-lg bg-[#F59E0B] px-3 text-[12px] font-semibold text-[#2B221E] hover:bg-[#D97706] hover:text-white"
+              className="ml-auto flex h-9 items-center gap-1.5 rounded-lg bg-[#F59E0B] px-3 text-[12px] font-semibold text-[#2B211A] hover:bg-[#D97706] hover:text-white"
             >
               <Megaphone className="size-4" strokeWidth={2} /> Broadcast
               Pengumuman Massal (Semua Penghuni)
@@ -413,9 +413,9 @@ export default function WhatsAppPage({
 
           <div className="grid grid-cols-4 border-b border-[#E6E2D8]">
             {[
-              ["Total Pesan Hari Ini", outbox.length, "text-[#2B221E]"],
+              ["Total Pesan Hari Ini", outbox.length, "text-[#2B211A]"],
               ["Terkirim", delivered, "text-emerald-700"],
-              ["Terbaca", read, "text-[#8A6543]"],
+              ["Terbaca", read, "text-[#5C432C]"],
               ["Gagal", 0, "text-slate-400"],
             ].map(([l, v, c], i) => (
               <div
@@ -446,7 +446,7 @@ export default function WhatsAppPage({
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Cari kamar / template"
-                className="h-8 w-full rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] pl-8 pr-2 text-[12px] outline-none placeholder:text-slate-400 focus:border-[#8A6543] focus:bg-white"
+                className="h-8 w-full rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] pl-8 pr-2 text-[12px] outline-none placeholder:text-slate-400 focus:border-[#5C432C] focus:bg-white"
               />
             </div>
           </div>
@@ -486,7 +486,7 @@ export default function WhatsAppPage({
                         className={`rounded px-1.5 py-0.5 text-[10.5px] font-semibold ${
                           m.tpl === "Broadcast"
                             ? "bg-[#F59E0B]/12 text-amber-700"
-                            : "bg-[#F6EFE6] text-[#8A6543]"
+                            : "bg-[#F6EFE6] text-[#5C432C]"
                         }`}
                       >
                         {m.tpl}
@@ -508,7 +508,7 @@ export default function WhatsAppPage({
                           <CheckCheck
                             className={`size-3.5 ${
                               m.status === "read"
-                                ? "text-[#8A6543]"
+                                ? "text-[#5C432C]"
                                 : "text-emerald-600"
                             }`}
                             strokeWidth={2.4}
@@ -532,7 +532,7 @@ export default function WhatsAppPage({
               perangkat
             </span>
             <span className="flex items-center gap-1">
-              <CheckCheck className="size-3.5 text-[#8A6543]" /> Dibaca penghuni
+              <CheckCheck className="size-3.5 text-[#5C432C]" /> Dibaca penghuni
             </span>
             <span className="ml-auto">Log disimpan 90 hari untuk audit</span>
           </div>
@@ -601,7 +601,7 @@ function BroadcastDialog({
     >
       <div
         onClick={onClose}
-        className="absolute inset-0 bg-[#332924]/50 backdrop-blur-[3px]"
+        className="absolute inset-0 bg-[#423020]/50 backdrop-blur-[3px]"
       />
       <div className="relative w-[520px] overflow-hidden rounded-2xl border border-[#E6E2D8] bg-white shadow-2xl">
         <header className="flex items-center gap-3 border-b border-[#E6E2D8] px-5 py-4">
@@ -609,7 +609,7 @@ function BroadcastDialog({
             <Megaphone className="size-[18px]" />
           </span>
           <div className="flex-1">
-            <h3 className="font-display text-[15px] font-bold text-[#2B221E]">
+            <h3 className="font-display text-[15px] font-bold text-[#2B211A]">
               Broadcast Pengumuman Massal
             </h3>
             <p className="text-[11.5px] text-slate-500">
@@ -629,12 +629,12 @@ function BroadcastDialog({
             value={text}
             onChange={(e) => setText(e.target.value)}
             rows={5}
-            className="w-full resize-none rounded-lg border border-[#E6E2D8] px-3 py-2 text-[12.5px] leading-relaxed outline-none focus:border-[#8A6543] focus:ring-3 focus:ring-[#8A6543]/15"
+            className="w-full resize-none rounded-lg border border-[#E6E2D8] px-3 py-2 text-[12.5px] leading-relaxed outline-none focus:border-[#5C432C] focus:ring-3 focus:ring-[#5C432C]/15"
           />
           <div
             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-[11.5px] ${
               enough
-                ? "bg-[#F6EFE6] text-[#8A6543]"
+                ? "bg-[#F6EFE6] text-[#5C432C]"
                 : "bg-[#FFF1F2] text-rose-700"
             }`}
           >
@@ -657,7 +657,7 @@ function BroadcastDialog({
           <button
             onClick={onSend}
             disabled={!enough || !text.trim()}
-            className="flex h-9 items-center gap-1.5 rounded-lg bg-[#F59E0B] px-4 text-[12.5px] font-semibold text-[#2B221E] hover:bg-[#D97706] hover:text-white disabled:opacity-50"
+            className="flex h-9 items-center gap-1.5 rounded-lg bg-[#F59E0B] px-4 text-[12.5px] font-semibold text-[#2B211A] hover:bg-[#D97706] hover:text-white disabled:opacity-50"
           >
             <Send className="size-3.5" /> Kirim ke {recipients} Penghuni
           </button>

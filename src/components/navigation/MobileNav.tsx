@@ -148,9 +148,9 @@ export default function MobileNav() {
           type="button"
           onClick={() => setCollapsed(false)}
           aria-label="Buka Navigasi Bawah"
-          className="flex items-center gap-1.5 rounded-full border border-white/30 bg-[#332924]/85 backdrop-blur-xl px-3.5 py-2 text-xs font-semibold text-[#FAF8F5] shadow-lg active:scale-95 transition-all"
+          className="flex items-center gap-1.5 rounded-full border border-[#D8CBB8] bg-[#F3EFE8]/90 backdrop-blur-xl px-3.5 py-2 text-xs font-semibold text-[#2B211A] shadow-lg active:scale-95 transition-all"
         >
-          <ChevronUp className="size-4 text-[#E5C99B]" />
+          <ChevronUp className="size-4 text-[#5C432C]" />
           <span>Navigasi</span>
         </button>
       </div>
@@ -169,14 +169,14 @@ export default function MobileNav() {
           onClick={() => setCollapsed(true)}
           title="Sembunyikan Navigasi (Layar Penuh)"
           aria-label="Sembunyikan Navigasi"
-          className="absolute -top-2 right-1 z-20 flex size-6 items-center justify-center rounded-full border border-white/30 bg-[#332924]/80 backdrop-blur-md text-stone-200 shadow-sm hover:text-white active:scale-90"
+          className="absolute -top-2 right-1 z-20 flex size-6 items-center justify-center rounded-full border border-[#D8CBB8] bg-[#F3EFE8]/90 backdrop-blur-md text-[#5C432C] shadow-sm hover:text-[#2B211A] active:scale-90"
         >
           <ChevronDown className="size-3.5" />
         </button>
-        {/* SVG Liquid Notch Translucent Frosted Glass Pill */}
+        {/* SVG Liquid Notch Translucent Frosted Glass Pill — Light Sand & Antique Bronze */}
         <svg
           viewBox="0 0 400 88"
-          className="w-full h-full drop-shadow-[0_12px_28px_rgba(43,34,30,0.28)]"
+          className="w-full h-full drop-shadow-[0_12px_28px_rgba(62,45,30,0.18)]"
           fill="none"
         >
           <defs>
@@ -191,9 +191,9 @@ export default function MobileNav() {
               y2="84"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0%" stopColor="#3F332D" stopOpacity="0.62" />
-              <stop offset="55%" stopColor="#332924" stopOpacity="0.72" />
-              <stop offset="100%" stopColor="#4A3B34" stopOpacity="0.68" />
+              <stop offset="0%" stopColor="#FAF7F2" stopOpacity="0.72" />
+              <stop offset="55%" stopColor="#F3EFE8" stopOpacity="0.82" />
+              <stop offset="100%" stopColor="#EAE2D6" stopOpacity="0.85" />
             </linearGradient>
             <linearGradient
               id="navGlassStroke"
@@ -203,9 +203,9 @@ export default function MobileNav() {
               y2="85"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.55" />
-              <stop offset="50%" stopColor="#D4B483" stopOpacity="0.32" />
-              <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.35" />
+              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.9" />
+              <stop offset="50%" stopColor="#C8B69E" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#B8A388" stopOpacity="0.5" />
             </linearGradient>
           </defs>
 
@@ -217,7 +217,7 @@ export default function MobileNav() {
             height="88"
             clipPath="url(#liquidNotchClip)"
           >
-            <div className="w-full h-full bg-[#332924]/60 backdrop-blur-xl backdrop-saturate-150" />
+            <div className="w-full h-full bg-[#F3EFE8]/70 backdrop-blur-xl backdrop-saturate-150" />
           </foreignObject>
 
           {/* Translucent Glass Tint & Crisp Highlight Border */}
@@ -229,7 +229,7 @@ export default function MobileNav() {
           />
         </svg>
 
-        {/* Floating Active Circle Orb — Warm Cinnamon-Mocha with 9px gap inside the notch */}
+        {/* Floating Active Circle Orb — Antique Bronze with 9px gap inside the notch */}
         <button
           type="button"
           onClick={allSlots[targetIdx]?.onClick}
@@ -238,7 +238,7 @@ export default function MobileNav() {
             left: `${(animCx / 400) * 100}%`,
             top: `${(18 / 88) * 100}%`,
           }}
-          className="absolute -translate-x-1/2 -translate-y-1/2 flex size-[40px] items-center justify-center rounded-full bg-gradient-to-b from-[#9B724D]/95 to-[#735335]/95 backdrop-blur-md text-white shadow-[0_6px_16px_rgba(115,83,53,0.45)] ring-1 ring-white/50 transition-transform active:scale-95"
+          className="absolute -translate-x-1/2 -translate-y-1/2 flex size-[40px] items-center justify-center rounded-full bg-gradient-to-b from-[#6E5136] to-[#523B26] text-[#FAF8F5] shadow-[0_6px_16px_rgba(92,67,44,0.38)] ring-1 ring-white/60 transition-transform active:scale-95"
         >
           <div className="relative">
             <ActiveIcon className="size-[19px]" strokeWidth={2.1} />
@@ -271,7 +271,7 @@ export default function MobileNav() {
               <div
                 className={`relative flex h-6 items-center justify-center transition-all duration-200 ${isCurrent
                     ? "opacity-0 -translate-y-3 pointer-events-none scale-75"
-                    : "opacity-90 text-[#FAF8F5]"
+                    : "opacity-90 text-[#4A3828]"
                   }`}
               >
                 <Icon className="size-[19px]" strokeWidth={1.9} />
@@ -285,8 +285,8 @@ export default function MobileNav() {
               {/* Text Label — always visible for every item */}
               <span
                 className={`mt-0.5 text-[10px] leading-none tracking-wide transition-colors ${isCurrent
-                    ? "font-bold text-[#E5C99B]"
-                    : "font-medium text-[#FAF8F5]/80"
+                    ? "font-bold text-[#5C432C]"
+                    : "font-medium text-[#524336]"
                   }`}
               >
                 {slot.label}

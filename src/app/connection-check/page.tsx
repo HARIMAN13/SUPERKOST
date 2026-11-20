@@ -97,7 +97,7 @@ export default function ConnectionCheckPage() {
   return (
     <main className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center px-6 py-12">
       <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
-        <p className="text-sm font-semibold uppercase tracking-wider text-[#8A6543]">SUPERKOST · backend check</p>
+        <p className="text-sm font-semibold uppercase tracking-wider text-[#5C432C]">SUPERKOST · backend check</p>
         <h1 className="mt-2 text-3xl font-bold">Tes koneksi Supabase</h1>
         <p className="mt-3 rounded-lg bg-slate-50 p-4 text-sm text-slate-700">{message}</p>
 
@@ -109,7 +109,7 @@ export default function ConnectionCheckPage() {
             <label className="block text-sm font-medium">Password
               <input required type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2" />
             </label>
-            <button disabled={busy || !supabase} className="rounded-lg bg-[#8A6543] px-4 py-2 font-semibold text-white disabled:opacity-50">
+            <button disabled={busy || !supabase} className="rounded-lg bg-[#5C432C] px-4 py-2 font-semibold text-white disabled:opacity-50">
               {busy ? "Menghubungkan..." : "Login & tes query"}
             </button>
           </form>

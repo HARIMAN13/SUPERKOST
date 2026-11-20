@@ -9,7 +9,7 @@ import LandingFooter from "@/components/landing/LandingFooter";
 export default function HomePage() {
   return (
     <div
-      className="min-h-screen bg-[#FAF8F5] text-[#2B221E] selection:bg-[#8A6543] selection:text-[#FAF8F5]"
+      className="min-h-screen bg-[#FAF8F5] text-[#2B211A] selection:bg-[#5C432C] selection:text-[#FAF8F5]"
       style={{
         backgroundImage:
           "radial-gradient(at 15% 0%, rgba(212, 180, 131, 0.14) 0px, transparent 48%), radial-gradient(at 85% 8%, rgba(138, 101, 67, 0.09) 0px, transparent 48%)",

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function LandingFooter() {
   return (
-    <footer className="border-t border-white/10 bg-[#332924] text-stone-400">
+    <footer className="border-t border-white/10 bg-[#423020] text-stone-400">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2 space-y-4">

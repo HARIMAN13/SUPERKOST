@@ -18,10 +18,10 @@ export default function PricingCalculator() {
     <section id="kalkulator" className="py-24 bg-[#F3F0EA] border-b border-stone-200/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#8A6543]">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#5C432C]">
             Valuasi &amp; Lisensi
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#2B221E]">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#2B211A]">
             Investasi Terukur untuk Efisiensi Properti
           </h2>
           <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
@@ -33,8 +33,8 @@ export default function PricingCalculator() {
         {/* Interactive ROI Calculator Card */}
         <div className="mt-12 mx-auto max-w-4xl rounded-2xl border border-stone-300/80 bg-[#FAF8F5] p-6 sm:p-9 shadow-sm">
           <div className="flex items-center gap-2.5 mb-7 pb-4 border-b border-stone-200">
-            <Calculator className="size-5 text-[#8A6543]" />
-            <h3 className="font-display text-lg font-bold text-[#2B221E]">
+            <Calculator className="size-5 text-[#5C432C]" />
+            <h3 className="font-display text-lg font-bold text-[#2B211A]">
               Simulasi Efisiensi &amp; Arus Kas Properti Anda
             </h3>
           </div>
@@ -44,7 +44,7 @@ export default function PricingCalculator() {
               <div>
                 <div className="flex justify-between text-xs font-semibold text-stone-700 mb-2.5">
                   <span>Kapasitas Unit Kamar:</span>
-                  <span className="text-[#2B221E] font-bold text-sm">
+                  <span className="text-[#2B211A] font-bold text-sm">
                     {rooms} Kamar
                   </span>
                 </div>
@@ -55,7 +55,7 @@ export default function PricingCalculator() {
                   step="1"
                   value={rooms}
                   onChange={(e) => setRooms(Number(e.target.value))}
-                  className="w-full accent-[#8A6543] cursor-pointer h-1.5 bg-stone-300 rounded-lg"
+                  className="w-full accent-[#5C432C] cursor-pointer h-1.5 bg-stone-300 rounded-lg"
                 />
                 <div className="flex justify-between text-[11px] text-stone-500 mt-1.5">
                   <span>5 Kamar</span>
@@ -67,7 +67,7 @@ export default function PricingCalculator() {
               <div>
                 <div className="flex justify-between text-xs font-semibold text-stone-700 mb-2.5">
                   <span>Rata-Rata Tarif Sewa / Kamar:</span>
-                  <span className="text-[#2B221E] font-bold text-sm">
+                  <span className="text-[#2B211A] font-bold text-sm">
                     {rupiah(avgRent)} / bln
                   </span>
                 </div>
@@ -78,7 +78,7 @@ export default function PricingCalculator() {
                   step="100000"
                   value={avgRent}
                   onChange={(e) => setAvgRent(Number(e.target.value))}
-                  className="w-full accent-[#8A6543] cursor-pointer h-1.5 bg-stone-300 rounded-lg"
+                  className="w-full accent-[#5C432C] cursor-pointer h-1.5 bg-stone-300 rounded-lg"
                 />
                 <div className="flex justify-between text-[11px] text-stone-500 mt-1.5">
                   <span>Rp500rb</span>
@@ -88,7 +88,7 @@ export default function PricingCalculator() {
               </div>
             </div>
 
-            <div className="rounded-xl bg-[#332924] text-[#FAF8F5] p-6 space-y-4 border border-white/10">
+            <div className="rounded-xl bg-[#423020] text-[#FAF8F5] p-6 space-y-4 border border-white/10">
               <div>
                 <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
                   Estimasi Omzet Sewa Bulanan
@@ -126,8 +126,8 @@ export default function PricingCalculator() {
             <button
               onClick={() => setBillingCycle("monthly")}
               className={`rounded-lg px-4 py-2 text-xs font-semibold transition-all ${billingCycle === "monthly"
-                ? "bg-white text-[#2B221E] shadow-2xs"
-                : "text-stone-600 hover:text-[#2B221E]"
+                ? "bg-white text-[#2B211A] shadow-2xs"
+                : "text-stone-600 hover:text-[#2B211A]"
                 }`}
             >
               Lisensi Bulanan
@@ -135,8 +135,8 @@ export default function PricingCalculator() {
             <button
               onClick={() => setBillingCycle("yearly")}
               className={`rounded-lg px-4 py-2 text-xs font-semibold transition-all flex items-center gap-2 ${billingCycle === "yearly"
-                ? "bg-[#8A6543] text-[#FAF8F5] shadow-2xs"
-                : "text-stone-600 hover:text-[#2B221E]"
+                ? "bg-[#5C432C] text-[#FAF8F5] shadow-2xs"
+                : "text-stone-600 hover:text-[#2B211A]"
                 }`}
             >
               <span>Tahunan</span>
@@ -154,7 +154,7 @@ export default function PricingCalculator() {
               <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-stone-500">
                 Paket Fleksibel
               </p>
-              <h4 className="font-display text-2xl font-bold text-[#2B221E] mt-1.5">
+              <h4 className="font-display text-2xl font-bold text-[#2B211A] mt-1.5">
                 Lisensi Bulanan
               </h4>
               <p className="text-xs text-stone-500 mt-1">
@@ -162,7 +162,7 @@ export default function PricingCalculator() {
               </p>
 
               <div className="mt-6 flex items-baseline">
-                <span className="font-display text-4xl font-bold text-[#2B221E]">
+                <span className="font-display text-4xl font-bold text-[#2B211A]">
                   Rp149.000
                 </span>
                 <span className="ml-2 text-xs text-stone-500 font-medium">
@@ -180,7 +180,7 @@ export default function PricingCalculator() {
                   "Ekspor laporan keuangan CSV & PDF",
                 ].map((f) => (
                   <li key={f} className="flex items-center gap-2.5">
-                    <Check className="size-4 text-[#8A6543] shrink-0" />
+                    <Check className="size-4 text-[#5C432C] shrink-0" />
                     <span>{f}</span>
                   </li>
                 ))}
@@ -189,15 +189,15 @@ export default function PricingCalculator() {
 
             <Link
               href="/register"
-              className="mt-8 block w-full rounded-xl border border-stone-300 bg-white py-3.5 text-center text-xs font-bold text-[#2B221E] hover:bg-stone-100 transition-colors"
+              className="mt-8 block w-full rounded-xl border border-stone-300 bg-white py-3.5 text-center text-xs font-bold text-[#2B211A] hover:bg-stone-100 transition-colors"
             >
               Pilih Lisensi Bulanan
             </Link>
           </div>
 
           {/* Paket Tahunan */}
-          <div className="rounded-2xl border border-white/10 bg-[#332924] text-[#FAF8F5] p-7 sm:p-9 shadow-xl relative flex flex-col justify-between">
-            <div className="absolute -top-3.5 right-6 rounded-full border border-[#D4B483]/40 bg-[#8A6543] px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#FAF8F5]">
+          <div className="rounded-2xl border border-white/10 bg-[#423020] text-[#FAF8F5] p-7 sm:p-9 shadow-xl relative flex flex-col justify-between">
+            <div className="absolute -top-3.5 right-6 rounded-full border border-[#D4B483]/40 bg-[#5C432C] px-3.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#FAF8F5]">
               Rekomendasi Eksekutif
             </div>
 
@@ -239,7 +239,7 @@ export default function PricingCalculator() {
 
             <Link
               href="/register"
-              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#C5A572] py-3.5 text-center text-xs font-bold text-[#2B221E] hover:bg-[#D4B685] transition-colors"
+              className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#C5A572] py-3.5 text-center text-xs font-bold text-[#2B211A] hover:bg-[#D4B685] transition-colors"
             >
               <span>Mulai Lisensi Tahunan (14 Hari Gratis)</span>
               <ArrowRight className="size-3.5" />

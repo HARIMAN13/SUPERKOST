@@ -121,7 +121,7 @@ export default function BillingPage({
             Tagihan & Mesin Invoice <span className="text-slate-300">/</span>{" "}
             Periode November 2026
           </p>
-          <h1 className="mt-0.5 font-display text-[19px] sm:text-[21px] font-bold tracking-tight text-[#2B221E]">
+          <h1 className="mt-0.5 font-display text-[19px] sm:text-[21px] font-bold tracking-tight text-[#2B211A]">
             Manajemen Tagihan & Rekonsiliasi Kas Sewa
           </h1>
         </div>
@@ -169,7 +169,7 @@ export default function BillingPage({
           <button
             onClick={generate}
             disabled={generating || store.nextGenerated}
-            className="flex h-10 items-center gap-2 rounded-lg bg-[#8A6543] px-4 text-[13px] font-semibold text-white hover:bg-[#735335] disabled:opacity-80"
+            className="flex h-10 items-center gap-2 rounded-lg bg-[#5C432C] px-4 text-[13px] font-semibold text-white hover:bg-[#483422] disabled:opacity-80"
           >
             {generating ? (
               <Loader2 className="size-4 animate-spin" />
@@ -192,8 +192,8 @@ export default function BillingPage({
             label: "Total Tagihan November",
             v: rupiah(total),
             sub: `${invoices.length} invoice terbit`,
-            c: "text-[#2B221E]",
-            bar: "bg-[#8A6543]",
+            c: "text-[#2B211A]",
+            bar: "bg-[#5C432C]",
           },
           {
             label: "Kas Terverifikasi",
@@ -275,14 +275,14 @@ export default function BillingPage({
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Cari kamar / penghuni"
-                className="h-8 w-full rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] pl-8 pr-2 text-[12px] outline-none placeholder:text-slate-400 focus:border-[#8A6543] focus:bg-white"
+                className="h-8 w-full rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] pl-8 pr-2 text-[12px] outline-none placeholder:text-slate-400 focus:border-[#5C432C] focus:bg-white"
               />
             </div>
           </div>
 
           {checked.size > 0 && (
             <div className="flex items-center gap-3 border-y border-[#E2D3C1] bg-[#F6EFE6] px-4 py-2 text-[12px]">
-              <span className="font-semibold text-[#8A6543]">
+              <span className="font-semibold text-[#5C432C]">
                 {checked.size} tagihan dipilih
               </span>
               <span className="h-4 w-px bg-[#E2D3C1]" />
@@ -290,7 +290,7 @@ export default function BillingPage({
                 onClick={() =>
                   store.sendReminder([...checked], "Pengingat Tagihan Massal")
                 }
-                className="flex items-center gap-1 font-semibold text-[#8A6543] hover:text-[#2B221E]"
+                className="flex items-center gap-1 font-semibold text-[#5C432C] hover:text-[#2B211A]"
               >
                 <Send className="size-3.5" /> Kirim WA Massal
               </button>
@@ -326,7 +326,7 @@ export default function BillingPage({
                   ])
                   notify(`Rekap ${paid.length} kuitansi diunduh (.csv)`)
                 }}
-                className="flex items-center gap-1 font-semibold text-[#8A6543] hover:text-[#2B221E]"
+                className="flex items-center gap-1 font-semibold text-[#5C432C] hover:text-[#2B211A]"
               >
                 <FileDown className="size-3.5" /> Unduh Kuitansi
               </button>
@@ -341,7 +341,7 @@ export default function BillingPage({
 
           <div className="min-h-0 flex-1 overflow-y-auto">
             <table className="w-full text-[12.5px]">
-              <thead className="sticky top-0 z-10 bg-[#F4EFE8] border-b border-[#E6E2D8] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-600">
+              <thead className="sticky top-0 z-10 bg-[#F3EFE8] border-b border-[#E6E2D8] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-600">
                 <tr>
                   <th className="w-10 py-2.5 pl-4">
                     <Checkbox
@@ -381,7 +381,7 @@ export default function BillingPage({
                       <td
                         className={`relative py-2.5 pl-4 ${
                           sel
-                            ? "before:absolute before:inset-y-0 before:left-0 before:w-[3px] before:bg-[#8A6543]"
+                            ? "before:absolute before:inset-y-0 before:left-0 before:w-[3px] before:bg-[#5C432C]"
                             : ""
                         }`}
                         onClick={(e) => e.stopPropagation()}
@@ -416,7 +416,7 @@ export default function BillingPage({
                         {r.status === "verify" && (
                           <button
                             onClick={() => setSelected(r.no)}
-                            className="inline-flex h-7 items-center gap-1 rounded-md bg-[#8A6543] px-2.5 text-[11.5px] font-semibold text-white hover:bg-[#735335]"
+                            className="inline-flex h-7 items-center gap-1 rounded-md bg-[#5C432C] px-2.5 text-[11.5px] font-semibold text-white hover:bg-[#483422]"
                           >
                             Periksa Bukti <ArrowRight className="size-3.5" />
                           </button>
@@ -506,10 +506,10 @@ function Checkbox({
       onClick={onChange}
       className={`flex size-4 items-center justify-center rounded-[4px] border transition-colors ${
         on
-          ? "border-[#8A6543] bg-[#8A6543] text-white"
+          ? "border-[#5C432C] bg-[#5C432C] text-white"
           : dark
             ? "border-stone-500/50 bg-transparent"
-            : "border-slate-300 bg-white hover:border-[#8A6543]"
+            : "border-slate-300 bg-white hover:border-[#5C432C]"
       }`}
     >
       {on && <Check className="size-3" strokeWidth={3.2} />}
@@ -586,7 +586,7 @@ function Inspector({
   const amount = room.price
 
   const header = (title: string, sub: React.ReactNode) => (
-    <div className="bg-gradient-to-r from-[#332924] to-[#453730] px-4 py-3">
+    <div className="bg-gradient-to-r from-[#4A3623] to-[#5C432C] px-4 py-3">
       <p className="text-[10.5px] font-semibold uppercase tracking-[0.1em] text-[#C5A572]">
         {title}
       </p>
@@ -618,7 +618,7 @@ function Inspector({
               </p>
               <StatusBadge r={room} />
             </div>
-            <p className="mt-2 font-display text-[24px] font-bold text-[#2B221E] tabular-nums">
+            <p className="mt-2 font-display text-[24px] font-bold text-[#2B211A] tabular-nums">
               {rupiah(room.price)}
             </p>
             <p className="text-[11.5px] text-slate-500">
@@ -664,7 +664,7 @@ function Inspector({
           ) : (
             <button
               onClick={() => store.sendReminder([room.no])}
-              className="flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-[#8A6543] text-[12.5px] font-semibold text-white hover:bg-[#735335]"
+              className="flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-[#5C432C] text-[12.5px] font-semibold text-white hover:bg-[#483422]"
             >
               <Send className="size-4" /> Kirim Ulang Tagihan via WhatsApp
             </button>
@@ -748,7 +748,7 @@ function Inspector({
               />
             </div>
             {zoom === 1 && (
-              <span className="pointer-events-none absolute bottom-2 right-2 flex items-center gap-1 rounded-md bg-[#332924]/80 px-1.5 py-0.5 text-[10px] font-medium text-white">
+              <span className="pointer-events-none absolute bottom-2 right-2 flex items-center gap-1 rounded-md bg-[#423020]/80 px-1.5 py-0.5 text-[10px] font-medium text-white">
                 <Maximize2 className="size-3" /> Klik untuk zoom
               </span>
             )}

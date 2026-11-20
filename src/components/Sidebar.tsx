@@ -100,30 +100,30 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`hidden lg:flex fixed inset-y-0 left-0 z-30 w-[212px] flex-col bg-[#332924] text-stone-200 border-r border-white/[0.07] transition-transform duration-300 ease-in-out ${
+      className={`hidden lg:flex fixed inset-y-0 left-0 z-30 w-[212px] flex-col bg-[#F3EFE8] text-[#2B211A] border-r border-[#E4DDD0] transition-transform duration-300 ease-in-out ${
         s.sidebarOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      <div className="flex h-[68px] items-center justify-between border-b border-white/[0.07] px-4">
+      <div className="flex h-[68px] items-center justify-between border-b border-[#E4DDD0] px-4">
         <Link href="/" className="flex items-center">
-          <span className="font-display text-[17px] font-bold tracking-[-0.04em] text-[#FAF8F5]">
+          <span className="font-display text-[17px] font-bold tracking-[-0.04em] text-[#2B211A]">
             SUPERKOST
           </span>
-          <span className="ml-1 size-1.5 rounded-full bg-[#D4B483]" />
+          <span className="ml-1 size-1.5 rounded-full bg-[#8A623E]" />
         </Link>
         <button
           type="button"
           onClick={() => s.setSidebarOpen(false)}
           title="Tutup Sidebar (Layar Penuh)"
           aria-label="Tutup Sidebar"
-          className="flex size-7 items-center justify-center rounded-lg text-stone-400 hover:bg-white/[0.08] hover:text-white transition-colors"
+          className="flex size-7 items-center justify-center rounded-lg text-[#7A6857] hover:bg-[#E7E0D3] hover:text-[#2B211A] transition-colors"
         >
           <PanelLeftClose className="size-4" />
         </button>
       </div>
 
       <nav className="flex-1 overflow-y-auto px-2.5 py-3.5">
-        <p className="px-2.5 pb-2 text-[9.5px] font-semibold uppercase tracking-[0.14em] text-stone-400/80">
+        <p className="px-2.5 pb-2 text-[9.5px] font-bold uppercase tracking-[0.14em] text-[#8C7A68]">
           Modul Operasional
         </p>
         <ul className="space-y-0.5">
@@ -136,15 +136,15 @@ export default function Sidebar() {
                   onClick={() => s.navigate(it.page, it.tab)}
                   className={`group flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-[12px] font-medium transition-all ${
                     on
-                      ? "bg-gradient-to-r from-[#8A6543] to-[#735335] text-white shadow-sm ring-1 ring-white/15"
-                      : "text-stone-300/85 hover:bg-white/[0.05] hover:text-white"
+                      ? "bg-[#5C432C] text-[#FAF8F5] font-semibold shadow-sm"
+                      : "text-[#524336] hover:bg-[#E7E0D3]/80 hover:text-[#2B211A]"
                   }`}
                 >
                   <Icon
                     className={`size-4 shrink-0 ${
                       on
-                        ? "text-[#E5C99B]"
-                        : "text-stone-400 group-hover:text-stone-200"
+                        ? "text-[#E6C99B]"
+                        : "text-[#8C7A68] group-hover:text-[#5C432C]"
                     }`}
                     strokeWidth={1.8}
                   />
@@ -156,16 +156,16 @@ export default function Sidebar() {
         </ul>
       </nav>
 
-      <div className="border-t border-white/[0.07] p-2.5 space-y-1.5">
-        <div className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left bg-white/[0.04] border border-white/[0.06]">
-          <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#8A6543] text-[10.5px] font-bold text-[#E5C99B] ring-1 ring-white/15">
+      <div className="border-t border-[#E4DDD0] p-2.5 space-y-1.5">
+        <div className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left bg-[#EAE3D7]/75 border border-[#DFD5C6]">
+          <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#5C432C] text-[10.5px] font-bold text-[#E6C99B]">
             {userInitials}
           </div>
           <div className="min-w-0 flex-1">
-            <p className="truncate text-[11.5px] font-semibold text-[#FAF8F5]">
+            <p className="truncate text-[11.5px] font-semibold text-[#2B211A]">
               {displayName}
             </p>
-            <p className="truncate text-[10px] text-stone-400">
+            <p className="truncate text-[10px] text-[#7A6857]">
               {roleLabel}
             </p>
           </div>
@@ -174,9 +174,9 @@ export default function Sidebar() {
         <div className="space-y-0.5">
           <Link
             href="/"
-            className="flex w-full items-center gap-2 rounded-lg px-2.5 py-1.5 text-left text-[11.5px] font-medium text-stone-300/85 hover:bg-white/[0.05] hover:text-white transition-colors"
+            className="flex w-full items-center gap-2 rounded-lg px-2.5 py-1.5 text-left text-[11.5px] font-medium text-[#524336] hover:bg-[#E7E0D3]/80 hover:text-[#2B211A] transition-colors"
           >
-            <Home className="size-3.5 shrink-0 text-stone-400" />
+            <Home className="size-3.5 shrink-0 text-[#8C7A68]" />
             <span>Ke Halaman Depan</span>
           </Link>
           <button
@@ -185,9 +185,9 @@ export default function Sidebar() {
               await s.signOut()
               router.push("/login")
             }}
-            className="flex w-full items-center gap-2 rounded-lg px-2.5 py-1.5 text-left text-[11.5px] font-medium text-rose-300/90 hover:bg-rose-500/10 hover:text-rose-200 transition-colors"
+            className="flex w-full items-center gap-2 rounded-lg px-2.5 py-1.5 text-left text-[11.5px] font-medium text-rose-700 hover:bg-rose-500/10 transition-colors"
           >
-            <LogOut className="size-3.5 shrink-0 text-rose-400" />
+            <LogOut className="size-3.5 shrink-0 text-rose-600" />
             <span>Keluar Akun</span>
           </button>
         </div>
