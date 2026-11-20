@@ -73,8 +73,12 @@ function Shell() {
       {/* Mobile slide-out drawer */}
       <MobileDrawer />
 
-      {/* Main container with responsive padding */}
-      <div className="lg:pl-[212px] flex flex-col min-h-screen pb-24 lg:pb-0">
+      {/* Main container with responsive padding & smooth full-screen toggle */}
+      <div
+        className={`flex flex-col min-h-screen pb-24 lg:pb-0 transition-[padding] duration-300 ease-in-out ${
+          s.sidebarOpen ? "lg:pl-[212px]" : "lg:pl-0"
+        }`}
+      >
         <Topbar />
         <main
           key={`${s.page}-${s.propId}`}

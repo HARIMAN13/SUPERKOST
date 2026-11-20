@@ -6,6 +6,8 @@ import {
   ReceiptText,
   ClipboardCheck,
   Menu,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useStore, type Page } from "@/store/store";
@@ -78,6 +80,7 @@ export default function MobileNav() {
   const targetCx = SLOT_CENTERS[targetIdx] ?? 200;
 
   const [animCx, setAnimCx] = useState(targetCx);
+  const [collapsed, setCollapsed] = useState(false);
   const animRef = useRef<number | null>(null);
   const currentCxRef = useRef(targetCx);
 
@@ -138,12 +141,38 @@ export default function MobileNav() {
   const activeBadge = allSlots[targetIdx]?.badge ?? null;
   const notchPath = buildNotchPath(animCx);
 
+  if (collapsed) {
+    return (
+      <div className="lg:hidden fixed bottom-3 right-3.5 z-40 safe-pb">
+        <button
+          type="button"
+          onClick={() => setCollapsed(false)}
+          aria-label="Buka Navigasi Bawah"
+          className="flex items-center gap-1.5 rounded-full border border-white/30 bg-[#1C2426]/80 backdrop-blur-xl px-3.5 py-2 text-xs font-semibold text-[#FAF8F5] shadow-lg active:scale-95 transition-all"
+        >
+          <ChevronUp className="size-4 text-[#E5C99B]" />
+          <span>Navigasi</span>
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div className="lg:hidden fixed bottom-3 inset-x-0 z-40 px-3.5 pointer-events-none safe-pb">
       <nav
         aria-label="Navigasi Bawah"
         className="pointer-events-auto relative mx-auto w-full max-w-[390px] aspect-[400/88] select-none"
       >
+        {/* Collapse toggle button to hide bottom navbar for full screen on mobile */}
+        <button
+          type="button"
+          onClick={() => setCollapsed(true)}
+          title="Sembunyikan Navigasi (Layar Penuh)"
+          aria-label="Sembunyikan Navigasi"
+          className="absolute -top-2 right-1 z-20 flex size-6 items-center justify-center rounded-full border border-white/30 bg-[#1C2426]/75 backdrop-blur-md text-stone-200 shadow-sm hover:text-white active:scale-90"
+        >
+          <ChevronDown className="size-3.5" />
+        </button>
         {/* SVG Liquid Notch Translucent Frosted Glass Pill */}
         <svg
           viewBox="0 0 400 88"

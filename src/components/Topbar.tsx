@@ -16,6 +16,10 @@ import {
   Home,
   LogOut,
   UserCheck,
+  PanelLeftClose,
+  PanelLeftOpen,
+  Maximize2,
+  Minimize2,
 } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -41,6 +45,26 @@ export default function Topbar() {
   const [q, setQ] = useState("")
   const [cursor, setCursor] = useState(0)
   const [seen, setSeen] = useState<Record<string, boolean>>({})
+  const [isFullscreen, setIsFullscreen] = useState(false)
+
+  useEffect(() => {
+    const onFsChange = () => setIsFullscreen(!!document.fullscreenElement)
+    document.addEventListener("fullscreenchange", onFsChange)
+    return () => document.removeEventListener("fullscreenchange", onFsChange)
+  }, [])
+
+  const toggleFullscreen = async () => {
+    try {
+      if (!document.fullscreenElement) {
+        await document.documentElement.requestFullscreen()
+      } else {
+        await document.exitFullscreen()
+      }
+    } catch {
+      // Fallback: toggle sidebar full width
+      s.setSidebarOpen(!s.sidebarOpen)
+    }
+  }
   const propRef = useRef<HTMLDivElement>(null)
   const ctaRef = useRef<HTMLDivElement>(null)
   const bellRef = useRef<HTMLDivElement>(null)
@@ -125,7 +149,22 @@ export default function Topbar() {
   const unread = notifs.filter((n) => !seen[n.id]).length
 
   return (
-    <header className="sticky top-0 z-20 flex h-[72px] items-center gap-2.5 sm:gap-3.5 border-b border-[#E6E2D8] bg-white/95 backdrop-blur-md px-3 sm:px-6">
+    <header className="sticky top-0 z-20 flex h-[68px] items-center gap-2.5 sm:gap-3 border-b border-[#E6E2D8] bg-white/95 backdrop-blur-md px-3 sm:px-5">
+      {/* Desktop sidebar open/close toggle button */}
+      <button
+        type="button"
+        onClick={() => s.setSidebarOpen(!s.sidebarOpen)}
+        className="hidden lg:flex size-9 shrink-0 items-center justify-center rounded-lg border border-[#E6E2D8] bg-[#FAF8F5] text-[#1C2426] hover:border-[#1F5E53] hover:text-[#1F5E53] transition-colors"
+        title={s.sidebarOpen ? "Tutup Sidebar (Lebarkan Layar)" : "Buka Sidebar"}
+        aria-label="Toggle Sidebar"
+      >
+        {s.sidebarOpen ? (
+          <PanelLeftClose className="size-4" />
+        ) : (
+          <PanelLeftOpen className="size-4" />
+        )}
+      </button>
+
       {/* Mobile hamburger menu toggle */}
       <button
         type="button"
@@ -309,6 +348,21 @@ export default function Topbar() {
       </div>
 
       <div className="ml-auto flex items-center gap-2 sm:gap-2.5 shrink-0">
+        {/* Fullscreen toggle button */}
+        <button
+          type="button"
+          onClick={toggleFullscreen}
+          title={isFullscreen ? "Keluar Layar Penuh" : "Mode Layar Penuh (Full Screen)"}
+          aria-label="Toggle Fullscreen"
+          className="hidden sm:flex size-10 items-center justify-center rounded-lg border border-[#E6E2D8] text-stone-600 hover:bg-[#FAF8F5] hover:text-[#1F5E53] transition-colors"
+        >
+          {isFullscreen ? (
+            <Minimize2 className="size-4" />
+          ) : (
+            <Maximize2 className="size-4" />
+          )}
+        </button>
+
         <div className="hidden 2xl:flex items-center gap-2 rounded-lg border border-[#10B981]/25 bg-[#10B981]/[0.06] px-2.5 py-1.5 shrink-0">
           <span className="size-2 rounded-full bg-[#10B981]" />
           <div className="leading-tight whitespace-nowrap">

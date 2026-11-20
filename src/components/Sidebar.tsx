@@ -11,6 +11,7 @@ import {
   MessageSquareText,
   Home,
   LogOut,
+  PanelLeftClose,
 } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -98,7 +99,11 @@ export default function Sidebar() {
   ]
 
   return (
-    <aside className="hidden lg:flex fixed inset-y-0 left-0 z-30 w-[212px] flex-col bg-[#1C2426] text-stone-200 border-r border-white/[0.07]">
+    <aside
+      className={`hidden lg:flex fixed inset-y-0 left-0 z-30 w-[212px] flex-col bg-[#1C2426] text-stone-200 border-r border-white/[0.07] transition-transform duration-300 ease-in-out ${
+        s.sidebarOpen ? "translate-x-0" : "-translate-x-full"
+      }`}
+    >
       <div className="flex h-[68px] items-center justify-between border-b border-white/[0.07] px-4">
         <Link href="/" className="flex items-center">
           <span className="font-display text-[17px] font-bold tracking-[-0.04em] text-[#FAF8F5]">
@@ -106,6 +111,15 @@ export default function Sidebar() {
           </span>
           <span className="ml-1 size-1.5 rounded-full bg-[#D4B483]" />
         </Link>
+        <button
+          type="button"
+          onClick={() => s.setSidebarOpen(false)}
+          title="Tutup Sidebar (Layar Penuh)"
+          aria-label="Tutup Sidebar"
+          className="flex size-7 items-center justify-center rounded-lg text-stone-400 hover:bg-white/[0.08] hover:text-white transition-colors"
+        >
+          <PanelLeftClose className="size-4" />
+        </button>
       </div>
 
       <nav className="flex-1 overflow-y-auto px-2.5 py-3.5">

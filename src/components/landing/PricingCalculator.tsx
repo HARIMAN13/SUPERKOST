@@ -125,21 +125,19 @@ export default function PricingCalculator() {
           <div className="inline-flex rounded-xl border border-stone-300/80 bg-[#ECE8E0] p-1">
             <button
               onClick={() => setBillingCycle("monthly")}
-              className={`rounded-lg px-4 py-2 text-xs font-semibold transition-all ${
-                billingCycle === "monthly"
-                  ? "bg-white text-[#1C2426] shadow-2xs"
-                  : "text-stone-600 hover:text-[#1C2426]"
-              }`}
+              className={`rounded-lg px-4 py-2 text-xs font-semibold transition-all ${billingCycle === "monthly"
+                ? "bg-white text-[#1C2426] shadow-2xs"
+                : "text-stone-600 hover:text-[#1C2426]"
+                }`}
             >
               Lisensi Bulanan
             </button>
             <button
               onClick={() => setBillingCycle("yearly")}
-              className={`rounded-lg px-4 py-2 text-xs font-semibold transition-all flex items-center gap-2 ${
-                billingCycle === "yearly"
-                  ? "bg-[#1F5E53] text-[#FAF8F5] shadow-2xs"
-                  : "text-stone-600 hover:text-[#1C2426]"
-              }`}
+              className={`rounded-lg px-4 py-2 text-xs font-semibold transition-all flex items-center gap-2 ${billingCycle === "yearly"
+                ? "bg-[#1F5E53] text-[#FAF8F5] shadow-2xs"
+                : "text-stone-600 hover:text-[#1C2426]"
+                }`}
             >
               <span>Tahunan</span>
               <span className="text-[10px] font-medium text-[#C5A572]">

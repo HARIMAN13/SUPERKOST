@@ -162,6 +162,7 @@ function useStoreValue() {
     {},
   )
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(true)
   const [userRole, setUserRole] = useState<"owner" | "staff">("owner")
   const [currentUser, setCurrentUser] = useState<User | null>(null)
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null)
@@ -1152,6 +1153,8 @@ function useStoreValue() {
     removeExpense,
     mobileMenuOpen,
     setMobileMenuOpen,
+    sidebarOpen,
+    setSidebarOpen,
     userRole,
     setUserRole,
     currentUser,
