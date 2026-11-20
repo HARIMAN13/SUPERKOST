@@ -148,7 +148,7 @@ export default function MobileNav() {
           type="button"
           onClick={() => setCollapsed(false)}
           aria-label="Buka Navigasi Bawah"
-          className="flex items-center gap-1.5 rounded-full border border-white/30 bg-[#1C2426]/80 backdrop-blur-xl px-3.5 py-2 text-xs font-semibold text-[#FAF8F5] shadow-lg active:scale-95 transition-all"
+          className="flex items-center gap-1.5 rounded-full border border-white/30 bg-[#332924]/85 backdrop-blur-xl px-3.5 py-2 text-xs font-semibold text-[#FAF8F5] shadow-lg active:scale-95 transition-all"
         >
           <ChevronUp className="size-4 text-[#E5C99B]" />
           <span>Navigasi</span>
@@ -169,14 +169,14 @@ export default function MobileNav() {
           onClick={() => setCollapsed(true)}
           title="Sembunyikan Navigasi (Layar Penuh)"
           aria-label="Sembunyikan Navigasi"
-          className="absolute -top-2 right-1 z-20 flex size-6 items-center justify-center rounded-full border border-white/30 bg-[#1C2426]/75 backdrop-blur-md text-stone-200 shadow-sm hover:text-white active:scale-90"
+          className="absolute -top-2 right-1 z-20 flex size-6 items-center justify-center rounded-full border border-white/30 bg-[#332924]/80 backdrop-blur-md text-stone-200 shadow-sm hover:text-white active:scale-90"
         >
           <ChevronDown className="size-3.5" />
         </button>
         {/* SVG Liquid Notch Translucent Frosted Glass Pill */}
         <svg
           viewBox="0 0 400 88"
-          className="w-full h-full drop-shadow-[0_12px_28px_rgba(20,20,19,0.28)]"
+          className="w-full h-full drop-shadow-[0_12px_28px_rgba(43,34,30,0.28)]"
           fill="none"
         >
           <defs>
@@ -191,9 +191,9 @@ export default function MobileNav() {
               y2="84"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0%" stopColor="#1E1D1A" stopOpacity="0.58" />
-              <stop offset="55%" stopColor="#141413" stopOpacity="0.68" />
-              <stop offset="100%" stopColor="#2A2722" stopOpacity="0.64" />
+              <stop offset="0%" stopColor="#3F332D" stopOpacity="0.62" />
+              <stop offset="55%" stopColor="#332924" stopOpacity="0.72" />
+              <stop offset="100%" stopColor="#4A3B34" stopOpacity="0.68" />
             </linearGradient>
             <linearGradient
               id="navGlassStroke"
@@ -204,7 +204,7 @@ export default function MobileNav() {
               gradientUnits="userSpaceOnUse"
             >
               <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.55" />
-              <stop offset="50%" stopColor="#C5A572" stopOpacity="0.28" />
+              <stop offset="50%" stopColor="#D4B483" stopOpacity="0.32" />
               <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.35" />
             </linearGradient>
           </defs>
@@ -217,7 +217,7 @@ export default function MobileNav() {
             height="88"
             clipPath="url(#liquidNotchClip)"
           >
-            <div className="w-full h-full bg-[#181715]/55 backdrop-blur-xl backdrop-saturate-150" />
+            <div className="w-full h-full bg-[#332924]/60 backdrop-blur-xl backdrop-saturate-150" />
           </foreignObject>
 
           {/* Translucent Glass Tint & Crisp Highlight Border */}
@@ -229,7 +229,7 @@ export default function MobileNav() {
           />
         </svg>
 
-        {/* Floating Active Circle Orb — neatly spaced with 9px gap inside the notch */}
+        {/* Floating Active Circle Orb — Warm Cinnamon-Mocha with 9px gap inside the notch */}
         <button
           type="button"
           onClick={allSlots[targetIdx]?.onClick}
@@ -238,7 +238,7 @@ export default function MobileNav() {
             left: `${(animCx / 400) * 100}%`,
             top: `${(18 / 88) * 100}%`,
           }}
-          className="absolute -translate-x-1/2 -translate-y-1/2 flex size-[40px] items-center justify-center rounded-full bg-gradient-to-b from-[#33786B]/95 to-[#1D4E44]/95 backdrop-blur-md text-white shadow-[0_6px_16px_rgba(29,78,68,0.45)] ring-1 ring-white/50 transition-transform active:scale-95"
+          className="absolute -translate-x-1/2 -translate-y-1/2 flex size-[40px] items-center justify-center rounded-full bg-gradient-to-b from-[#9B724D]/95 to-[#735335]/95 backdrop-blur-md text-white shadow-[0_6px_16px_rgba(115,83,53,0.45)] ring-1 ring-white/50 transition-transform active:scale-95"
         >
           <div className="relative">
             <ActiveIcon className="size-[19px]" strokeWidth={2.1} />
