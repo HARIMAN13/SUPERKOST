@@ -61,10 +61,10 @@ function Shell() {
 
   return (
     <div
-      className="min-h-screen bg-[#FAF8F5] text-[#1C2426] transition-colors"
+      className="min-h-screen bg-[#FAF8F5] text-[#2B221E] transition-colors"
       style={{
         backgroundImage:
-          "radial-gradient(at 15% 0%, rgba(212, 180, 131, 0.13) 0px, transparent 50%), radial-gradient(at 85% 10%, rgba(36, 99, 88, 0.08) 0px, transparent 50%)",
+          "radial-gradient(at 15% 0%, rgba(212, 180, 131, 0.13) 0px, transparent 50%), radial-gradient(at 85% 10%, rgba(138, 101, 67, 0.09) 0px, transparent 50%)",
       }}
     >
       {/* Desktop fixed sidebar */}
@@ -151,7 +151,7 @@ function Shell() {
       {s.toast && (
         <div
           key={s.toast.id}
-          className="fixed bottom-20 lg:bottom-6 left-1/2 z-[70] max-w-[90vw] sm:max-w-[640px] -translate-x-1/2 animate-slide-up rounded-xl bg-[#1C2426]/95 backdrop-blur-md px-4 py-3 text-center text-xs sm:text-sm font-semibold text-[#FAF8F5] shadow-2xl border border-stone-800"
+          className="fixed bottom-20 lg:bottom-6 left-1/2 z-[70] max-w-[90vw] sm:max-w-[640px] -translate-x-1/2 animate-slide-up rounded-xl bg-[#332924]/95 backdrop-blur-md px-4 py-3 text-center text-xs sm:text-sm font-semibold text-[#FAF8F5] shadow-2xl border border-stone-800"
         >
           <div className="flex items-center gap-2">
             <span className="size-2 rounded-full bg-[#C5A572]" />

@@ -31,7 +31,7 @@ function RoomCard({
         </p>
         <button
           onClick={() => onAction(r)}
-          className="mt-auto flex h-6 items-center justify-center gap-1 rounded-md border border-[#C5DCD6] bg-white text-[10.5px] font-semibold text-[#1F5E53] hover:bg-[#EEF5F3]"
+          className="mt-auto flex h-6 items-center justify-center gap-1 rounded-md border border-[#E2D3C1] bg-white text-[10.5px] font-semibold text-[#8A6543] hover:bg-[#F6EFE6]"
         >
           <Plus className="size-3" strokeWidth={2.6} /> Check-In
         </button>
@@ -66,11 +66,11 @@ function RoomCard({
       tabIndex={0}
       onClick={() => onOpen(r)}
       onKeyDown={(e) => e.key === "Enter" && onOpen(r)}
-      className={`relative flex min-h-[118px] cursor-pointer flex-col overflow-hidden rounded-[10px] border bg-white p-2.5 pt-3 text-left transition-shadow outline-none hover:shadow-md hover:shadow-stone-900/5 focus-visible:ring-2 focus-visible:ring-[#1F5E53]/40 ${s.border}`}
+      className={`relative flex min-h-[118px] cursor-pointer flex-col overflow-hidden rounded-[10px] border bg-white p-2.5 pt-3 text-left transition-shadow outline-none hover:shadow-md hover:shadow-stone-900/5 focus-visible:ring-2 focus-visible:ring-[#8A6543]/40 ${s.border}`}
     >
       <span className={`absolute inset-x-0 top-0 h-[3px] ${s.bar}`} />
       <div className="flex items-center justify-between">
-        <p className="text-[12px] font-semibold text-[#1C2426]">
+        <p className="text-[12px] font-semibold text-[#2B221E]">
           Kmr {r.no}{" "}
           <span className="font-normal text-stone-400">({r.type})</span>
         </p>
@@ -90,7 +90,7 @@ function RoomCard({
       </span>
       <div className="mt-auto">
         {r.status === "paid" && (
-          <p className="text-[11.5px] font-semibold text-[#1C2426] tabular-nums">
+          <p className="text-[11.5px] font-semibold text-[#2B221E] tabular-nums">
             {rupiah(r.price)}
           </p>
         )}
@@ -156,8 +156,8 @@ export default function RoomGrid({
     <section className="rounded-xl border border-[#E6E2D8] bg-white">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E6E2D8] px-4 py-3">
         <div className="flex items-center gap-2">
-          <LayoutGrid className="size-4 text-[#1F5E53]" strokeWidth={2} />
-          <h2 className="whitespace-nowrap font-display text-[14px] font-bold text-[#1C2426]">
+          <LayoutGrid className="size-4 text-[#8A6543]" strokeWidth={2} />
+          <h2 className="whitespace-nowrap font-display text-[14px] font-bold text-[#2B221E]">
             Visualisasi Denah Kamar Real-Time
           </h2>
           <span className="flex items-center gap-1 rounded-full bg-[#10B981]/10 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700">
@@ -176,10 +176,10 @@ export default function RoomGrid({
                   on
                     ? danger
                       ? "bg-white text-rose-600 shadow-2xs"
-                      : "bg-white text-[#1C2426] shadow-2xs"
+                      : "bg-white text-[#2B221E] shadow-2xs"
                     : danger
                       ? "text-rose-500 hover:text-rose-600"
-                      : "text-stone-500 hover:text-[#1C2426]"
+                      : "text-stone-500 hover:text-[#2B221E]"
                 }`}
               >
                 {t.label}{" "}

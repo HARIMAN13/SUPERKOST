@@ -81,18 +81,18 @@ export default function DepositsPage() {
       />
 
       <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-4">
-        <div className="flex items-center gap-4 rounded-xl border border-[#C5DCD6] bg-[#EEF5F3] p-4">
-          <span className="flex size-12 items-center justify-center rounded-xl bg-white text-[#1F5E53] ring-1 ring-[#C5DCD6]">
+        <div className="flex items-center gap-4 rounded-xl border border-[#E2D3C1] bg-[#F6EFE6] p-4">
+          <span className="flex size-12 items-center justify-center rounded-xl bg-white text-[#8A6543] ring-1 ring-[#E2D3C1]">
             <Vault className="size-6" strokeWidth={1.8} />
           </span>
           <div>
-            <p className="text-[12px] font-medium text-[#1F5E53]">
+            <p className="text-[12px] font-medium text-[#8A6543]">
               Total Deposit Tersimpan
             </p>
-            <p className="font-display text-[24px] font-bold text-[#1C2426] tabular-nums">
+            <p className="font-display text-[24px] font-bold text-[#2B221E] tabular-nums">
               {rupiah(s.stats.depositHeld)}
             </p>
-            <p className="text-[11.5px] text-[#1F5E53]/90">
+            <p className="text-[11.5px] text-[#8A6543]/90">
               ({s.stats.depositCount} Kamar Terisi) · kewajiban ke penghuni
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function DepositsPage() {
             label: "Total Potongan Kerusakan",
             v: rupiah(deducted),
             sub: "masuk ke pendapatan lain",
-            c: "text-[#1C2426]",
+            c: "text-[#2B221E]",
             bg: "bg-[#F59E0B]/12 text-amber-600",
           },
         ].map((k) => (
@@ -158,7 +158,7 @@ export default function DepositsPage() {
                 k: "locked",
                 label: "Terkunci Aman",
                 n: list.filter((d) => d.status === "locked").length,
-                dot: "bg-[#1F5E53]",
+                dot: "bg-[#8A6543]",
               },
               {
                 k: "dispute",
@@ -181,7 +181,7 @@ export default function DepositsPage() {
         </div>
         <div className="max-h-[calc(100vh-380px)] min-h-[340px] overflow-y-auto">
           <table className="w-full text-[12.5px]">
-            <thead className="sticky top-0 z-10 bg-[#F4F0E8] border-b border-[#E6E2D8] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-600">
+            <thead className="sticky top-0 z-10 bg-[#F4EFE8] border-b border-[#E6E2D8] text-left text-[10.5px] font-semibold uppercase tracking-[0.08em] text-stone-600">
               <tr>
                 <th className="px-4 py-2.5">No. Kamar</th>
                 <th className="py-2.5 pr-3">Nama Penghuni</th>

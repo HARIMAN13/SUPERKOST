@@ -91,7 +91,7 @@ export default function MaintenancePage() {
         actions={
           <button
             onClick={() => s.openModal({ type: "ticket" })}
-            className="flex h-10 items-center gap-2 rounded-lg bg-[#1F5E53] px-4 text-[13px] font-semibold text-white hover:bg-[#184B42]"
+            className="flex h-10 items-center gap-2 rounded-lg bg-[#8A6543] px-4 text-[13px] font-semibold text-white hover:bg-[#735335]"
           >
             <Plus className="size-4" strokeWidth={2.4} /> Buat Tiket Servis Baru
           </button>
@@ -116,7 +116,7 @@ export default function MaintenancePage() {
           icon={<AlertTriangle className="size-4" />}
           label="Prioritas Servis"
           value={`${need} Unit Perlu Servis Segera`}
-          valueCls={need ? "text-[#E11D48]" : "text-[#1C2426]"}
+          valueCls={need ? "text-[#E11D48]" : "text-[#2B221E]"}
           danger={need > 0}
         >
           {need > 0 ? (
@@ -139,12 +139,12 @@ export default function MaintenancePage() {
           label="Biaya Servis Bulan Ini"
           value={rupiah(acTotal)}
         >
-          <Tag cls="bg-[#EEF5F3] text-[#1F5E53] ring-[#C5DCD6]">
+          <Tag cls="bg-[#F6EFE6] text-[#8A6543] ring-[#E2D3C1]">
             <Droplets className="size-3" /> {acCosts.length} Unit Dicuci
           </Tag>
           <button
             onClick={() => s.navigate("finance", "kas")}
-            className="text-[11.5px] font-medium text-[#1F5E53] hover:underline"
+            className="text-[11.5px] font-medium text-[#8A6543] hover:underline"
           >
             · Lihat di Buku Kas
           </button>
@@ -154,8 +154,8 @@ export default function MaintenancePage() {
       {otherOpen.length > 0 && (
         <section className="rounded-xl border border-[#E6E2D8] bg-white">
           <div className="flex items-center gap-2 border-b border-[#E6E2D8] px-4 py-3">
-            <ClipboardList className="size-4 text-[#1F5E53]" />
-            <h2 className="font-display text-[14px] font-bold text-[#1C2426]">
+            <ClipboardList className="size-4 text-[#8A6543]" />
+            <h2 className="font-display text-[14px] font-bold text-[#2B221E]">
               Tiket Fasilitas Berjalan
             </h2>
             <span className="rounded-full bg-[#F59E0B]/12 px-2 py-0.5 text-[10.5px] font-semibold text-amber-700">
@@ -177,8 +177,8 @@ export default function MaintenancePage() {
       <section className="rounded-xl border border-[#E6E2D8] bg-white">
         <div className="flex items-center justify-between gap-4 border-b border-[#E6E2D8] px-4 py-3">
           <div className="flex items-center gap-2">
-            <CalendarCheck className="size-4 text-[#1F5E53]" />
-            <h2 className="font-display text-[14px] font-bold text-[#1C2426]">
+            <CalendarCheck className="size-4 text-[#8A6543]" />
+            <h2 className="font-display text-[14px] font-bold text-[#2B221E]">
               Status Siklus Cuci AC Berkala
             </h2>
             <span className="text-[12px] text-slate-500">
@@ -229,7 +229,7 @@ export default function MaintenancePage() {
             ["bg-[#F43F5E]", "Wajib Servis (≥ 5 bulan)"],
             ["bg-[#F59E0B]", "Jadwal Bulan Depan (4–5 bulan)"],
             ["bg-[#10B981]", "Kondisi Prima (< 4 bulan)"],
-            ["bg-[#1F5E53]", "Teknisi Dijadwalkan"],
+            ["bg-[#8A6543]", "Teknisi Dijadwalkan"],
           ].map(([c, l]) => (
             <span key={l} className="flex items-center gap-1.5">
               <span className={`size-2 rounded-sm ${c}`} /> {l}
@@ -241,7 +241,7 @@ export default function MaintenancePage() {
 
       <section>
         <div className="mb-2.5 flex items-center justify-between">
-          <h2 className="font-display text-[14px] font-bold text-[#1C2426]">
+          <h2 className="font-display text-[14px] font-bold text-[#2B221E]">
             Direktori Teknisi & Toko Langganan Kost
           </h2>
         </div>
@@ -255,13 +255,13 @@ export default function MaintenancePage() {
                 className="flex flex-col rounded-xl border border-[#E6E2D8] bg-white p-4"
               >
                 <div className="flex items-start gap-3">
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#EEF5F3] text-[#1F5E53] ring-1 ring-[#C5DCD6]">
+                  <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-[#F6EFE6] text-[#8A6543] ring-1 ring-[#E2D3C1]">
                     <Icon className="size-5" strokeWidth={1.9} />
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="flex items-center gap-1 text-[13px] font-bold text-[#1C2426]">
+                    <p className="flex items-center gap-1 text-[13px] font-bold text-[#2B221E]">
                       {v.name}{" "}
-                      <BadgeCheck className="size-3.5 text-[#1F5E53]" />
+                      <BadgeCheck className="size-3.5 text-[#8A6543]" />
                     </p>
                     <p className="text-[11.5px] text-slate-500">{v.role}</p>
                   </div>
@@ -400,7 +400,7 @@ function CatalogModal({ onClose }: { onClose: () => void }) {
                       [n]: Math.max(0, Number(e.target.value) || 0),
                     }))
                   }
-                  className="h-8 w-16 rounded-md border border-[#E6E2D8] px-2 text-right tabular-nums outline-none focus:border-[#1F5E53]"
+                  className="h-8 w-16 rounded-md border border-[#E6E2D8] px-2 text-right tabular-nums outline-none focus:border-[#8A6543]"
                 />
               </td>
             </tr>
@@ -440,7 +440,7 @@ function Stat({
   icon,
   label,
   value,
-  valueCls = "text-[#1C2426]",
+  valueCls = "text-[#2B221E]",
   danger,
   children,
 }: {
@@ -458,7 +458,7 @@ function Stat({
           className={`flex size-6 items-center justify-center rounded-md ${
             danger
               ? "bg-[#F43F5E]/10 text-[#F43F5E]"
-              : "bg-[#EEF5F3] text-[#1F5E53]"
+              : "bg-[#F6EFE6] text-[#8A6543]"
           }`}
         >
           {icon}
@@ -522,7 +522,7 @@ function UnitCard({
   return (
     <div
       className={`flex flex-col rounded-[10px] border bg-white p-2.5 ${
-        ticket ? "border-[#C5DCD6]" : st.border
+        ticket ? "border-[#E2D3C1]" : st.border
       } ${h === "overdue" && !ticket ? "ring-2 ring-[#F43F5E]/10" : ""}`}
     >
       <div className="flex items-center justify-between gap-1">
@@ -531,7 +531,7 @@ function UnitCard({
         </p>
         <span
           className={`rounded px-1.5 py-0.5 text-[9.5px] font-semibold ${
-            ticket ? "bg-[#EEF5F3] text-[#1F5E53]" : st.tag
+            ticket ? "bg-[#F6EFE6] text-[#8A6543]" : st.tag
           }`}
         >
           {ticket ? "Dijadwalkan" : st.label}
@@ -562,7 +562,7 @@ function UnitCard({
       </div>
       {ticket ? (
         <div className="mt-2">
-          <p className="truncate text-[10px] text-[#1F5E53]">
+          <p className="truncate text-[10px] text-[#8A6543]">
             {ticket.vendor} · {fmt(ticket.date)}
           </p>
           <button

@@ -33,8 +33,8 @@ function Widget({
   return (
     <section className="rounded-xl border border-[#E6E2D8] bg-white">
       <div className="flex items-center gap-2 border-b border-[#E6E2D8] px-4 py-3">
-        <span className="text-[#1F5E53]">{icon}</span>
-        <h3 className="font-display text-[13px] font-bold text-[#1C2426]">
+        <span className="text-[#8A6543]">{icon}</span>
+        <h3 className="font-display text-[13px] font-bold text-[#2B221E]">
           {title}
         </h3>
         {count}
@@ -48,7 +48,7 @@ function Widget({
 function Receipt({ bank }: { bank: string }) {
   return (
     <div className="flex h-[52px] w-[38px] shrink-0 flex-col rounded-md border border-[#E6E2D8] bg-[#FAF8F5] p-1">
-      <div className="flex h-2 items-center justify-center rounded-[2px] bg-[#1F5E53] text-[5px] font-bold text-[#FAF8F5]">
+      <div className="flex h-2 items-center justify-center rounded-[2px] bg-[#8A6543] text-[5px] font-bold text-[#FAF8F5]">
         {bank}
       </div>
       <div className="mx-auto mt-1 flex size-3 items-center justify-center rounded-full bg-[#10B981]">
@@ -140,7 +140,7 @@ export default function RightFeeds({
                 <div className="min-w-0 flex-1">
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
-                      <p className="truncate text-[12.5px] font-semibold text-[#1C2426]">
+                      <p className="truncate text-[12.5px] font-semibold text-[#2B221E]">
                         {r.tenant}
                       </p>
                       <p className="text-[11px] text-stone-500">
@@ -148,7 +148,7 @@ export default function RightFeeds({
                         lalu
                       </p>
                     </div>
-                    <p className="text-[12.5px] font-bold text-[#1C2426] tabular-nums">
+                    <p className="text-[12.5px] font-bold text-[#2B221E] tabular-nums">
                       {rupiah(r.price)}
                     </p>
                   </div>
@@ -177,7 +177,7 @@ export default function RightFeeds({
         icon={<CalendarClock className="size-4" strokeWidth={2} />}
         title="Radar Jatuh Tempo WhatsApp"
         count={
-          <span className="rounded-full bg-[#EEF5F3] px-1.5 py-0.5 text-[10px] font-semibold text-[#1F5E53]">
+          <span className="rounded-full bg-[#F6EFE6] px-1.5 py-0.5 text-[10px] font-semibold text-[#8A6543]">
             48 Jam
           </span>
         }
@@ -200,7 +200,7 @@ export default function RightFeeds({
                 >
                   {t.h}
                 </span>
-                <p className="text-[12px] font-semibold text-[#1C2426]">
+                <p className="text-[12px] font-semibold text-[#2B221E]">
                   {t.name}
                 </p>
                 <p className="text-[11px] text-stone-500">Kmr {t.room}</p>
@@ -224,7 +224,7 @@ export default function RightFeeds({
         action={
           <button
             onClick={() => navigate("finance", "kas")}
-            className="flex items-center gap-0.5 text-[11.5px] font-semibold text-[#1F5E53] hover:text-[#1C2426]"
+            className="flex items-center gap-0.5 text-[11.5px] font-semibold text-[#8A6543] hover:text-[#2B221E]"
           >
             Semua <ArrowUpRight className="size-3.5" />
           </button>
@@ -237,9 +237,9 @@ export default function RightFeeds({
               +{rupiah(inToday)}
             </p>
           </div>
-          <div className="rounded-lg bg-[#EEF5F3] px-2.5 py-2">
-            <p className="text-[10.5px] text-[#1F5E53]">Keluar hari ini</p>
-            <p className="text-[13px] font-bold text-[#1C2426] tabular-nums">
+          <div className="rounded-lg bg-[#F6EFE6] px-2.5 py-2">
+            <p className="text-[10.5px] text-[#8A6543]">Keluar hari ini</p>
+            <p className="text-[13px] font-bold text-[#2B221E] tabular-nums">
               -{rupiah(outToday)}
             </p>
           </div>
@@ -256,14 +256,14 @@ export default function RightFeeds({
                     <Icon className="size-3.5" strokeWidth={1.8} />
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-[12px] font-medium text-[#1C2426]">
+                    <p className="truncate text-[12px] font-medium text-[#2B221E]">
                       {label}
                     </p>
                     <p className="text-[10.5px] text-stone-500">
                       {cat} · {time}
                     </p>
                   </div>
-                  <p className="text-[12px] font-semibold text-[#1C2426] tabular-nums">
+                  <p className="text-[12px] font-semibold text-[#2B221E] tabular-nums">
                     -{rupiah(amt)}
                   </p>
                 </li>

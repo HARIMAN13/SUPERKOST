@@ -2,7 +2,7 @@ import { ChevronDown, X } from "lucide-react"
 import { useEffect, type ReactNode } from "react"
 
 export const inputCls =
-  "h-9 w-full rounded-lg border border-[#E6E2D8] bg-white px-3 text-[12.5px] text-[#1C2426] outline-none placeholder:text-stone-400 focus:border-[#1F5E53] focus:ring-2 focus:ring-[#1F5E53]/12 disabled:bg-stone-50 disabled:text-stone-500"
+  "h-9 w-full rounded-lg border border-[#E6E2D8] bg-white px-3 text-[12.5px] text-[#2B221E] outline-none placeholder:text-stone-400 focus:border-[#8A6543] focus:ring-2 focus:ring-[#8A6543]/15 disabled:bg-stone-50 disabled:text-stone-500"
 
 export function ModalShell({
   title,
@@ -45,7 +45,7 @@ export function ModalShell({
     >
       <div
         onClick={onClose}
-        className="absolute inset-0 bg-[#1C2426]/50 backdrop-blur-[3px] animate-[fade_.15s_ease-out]"
+        className="absolute inset-0 bg-[#332924]/50 backdrop-blur-[3px] animate-[fade_.15s_ease-out]"
       />
       <div
         style={{ maxWidth: width }}
@@ -53,7 +53,7 @@ export function ModalShell({
       >
         <header
           className={`flex items-center gap-3 px-5 py-4 ${
-            dark ? "bg-gradient-to-r from-[#1E2B2A] to-[#243B37]" : "border-b border-[#E6E2D8]"
+            dark ? "bg-gradient-to-r from-[#332924] to-[#453730]" : "border-b border-[#E6E2D8]"
           }`}
         >
           {icon && (
@@ -61,7 +61,7 @@ export function ModalShell({
               className={`flex size-9 shrink-0 items-center justify-center rounded-lg ${
                 dark
                   ? "bg-white/10 text-[#C5A572] ring-1 ring-white/10"
-                  : "bg-[#EEF5F3] text-[#1F5E53]"
+                  : "bg-[#F6EFE6] text-[#8A6543]"
               }`}
             >
               {icon}
@@ -70,7 +70,7 @@ export function ModalShell({
           <div className="min-w-0 flex-1">
             <h3
               className={`font-display text-[15px] font-bold ${
-                dark ? "text-[#FAF8F5]" : "text-[#1C2426]"
+                dark ? "text-[#FAF8F5]" : "text-[#2B221E]"
               }`}
             >
               {title}
@@ -209,14 +209,14 @@ export function Btn({
   type?: "button" | "submit"
 }) {
   const v = {
-    primary: "bg-[#1F5E53] text-[#FAF8F5] hover:bg-[#184B42]",
+    primary: "bg-[#8A6543] text-[#FAF8F5] hover:bg-[#735335]",
     secondary:
       "border border-[#E6E2D8] bg-white text-stone-700 hover:bg-[#FAF8F5]",
     success: "bg-[#10B981] text-white hover:bg-[#059669]",
     danger: "bg-[#F43F5E] text-white hover:bg-[#E11D48]",
     dangerOutline: "border border-[#F43F5E] text-[#E11D48] hover:bg-[#FFF1F2]",
-    dark: "bg-[#1F5E53] text-[#FAF8F5] hover:bg-[#184B42]",
-    amber: "bg-[#C5A572] text-[#1C2426] hover:bg-[#B4925A]",
+    dark: "bg-[#8A6543] text-[#FAF8F5] hover:bg-[#735335]",
+    amber: "bg-[#C5A572] text-[#2B221E] hover:bg-[#B4925A]",
   }[variant]
   return (
     <button
@@ -243,7 +243,7 @@ export function PageHeader({
     <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-6">
       <div className="min-w-0">
         <p className="text-[11.5px] font-medium text-stone-500">{crumb}</p>
-        <h1 className="mt-0.5 font-display text-[19px] sm:text-[21px] font-bold tracking-tight text-[#1C2426]">
+        <h1 className="mt-0.5 font-display text-[19px] sm:text-[21px] font-bold tracking-tight text-[#2B221E]">
           {title}
         </h1>
       </div>
@@ -271,8 +271,8 @@ export function Tabs<T extends string>({
           onClick={() => onChange(t.k)}
           className={`flex items-center gap-1.5 whitespace-nowrap rounded-md px-2.5 py-1 text-[11.5px] font-medium transition-colors ${
             value === t.k
-              ? "bg-white text-[#1C2426] shadow-2xs"
-              : "text-stone-500 hover:text-[#1C2426]"
+              ? "bg-white text-[#2B221E] shadow-2xs"
+              : "text-stone-500 hover:text-[#2B221E]"
           }`}
         >
           {t.dot && <span className={`size-1.5 rounded-full ${t.dot}`} />}
@@ -303,7 +303,7 @@ export const tone = {
   green: "bg-[#10B981]/10 text-emerald-700 ring-[#10B981]/25",
   red: "bg-[#F43F5E]/10 text-rose-700 ring-[#F43F5E]/25",
   amber: "bg-[#F59E0B]/12 text-amber-700 ring-[#F59E0B]/30",
-  violet: "bg-[#EEF5F3] text-[#1F5E53] ring-[#C5DCD6]",
+  violet: "bg-[#F6EFE6] text-[#8A6543] ring-[#E2D3C1]",
   slate: "bg-stone-100 text-stone-600 ring-stone-200",
 }
 
@@ -324,7 +324,7 @@ export function Avatar({
     .toUpperCase()
   return (
     <span
-      className={`flex ${size} shrink-0 items-center justify-center rounded-full bg-[#EEF5F3] text-[11px] font-bold text-[#1F5E53] ring-1 ring-[#C5DCD6]`}
+      className={`flex ${size} shrink-0 items-center justify-center rounded-full bg-[#F6EFE6] text-[11px] font-bold text-[#8A6543] ring-1 ring-[#E2D3C1]`}
     >
       {initials}
     </span>

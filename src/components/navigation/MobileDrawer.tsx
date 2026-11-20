@@ -97,7 +97,7 @@ export default function MobileDrawer() {
       />
 
       {/* Drawer Body */}
-      <div className="relative w-4/5 max-w-[270px] bg-[#1C2426] text-stone-200 flex flex-col h-full shadow-2xl animate-slide-up z-10">
+      <div className="relative w-4/5 max-w-[270px] bg-[#332924] text-stone-200 flex flex-col h-full shadow-2xl animate-slide-up z-10">
         {/* Header */}
         <div className="flex h-15 items-center justify-between border-b border-white/10 px-4">
           <div className="flex items-center">
@@ -135,7 +135,7 @@ export default function MobileDrawer() {
           </button>
 
           {showPropPicker && (
-            <div className="mt-2 space-y-1 rounded-lg bg-[#141A1C] p-1.5 border border-white/10">
+            <div className="mt-2 space-y-1 rounded-lg bg-[#28201C] p-1.5 border border-white/10">
               {s.propertySummaries.map((p) => (
                 <button
                   key={p.id}
@@ -145,7 +145,7 @@ export default function MobileDrawer() {
                   }}
                   className={`w-full flex items-center justify-between rounded-md p-1.5 text-left text-xs ${
                     p.id === s.propId
-                      ? "bg-[#246358] text-[#E5C99B] font-bold"
+                      ? "bg-[#8A6543] text-[#E5C99B] font-bold"
                       : "text-stone-300 hover:bg-white/10"
                   }`}
                 >
@@ -174,7 +174,7 @@ export default function MobileDrawer() {
                 }}
                 className={`flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-xs font-medium transition-colors ${
                   on
-                    ? "bg-gradient-to-r from-[#246358] to-[#1D5248] text-white ring-1 ring-white/15 font-semibold"
+                    ? "bg-gradient-to-r from-[#8A6543] to-[#735335] text-white ring-1 ring-white/15 font-semibold"
                     : "text-stone-300/85 hover:bg-white/5 hover:text-white"
                 }`}
               >

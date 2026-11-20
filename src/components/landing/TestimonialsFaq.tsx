@@ -55,10 +55,10 @@ export default function TestimonialsFaq() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Testimonials */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1F5E53]">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#8A6543]">
             Pengalaman Klien
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#1C2426]">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#2B221E]">
             Dipercaya oleh Pemilik &amp; Pengelola Kos
           </h2>
           <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
@@ -83,7 +83,7 @@ export default function TestimonialsFaq() {
               </div>
 
               <div className="mt-7 pt-4 border-t border-stone-100">
-                <p className="text-xs font-bold text-[#1C2426]">{t.name}</p>
+                <p className="text-xs font-bold text-[#2B221E]">{t.name}</p>
                 <p className="text-[11px] text-stone-500 mt-0.5">
                   {t.role} · {t.location}
                 </p>
@@ -95,10 +95,10 @@ export default function TestimonialsFaq() {
         {/* FAQs */}
         <div className="mt-24 max-w-3xl mx-auto">
           <div className="text-center space-y-2.5 mb-12">
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1F5E53]">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#8A6543]">
               Informasi Lanjutan
             </span>
-            <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#1C2426]">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#2B221E]">
               Pertanyaan yang Sering Diajukan
             </h3>
             <p className="text-xs sm:text-sm text-stone-500">
@@ -113,11 +113,11 @@ export default function TestimonialsFaq() {
                 <div key={f.q} className="py-1">
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : i)}
-                    className="w-full flex items-center justify-between py-4.5 text-left text-xs sm:text-[14px] font-semibold text-[#1C2426] hover:text-[#1F5E53] transition-colors"
+                    className="w-full flex items-center justify-between py-4.5 text-left text-xs sm:text-[14px] font-semibold text-[#2B221E] hover:text-[#8A6543] transition-colors"
                   >
                     <span className="pr-4">{f.q}</span>
                     <ChevronDown
-                      className={`size-4 text-stone-400 shrink-0 transition-transform ${isOpen ? "rotate-180 text-[#1F5E53]" : ""
+                      className={`size-4 text-stone-400 shrink-0 transition-transform ${isOpen ? "rotate-180 text-[#8A6543]" : ""
                         }`}
                     />
                   </button>

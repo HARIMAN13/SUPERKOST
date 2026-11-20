@@ -21,9 +21,9 @@ export default function HeroSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           {/* Main Headline — Perfectly proportioned for 100% viewport fit */}
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-[56px] font-bold tracking-[-0.035em] text-[#1C2426] leading-[1.12]">
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-[56px] font-bold tracking-[-0.035em] text-[#2B221E] leading-[1.12]">
             Kelola Puluhan Kamar Kos{" "}
-            <span className="text-[#1F5E53] underline decoration-[#D4B483]/70 decoration-2 underline-offset-8">
+            <span className="text-[#8A6543] underline decoration-[#D4B483]/70 decoration-2 underline-offset-8">
               Tanpa Pusing Spreadsheet
             </span>{" "}
             &amp; Tagihan Macet.
@@ -32,7 +32,7 @@ export default function HeroSection() {
           {/* Subtitle */}
           <p className="mt-5 text-base sm:text-[17px] text-stone-600 leading-relaxed max-w-2xl mx-auto font-normal">
             Otomatisasi pengingat tagihan via{" "}
-            <span className="font-semibold text-[#1C2426]">WhatsApp Gateway</span>,
+            <span className="font-semibold text-[#2B221E]">WhatsApp Gateway</span>,
             pantau denah keterisian kamar 100% <em>real-time</em>, dan catat
             uang jaminan deposit secara presisi tanpa pernah ada selisih.
           </p>
@@ -41,14 +41,14 @@ export default function HeroSection() {
           <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <Link
               href="/register"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#1F5E53] px-6.5 py-3.5 text-sm font-semibold text-[#FAF8F5] shadow-md shadow-stone-900/10 hover:bg-[#184B42] transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#8A6543] px-6.5 py-3.5 text-sm font-semibold text-[#FAF8F5] shadow-md shadow-stone-900/10 hover:bg-[#735335] transition-all"
             >
               Mulai Uji Coba Gratis 14 Hari
               <ArrowRight className="size-4 text-[#C5A572]" />
             </Link>
             <Link
               href="/app"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-stone-300 bg-white px-6.5 py-3.5 text-sm font-semibold text-[#1C2426] shadow-2xs hover:border-stone-400 hover:bg-stone-50 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-stone-300 bg-white px-6.5 py-3.5 text-sm font-semibold text-[#2B221E] shadow-2xs hover:border-stone-400 hover:bg-stone-50 transition-all"
             >
               Buka Live Cockpit Demo
               <ArrowUpRight className="size-4 text-stone-500" />
@@ -58,13 +58,13 @@ export default function HeroSection() {
           {/* Micro trust indicators — Visible above the fold at 100% zoom */}
           <div className="mt-6 flex flex-wrap items-center justify-center gap-5 sm:gap-8 text-xs font-medium text-stone-500">
             <span className="flex items-center gap-1.5">
-              <Check className="size-3.5 text-[#1F5E53]" /> Tanpa Kartu Kredit
+              <Check className="size-3.5 text-[#8A6543]" /> Tanpa Kartu Kredit
             </span>
             <span className="flex items-center gap-1.5">
-              <Check className="size-3.5 text-[#1F5E53]" /> WhatsApp Gateway Resmi
+              <Check className="size-3.5 text-[#8A6543]" /> WhatsApp Gateway Resmi
             </span>
             <span className="flex items-center gap-1.5">
-              <Check className="size-3.5 text-[#1F5E53]" /> Mode Staf Ramah HP
+              <Check className="size-3.5 text-[#8A6543]" /> Mode Staf Ramah HP
             </span>
           </div>
         </div>
@@ -91,10 +91,10 @@ export default function HeroSection() {
             </div>
 
             {/* Dashboard Inner Preview */}
-            <div className="mt-3 rounded-xl bg-[#1C2426] p-5 sm:p-7 text-[#FAF8F5] overflow-hidden relative border border-white/10">
+            <div className="mt-3 rounded-xl bg-[#332924] p-5 sm:p-7 text-[#FAF8F5] overflow-hidden relative border border-white/10">
               {/* Cockpit Mini Metrics */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
-                <div className="rounded-xl bg-[#242F31] border border-white/[0.08] p-4">
+                <div className="rounded-xl bg-[#3F332D] border border-white/[0.08] p-4">
                   <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
                     Okupansi Real-Time
                   </p>
@@ -105,7 +105,7 @@ export default function HeroSection() {
                     28 Kamar Terisi · 2 Kosong
                   </p>
                 </div>
-                <div className="rounded-xl bg-[#242F31] border border-white/[0.08] p-4">
+                <div className="rounded-xl bg-[#3F332D] border border-white/[0.08] p-4">
                   <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
                     Arus Kas Masuk (Nov)
                   </p>
@@ -116,7 +116,7 @@ export default function HeroSection() {
                     86% dari target tagihan
                   </p>
                 </div>
-                <div className="rounded-xl bg-[#242F31] border border-white/[0.08] p-4">
+                <div className="rounded-xl bg-[#3F332D] border border-white/[0.08] p-4">
                   <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
                     Deposit Terkunci
                   </p>
@@ -127,7 +127,7 @@ export default function HeroSection() {
                     Terpisah dari kas harian
                   </p>
                 </div>
-                <div className="rounded-xl bg-[#242F31] border border-white/[0.08] p-4">
+                <div className="rounded-xl bg-[#3F332D] border border-white/[0.08] p-4">
                   <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
                     Pemeliharaan Unit
                   </p>

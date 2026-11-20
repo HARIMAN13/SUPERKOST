@@ -171,7 +171,7 @@ export default function RegisterForm() {
         <div className="text-center mb-6">
           <Link
             href="/"
-            className="text-xs font-semibold text-stone-600 hover:text-[#1C2426] transition-colors inline-flex items-center gap-1"
+            className="text-xs font-semibold text-stone-600 hover:text-[#2B221E] transition-colors inline-flex items-center gap-1"
           >
             ← Kembali ke Beranda Superkost
           </Link>
@@ -180,12 +180,12 @@ export default function RegisterForm() {
         {/* Brand */}
         <div className="text-center">
           <div className="inline-flex items-center">
-            <span className="font-display text-3xl font-bold tracking-[-0.04em] text-[#1C2426]">
+            <span className="font-display text-3xl font-bold tracking-[-0.04em] text-[#2B221E]">
               SUPERKOST
             </span>
             <span className="ml-1 size-2 rounded-full bg-[#9A7B4F]" />
           </div>
-          <h2 className="mt-2 text-xl sm:text-2xl font-bold tracking-tight text-[#1C2426]">
+          <h2 className="mt-2 text-xl sm:text-2xl font-bold tracking-tight text-[#2B221E]">
             Daftar Akun Pengelola Kos Baru
           </h2>
           <p className="mt-1 text-xs sm:text-sm text-stone-500">
@@ -199,7 +199,7 @@ export default function RegisterForm() {
             <div className="flex items-center gap-2">
               <span
                 className={`flex size-6 items-center justify-center rounded-full text-xs font-bold ${step >= 1
-                    ? "bg-[#1F5E53] text-[#FAF8F5]"
+                    ? "bg-[#8A6543] text-[#FAF8F5]"
                     : "bg-stone-200 text-stone-600"
                   }`}
               >
@@ -213,7 +213,7 @@ export default function RegisterForm() {
             <div className="flex items-center gap-2">
               <span
                 className={`flex size-6 items-center justify-center rounded-full text-xs font-bold ${step === 2
-                    ? "bg-[#1F5E53] text-[#FAF8F5]"
+                    ? "bg-[#8A6543] text-[#FAF8F5]"
                     : "bg-stone-200 text-stone-600"
                   }`}
               >
@@ -233,18 +233,18 @@ export default function RegisterForm() {
             <div className="mx-auto flex size-14 items-center justify-center rounded-full bg-emerald-50 text-emerald-700 mb-4 ring-8 ring-emerald-50/50">
               <MailCheck className="size-7" />
             </div>
-            <h3 className="text-lg font-bold text-[#1C2426]">
+            <h3 className="text-lg font-bold text-[#2B221E]">
               Pendaftaran Berhasil!
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
               Tautan aktivasi akun telah dikirimkan ke{" "}
-              <strong className="text-[#1C2426] font-semibold">{registrationSuccess}</strong>.
+              <strong className="text-[#2B221E] font-semibold">{registrationSuccess}</strong>.
               Silakan buka email Anda dan klik tautan verifikasi untuk mengaktifkan akun sebelum masuk.
             </p>
             <div className="mt-6 pt-4 border-t border-stone-100 flex flex-col gap-2">
               <Link
                 href="/login"
-                className="w-full inline-flex items-center justify-center rounded-xl bg-[#1F5E53] py-2.5 text-xs sm:text-sm font-semibold text-[#FAF8F5] shadow-sm hover:bg-[#184B42] transition-colors"
+                className="w-full inline-flex items-center justify-center rounded-xl bg-[#8A6543] py-2.5 text-xs sm:text-sm font-semibold text-[#FAF8F5] shadow-sm hover:bg-[#735335] transition-colors"
               >
                 Buka Halaman Login
               </Link>
@@ -276,7 +276,7 @@ export default function RegisterForm() {
                         value={formData.fullName}
                         onChange={handleChange}
                         placeholder="Contoh: H. Hendra Maulana"
-                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#1C2426] outline-none placeholder:text-stone-400 focus:border-[#1F5E53] focus:ring-2 focus:ring-[#1F5E53]/12"
+                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#2B221E] outline-none placeholder:text-stone-400 focus:border-[#8A6543] focus:ring-2 focus:ring-[#8A6543]/15"
                       />
                       <User className="size-4 text-stone-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
@@ -294,7 +294,7 @@ export default function RegisterForm() {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="0812-3456-7890"
-                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#1C2426] outline-none placeholder:text-stone-400 focus:border-[#1F5E53] focus:ring-2 focus:ring-[#1F5E53]/12"
+                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#2B221E] outline-none placeholder:text-stone-400 focus:border-[#8A6543] focus:ring-2 focus:ring-[#8A6543]/15"
                       />
                       <Phone className="size-4 text-stone-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
@@ -315,7 +315,7 @@ export default function RegisterForm() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="nama@email.com"
-                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#1C2426] outline-none placeholder:text-stone-400 focus:border-[#1F5E53] focus:ring-2 focus:ring-[#1F5E53]/12"
+                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#2B221E] outline-none placeholder:text-stone-400 focus:border-[#8A6543] focus:ring-2 focus:ring-[#8A6543]/15"
                       />
                       <Mail className="size-4 text-stone-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
@@ -333,7 +333,7 @@ export default function RegisterForm() {
                         value={formData.password}
                         onChange={handleChange}
                         placeholder="Minimal 6 karakter"
-                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#1C2426] outline-none placeholder:text-stone-400 focus:border-[#1F5E53] focus:ring-2 focus:ring-[#1F5E53]/12"
+                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#2B221E] outline-none placeholder:text-stone-400 focus:border-[#8A6543] focus:ring-2 focus:ring-[#8A6543]/15"
                       />
                       <Lock className="size-4 text-stone-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
@@ -342,7 +342,7 @@ export default function RegisterForm() {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#1F5E53] py-3 text-xs sm:text-sm font-semibold text-[#FAF8F5] shadow-sm hover:bg-[#184B42] transition-all"
+                      className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#8A6543] py-3 text-xs sm:text-sm font-semibold text-[#FAF8F5] shadow-sm hover:bg-[#735335] transition-all"
                     >
                       <span>Lanjut ke Data Kos</span>
                       <ArrowRight className="size-4 text-[#C5A572]" />
@@ -363,7 +363,7 @@ export default function RegisterForm() {
                         value={formData.propertyName}
                         onChange={handleChange}
                         placeholder="Contoh: Kost Mulyorejo Asri"
-                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#1C2426] outline-none placeholder:text-stone-400 focus:border-[#1F5E53] focus:ring-2 focus:ring-[#1F5E53]/12"
+                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#2B221E] outline-none placeholder:text-stone-400 focus:border-[#8A6543] focus:ring-2 focus:ring-[#8A6543]/15"
                       />
                       <Building2 className="size-4 text-stone-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
@@ -381,7 +381,7 @@ export default function RegisterForm() {
                         value={formData.city}
                         onChange={handleChange}
                         placeholder="Contoh: Surabaya Timur"
-                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#1C2426] outline-none placeholder:text-stone-400 focus:border-[#1F5E53] focus:ring-2 focus:ring-[#1F5E53]/12"
+                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#2B221E] outline-none placeholder:text-stone-400 focus:border-[#8A6543] focus:ring-2 focus:ring-[#8A6543]/15"
                       />
                       <MapPin className="size-4 text-stone-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
@@ -400,7 +400,7 @@ export default function RegisterForm() {
                         required
                         value={formData.totalRooms}
                         onChange={handleChange}
-                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#1C2426] outline-none placeholder:text-stone-400 focus:border-[#1F5E53] focus:ring-2 focus:ring-[#1F5E53]/12"
+                        className="h-10 w-full rounded-lg border border-stone-300 bg-white px-3.5 text-xs sm:text-sm text-[#2B221E] outline-none placeholder:text-stone-400 focus:border-[#8A6543] focus:ring-2 focus:ring-[#8A6543]/15"
                       />
                       <DoorOpen className="size-4 text-stone-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                     </div>
@@ -417,7 +417,7 @@ export default function RegisterForm() {
                         checked={formData.agreed}
                         onChange={handleChange}
                         required
-                        className="mt-0.5 rounded border-stone-300 accent-[#1F5E53] size-4"
+                        className="mt-0.5 rounded border-stone-300 accent-[#8A6543] size-4"
                       />
                       <span className="text-xs text-stone-600 leading-tight">
                         Saya menyetujui Ketentuan Layanan &amp; Kebijakan Privasi
@@ -438,7 +438,7 @@ export default function RegisterForm() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="flex-1 flex items-center justify-center gap-1.5 rounded-xl bg-[#1F5E53] py-2.5 text-xs sm:text-sm font-semibold text-[#FAF8F5] shadow-sm hover:bg-[#184B42] disabled:opacity-50"
+                      className="flex-1 flex items-center justify-center gap-1.5 rounded-xl bg-[#8A6543] py-2.5 text-xs sm:text-sm font-semibold text-[#FAF8F5] shadow-sm hover:bg-[#735335] disabled:opacity-50"
                     >
                       {isLoading ? (
                         <span>Menyiapkan Kos...</span>
@@ -459,7 +459,7 @@ export default function RegisterForm() {
                 Sudah memiliki akun?{" "}
                 <Link
                   href="/login"
-                  className="font-bold text-[#1F5E53] hover:text-[#1C2426]"
+                  className="font-bold text-[#8A6543] hover:text-[#2B221E]"
                 >
                   Masuk di sini
                 </Link>

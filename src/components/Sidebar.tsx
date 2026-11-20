@@ -100,7 +100,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`hidden lg:flex fixed inset-y-0 left-0 z-30 w-[212px] flex-col bg-[#1C2426] text-stone-200 border-r border-white/[0.07] transition-transform duration-300 ease-in-out ${
+      className={`hidden lg:flex fixed inset-y-0 left-0 z-30 w-[212px] flex-col bg-[#332924] text-stone-200 border-r border-white/[0.07] transition-transform duration-300 ease-in-out ${
         s.sidebarOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
@@ -136,7 +136,7 @@ export default function Sidebar() {
                   onClick={() => s.navigate(it.page, it.tab)}
                   className={`group flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-[12px] font-medium transition-all ${
                     on
-                      ? "bg-gradient-to-r from-[#246358] to-[#1D5248] text-white shadow-sm ring-1 ring-white/15"
+                      ? "bg-gradient-to-r from-[#8A6543] to-[#735335] text-white shadow-sm ring-1 ring-white/15"
                       : "text-stone-300/85 hover:bg-white/[0.05] hover:text-white"
                   }`}
                 >
@@ -158,7 +158,7 @@ export default function Sidebar() {
 
       <div className="border-t border-white/[0.07] p-2.5 space-y-1.5">
         <div className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-left bg-white/[0.04] border border-white/[0.06]">
-          <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#246358] text-[10.5px] font-bold text-[#E5C99B] ring-1 ring-white/15">
+          <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#8A6543] text-[10.5px] font-bold text-[#E5C99B] ring-1 ring-white/15">
             {userInitials}
           </div>
           <div className="min-w-0 flex-1">

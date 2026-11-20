@@ -16,10 +16,10 @@ function Letterhead({ title, no }: { title: string; no: string }) {
   const { property } = useStore()
   return (
     <>
-      <div className="flex items-start justify-between border-b-2 border-[#1F5E53] pb-3">
+      <div className="flex items-start justify-between border-b-2 border-[#8A6543] pb-3">
         <div>
-          <p className="font-display text-[18px] font-extrabold tracking-[0.08em] text-[#1C2426]">
-            SUPERKOST<span className="text-[#1F5E53]">.</span>
+          <p className="font-display text-[18px] font-extrabold tracking-[0.08em] text-[#2B221E]">
+            SUPERKOST<span className="text-[#8A6543]">.</span>
           </p>
           <p className="text-[11px] text-slate-600">
             {property.name} · {property.area}
@@ -36,7 +36,7 @@ function Letterhead({ title, no }: { title: string; no: string }) {
           <p className="text-[11px] text-slate-500">{fmtDate(TODAY)}</p>
         </div>
       </div>
-      <h2 className="mt-4 text-center font-display text-[15px] font-bold uppercase tracking-wide text-[#1C2426]">
+      <h2 className="mt-4 text-center font-display text-[15px] font-bold uppercase tracking-wide text-[#2B221E]">
         {title}
       </h2>
     </>
@@ -106,9 +106,9 @@ export default function DocumentModal({
             bold
           />
         </div>
-        <div className="mt-4 rounded-lg border border-[#C5DCD6] bg-[#EEF5F3] px-4 py-3">
+        <div className="mt-4 rounded-lg border border-[#E2D3C1] bg-[#F6EFE6] px-4 py-3">
           <p className="text-[11px] text-slate-600">Jumlah</p>
-          <p className="font-display text-[22px] font-bold text-[#1C2426] tabular-nums">
+          <p className="font-display text-[22px] font-bold text-[#2B221E] tabular-nums">
             {rupiah(inv.amount)}
           </p>
           <p className="text-[11.5px] italic capitalize text-slate-600">
