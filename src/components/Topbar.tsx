@@ -144,9 +144,8 @@ export default function Topbar() {
             </p>
           </div>
           <ChevronDown
-            className={`ml-0.5 sm:ml-1 size-4 text-slate-400 transition-transform ${
-              open === "prop" ? "rotate-180" : ""
-            }`}
+            className={`ml-0.5 sm:ml-1 size-4 text-slate-400 transition-transform ${open === "prop" ? "rotate-180" : ""
+              }`}
           />
         </button>
         {open === "prop" && (
@@ -161,9 +160,8 @@ export default function Topbar() {
                   if (x.id !== s.propId) s.switchProperty(x.id)
                   close()
                 }}
-                className={`flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-left hover:bg-slate-50 ${
-                  x.id === s.propId ? "bg-[#F5F3FF]" : ""
-                }`}
+                className={`flex w-full items-center gap-2.5 rounded-lg px-2 py-2 text-left hover:bg-slate-50 ${x.id === s.propId ? "bg-[#F5F3FF]" : ""
+                  }`}
               >
                 <Building2
                   className="size-4 text-slate-400"
@@ -252,9 +250,8 @@ export default function Topbar() {
                       <button
                         onMouseEnter={() => setCursor(i)}
                         onClick={() => pick(r.no)}
-                        className={`flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left ${
-                          i === cursor ? "bg-[#F5F3FF]" : ""
-                        }`}
+                        className={`flex w-full items-center gap-3 rounded-lg px-2.5 py-2 text-left ${i === cursor ? "bg-[#F5F3FF]" : ""
+                          }`}
                       >
                         <span className="flex size-8 items-center justify-center rounded-md border border-[#E2E8F0] bg-white text-slate-500">
                           <DoorOpen className="size-4" strokeWidth={1.8} />
@@ -309,9 +306,8 @@ export default function Topbar() {
           <button
             onClick={() => setOpen(open === "bell" ? null : "bell")}
             aria-label="Notifikasi"
-            className={`relative flex size-10 items-center justify-center rounded-lg border border-[#E2E8F0] text-slate-600 hover:bg-slate-50 ${
-              open === "bell" ? "bg-slate-50" : ""
-            }`}
+            className={`relative flex size-10 items-center justify-center rounded-lg border border-[#E2E8F0] text-slate-600 hover:bg-slate-50 ${open === "bell" ? "bg-slate-50" : ""
+              }`}
           >
             <Bell className="size-[18px]" strokeWidth={1.8} />
             {unread > 0 && (
@@ -391,9 +387,8 @@ export default function Topbar() {
             <span className="sm:hidden">Transaksi</span>
             <span className="ml-0.5 sm:ml-1 h-5 w-px bg-white/25" />
             <ChevronDown
-              className={`size-3.5 sm:size-4 transition-transform ${
-                open === "cta" ? "rotate-180" : ""
-              }`}
+              className={`size-3.5 sm:size-4 transition-transform ${open === "cta" ? "rotate-180" : ""
+                }`}
             />
           </button>
           {open === "cta" && (
@@ -459,9 +454,8 @@ export default function Topbar() {
               MM
             </div>
             <ChevronDown
-              className={`hidden sm:block size-3.5 text-slate-400 transition-transform ${
-                open === "user" ? "rotate-180" : ""
-              }`}
+              className={`hidden sm:block size-3.5 text-slate-400 transition-transform ${open === "user" ? "rotate-180" : ""
+                }`}
             />
           </button>
 

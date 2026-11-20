@@ -1,64 +1,59 @@
 "use client";
 
 import Link from "next/link";
-import { MessageSquare } from "lucide-react";
 
 export default function LandingFooter() {
   return (
-    <footer className="border-t border-slate-200 bg-slate-900 text-slate-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="border-t border-stone-800 bg-[#141413] text-stone-400">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2 space-y-4">
-            <div className="flex items-baseline">
-              <span className="font-display text-2xl font-extrabold tracking-tight text-white">
+            <div className="flex items-center">
+              <span className="font-display text-2xl font-bold tracking-[-0.04em] text-[#FAF8F5]">
                 SUPERKOST
               </span>
-              <span className="ml-1 size-2 rounded-full bg-indigo-500" />
-              <span className="ml-3 rounded-md bg-indigo-500/20 px-2 py-0.5 text-[10px] font-semibold text-indigo-300">
-                v1.0 Enterprise
-              </span>
+              <span className="ml-1 size-1.5 rounded-full bg-[#C5A572]" />
             </div>
-            <p className="text-xs sm:text-sm text-slate-400 max-w-md leading-relaxed">
-              Sistem operasi back-office terpadu untuk pemilik dan pengelola rumah
-              kost mandiri. Mengotomatisasi penagihan sewa, denah kamar visual
-              real-time, rekonsiliasi deposit, dan pembukuan kas operasional.
+            <p className="text-xs sm:text-sm text-stone-400 max-w-md leading-relaxed">
+              Sistem manajemen operasional dan pembukuan terpadu untuk pemilik
+              serta pengelola rumah kos mandiri. Mengotomatisasi penagihan sewa,
+              pemantauan denah kamar real-time, rekonsiliasi deposit, dan laporan
+              arus kas.
             </p>
-            <div className="pt-2 flex items-center gap-4 text-xs text-slate-400">
-              <span className="flex items-center gap-1.5">
-                <MessageSquare className="size-4 text-emerald-400" /> WA Bot Engine
-              </span>
-              <span>•</span>
+            <div className="pt-2 flex items-center gap-3 text-xs text-stone-500">
+              <span className="text-[#C5A572] font-medium">WhatsApp Gateway Resmi</span>
+              <span>·</span>
               <span>Surabaya, Indonesia</span>
             </div>
           </div>
 
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Navigasi Cepat
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#FAF8F5]">
+              Navigasi
             </h4>
-            <ul className="mt-4 space-y-2 text-xs text-slate-400">
+            <ul className="mt-4 space-y-2.5 text-xs text-stone-400">
               <li>
-                <a href="#fitur" className="hover:text-white transition-colors">
+                <a href="#fitur" className="hover:text-[#FAF8F5] transition-colors">
                   Fitur Unggulan
                 </a>
               </li>
               <li>
-                <a href="#solusi" className="hover:text-white transition-colors">
-                  Solusi Masalah Kos
+                <a href="#solusi" className="hover:text-[#FAF8F5] transition-colors">
+                  Transformasi Operasional
                 </a>
               </li>
               <li>
-                <a href="#kalkulator" className="hover:text-white transition-colors">
-                  Kalkulator ROI
+                <a href="#kalkulator" className="hover:text-[#FAF8F5] transition-colors">
+                  Kalkulator Efisiensi
                 </a>
               </li>
               <li>
-                <a href="#harga" className="hover:text-white transition-colors">
-                  Paket Langganan
+                <a href="#harga" className="hover:text-[#FAF8F5] transition-colors">
+                  Lisensi &amp; Harga
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition-colors">
+                <a href="#faq" className="hover:text-[#FAF8F5] transition-colors">
                   Tanya Jawab (FAQ)
                 </a>
               </li>
@@ -66,24 +61,24 @@ export default function LandingFooter() {
           </div>
 
           <div>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Akses Aplikasi
+            <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#FAF8F5]">
+              Akses Sistem
             </h4>
-            <ul className="mt-4 space-y-2 text-xs text-slate-400">
+            <ul className="mt-4 space-y-2.5 text-xs text-stone-400">
               <li>
-                <Link href="/login" className="hover:text-white transition-colors">
+                <Link href="/login" className="hover:text-[#FAF8F5] transition-colors">
                   Masuk ke Akun
                 </Link>
               </li>
               <li>
-                <Link href="/register" className="hover:text-white transition-colors">
-                  Daftar Akun Baru
+                <Link href="/register" className="hover:text-[#FAF8F5] transition-colors">
+                  Registrasi Properti Baru
                 </Link>
               </li>
               <li>
                 <Link
                   href="/app"
-                  className="text-indigo-400 font-semibold hover:text-indigo-300 transition-colors"
+                  className="text-[#C5A572] font-semibold hover:text-[#D8B884] transition-colors"
                 >
                   Buka Live Demo Cockpit →
                 </Link>
@@ -92,14 +87,11 @@ export default function LandingFooter() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="mt-12 pt-8 border-t border-stone-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
           <p>© 2026 SUPERKOST Indonesia. Seluruh hak cipta dilindungi undang-undang.</p>
-          <p className="flex items-center gap-1">
-            Dibuat untuk efisiensi bisnis kos di Indonesia
-          </p>
+          <p>Tata Kelola Properti Kos Modern</p>
         </div>
       </div>
     </footer>
   );
 }
-

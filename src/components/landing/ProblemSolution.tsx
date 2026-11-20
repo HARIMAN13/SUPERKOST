@@ -1,89 +1,93 @@
 "use client";
 
-import { XCircle, CheckCircle2 } from "lucide-react";
+import { Minus, Check } from "lucide-react";
 
 export default function ProblemSolution() {
   const comparisons = [
     {
       topic: "Penagihan Uang Sewa",
-      bad: "Owner/admin harus kirim chat tagihan manual satu per satu ke tiap anak kos. Sering lupa, canggung, atau terlewat hingga nunggak berminggu-minggu.",
-      good: "Mesin Bot WhatsApp otomatis mengirimkan pengingat H-3, Hari-H, dan peringatan tunggakan jam 08:00 WIB dengan nomor rekening resmi dan nama anak kos.",
+      bad: "Owner atau admin mengirim pesan tagihan manual satu per satu ke penghuni. Rentan terlupa, canggung, dan sering berujung tunggakan berminggu-minggu.",
+      good: "Mesin WhatsApp Gateway mengirimkan pengingat H-3, Hari-H, dan notifikasi jatuh tempo otomatis pukul 08:00 WIB lengkap dengan rincian nominal resmi.",
     },
     {
       topic: "Verifikasi Mutasi & Bukti Bayar",
-      bad: "Foto struk transfer menumpuk di galeri HP. Rawan bukti transfer m-banking editan/palsu karena tidak dicek rekonsiliasi ke rekening bank.",
-      good: "Antarmuka verifikasi cerdas: periksa foto bukti langsung berdampingan dengan invoice, auto-match nominal, dan klik 'Setujui Lunas' dalam 1 detik.",
+      bad: "Foto bukti transfer menumpuk di galeri ponsel tanpa rekonsiliasi terstruktur. Sulit melacak pembayaran yang belum divalidasi.",
+      good: "Panel verifikasi terpusat: tinjau bukti transfer berdampingan dengan tagihan, cocokkan nominal secara akurat, dan terbitkan kuitansi lunas dalam satu klik.",
     },
     {
       topic: "Pengelolaan Uang Deposit",
-      bad: "Uang jaminan tercampur dengan uang kas harian kos. Saat penghuni keluar, terjadi selisih hitungan biaya kerusakan kamar dan ribut saat pengembalian.",
-      good: "Buku Besar Deposit Ledger terisolasi aman. Tersedia formulir clearance instan: kurangi biaya kerusakan, sisanya di-refund dan cetak bukti kuitansi resmi.",
+      bad: "Dana jaminan penghuni tercampur dengan kas operasional harian, memicu selisih perhitungan potongan kerusakan saat penghuni check-out.",
+      good: "Buku Besar Deposit Ledger terisolasi dari kas harian. Dilengkapi kalkulator potongan fasilitas dan cetak berita acara pengembalian deposit resmi.",
     },
     {
       topic: "Pemeliharaan AC & Fasilitas",
-      bad: "Cuci AC baru dilakukan setelah AC bocor atau rusak parah. Biaya perbaikan mendadak membengkak jutaan rupiah.",
-      good: "Radar siklus servis preventif berkala (tiap 5 bulan). Menampilkan status AC per kamar serta kontak tukang & toko listrik langganan yang siap di-WA.",
+      bad: "Perawatan baru dilakukan setelah unit AC bocor atau rusak berat, menyebabkan pembengkakan biaya perbaikan darurat.",
+      good: "Radar siklus servis preventif berkala setiap 5 bulan per kamar, terintegrasi dengan direktori vendor teknisi langganan.",
     },
     {
       topic: "Operasional Penjaga Kos (Staf)",
-      bad: "Penjaga kos bingung memakai aplikasi akuntansi rumit di komputer, akhirnya laporan harian tetap dicatat di kertas sobekan.",
-      good: "Mode Kasir Sederhana ramah HP: hanya 3 tombol besar (Catat Bayar, Cek Kamar Kosong, Lapor Kerusakan) + checklist kebersihan harian shift.",
+      bad: "Penjaga kos kesulitan mengoperasikan perangkat lunak akuntansi yang rumit, sehingga pencatatan kembali menggunakan buku tulis manual.",
+      good: "Mode Kasir Staf ramah ponsel: antarmuka ringkas dengan 3 tombol aksi utama serta daftar periksa kebersihan harian tiap shift.",
     },
   ];
 
   return (
-    <section id="solusi" className="py-20 bg-slate-50 border-y border-slate-200/70">
+    <section id="solusi" className="py-24 bg-[#F3F0EA] border-b border-stone-200/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-indigo-600">
-            Komparasi Efisiensi
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#8C6D3F]">
+            Transformasi Operasional
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">
-            Tinggalkan Cara Lama, Beralih ke Superkost
+          <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#141413]">
+            Tinggalkan Cara Manual, Beralih ke Sistem Terpadu
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
-            Lihat bagaimana Superkost mengubah kerepotan operasional sehari-hari
-            menjadi proses otomatis yang presisi.
+          <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
+            Perbandingan tata kelola rumah kos konvensional dengan standar
+            operasional otomatis Superkost.
           </p>
         </div>
 
-        <div className="mt-14 space-y-4 max-w-4xl mx-auto">
+        <div className="mt-14 space-y-4 max-w-5xl mx-auto">
           {comparisons.map((item, idx) => (
             <div
               key={item.topic}
-              className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow"
+              className="rounded-2xl border border-stone-200/90 bg-[#FAF8F5] p-6 sm:p-7 shadow-2xs transition-all hover:border-stone-300"
             >
-              <div className="flex items-center gap-2 mb-4">
-                <span className="flex size-6 items-center justify-center rounded-full bg-indigo-100 text-xs font-bold text-indigo-700">
-                  {idx + 1}
+              <div className="flex items-center gap-3 mb-5">
+                <span className="font-mono text-xs font-semibold text-[#8C6D3F] border border-[#C5A572]/40 bg-[#C5A572]/10 px-2.5 py-0.5 rounded">
+                  0{idx + 1}
                 </span>
-                <h3 className="font-display text-base sm:text-lg font-bold text-slate-900">
+                <h3 className="font-display text-base sm:text-lg font-bold text-[#141413]">
                   {item.topic}
                 </h3>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Cara Lama */}
-                <div className="flex items-start gap-3 rounded-xl bg-rose-50/70 border border-rose-200/60 p-4">
-                  <XCircle className="size-5 text-rose-500 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3.5 rounded-xl bg-[#ECE8E0]/70 border border-stone-300/60 p-4.5">
+                  <div className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-stone-300/80 text-stone-600">
+                    <Minus className="size-3.5" />
+                  </div>
                   <div>
-                    <p className="text-xs font-bold text-rose-900 uppercase tracking-wide">
-                      Cara Lama (Manual / Spreadsheet)
+                    <p className="text-[11px] font-bold text-stone-500 uppercase tracking-wider">
+                      Metode Manual / Spreadsheet
                     </p>
-                    <p className="mt-1 text-xs sm:text-[13px] text-rose-800/90 leading-relaxed">
+                    <p className="mt-1.5 text-xs sm:text-[13.5px] text-stone-600 leading-relaxed">
                       {item.bad}
                     </p>
                   </div>
                 </div>
 
                 {/* Cara Superkost */}
-                <div className="flex items-start gap-3 rounded-xl bg-emerald-50/80 border border-emerald-200/70 p-4">
-                  <CheckCircle2 className="size-5 text-emerald-600 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3.5 rounded-xl bg-white border border-stone-200/90 p-4.5 shadow-2xs">
+                  <div className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#141413] text-[#C5A572]">
+                    <Check className="size-3.5" />
+                  </div>
                   <div>
-                    <p className="text-xs font-bold text-emerald-950 uppercase tracking-wide">
-                      Solusi Superkost (Otomatis & Akurat)
+                    <p className="text-[11px] font-bold text-[#8C6D3F] uppercase tracking-wider">
+                      Standar Eksekutif Superkost
                     </p>
-                    <p className="mt-1 text-xs sm:text-[13px] text-emerald-900/90 leading-relaxed">
+                    <p className="mt-1.5 text-xs sm:text-[13.5px] text-[#141413] leading-relaxed">
                       {item.good}
                     </p>
                   </div>
@@ -96,4 +100,3 @@ export default function ProblemSolution() {
     </section>
   );
 }
-

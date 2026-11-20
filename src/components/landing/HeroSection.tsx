@@ -1,185 +1,211 @@
 "use client";
 
 import Link from "next/link";
-import {
-  ArrowRight,
-  Sparkles,
-  MessageSquare,
-  Check,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28">
-      {/* Background radial gradient glow */}
-      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/4 size-[600px] lg:size-[900px] rounded-full bg-gradient-to-tr from-indigo-500/15 to-violet-500/20 blur-3xl -z-10" />
+    <section className="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32 border-b border-stone-200/80">
+      {/* Subtle architectural background grid */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #E7E4DD 1px, transparent 1px), linear-gradient(to bottom, #E7E4DD 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+          maskImage:
+            "radial-gradient(ellipse 80% 60% at 50% 20%, black 30%, transparent 100%)",
+        }}
+      />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-6">
-          {/* Top Pill */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-white/90 px-3.5 py-1.5 shadow-sm text-xs font-semibold text-indigo-950 backdrop-blur-sm animate-fade-in">
-            <span className="flex size-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Sistem Operasi Back-Office Kos Terpadu No. #1</span>
-            <span className="text-slate-300">|</span>
-            <span className="text-indigo-600 font-bold">Siap Produksi</span>
-          </div>
-
-          {/* Main Headline */}
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
+        <div className="text-center max-w-3xl mx-auto space-y-7">
+          {/* Main Headline — Clean, authoritative, editorial luxury without neon AI gradients */}
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-[60px] font-bold tracking-[-0.035em] text-[#141413] leading-[1.08]">
             Kelola Puluhan Kamar Kos{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-800 bg-clip-text text-transparent">
+            <span className="text-[#8C6D3F] underline decoration-[#C5A572]/50 decoration-2 underline-offset-8">
               Tanpa Pusing Spreadsheet
             </span>{" "}
-            & Tagihan Macet.
+            &amp; Tagihan Macet.
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Otomatisasi pengingat tagihan via <strong>WhatsApp Gateway</strong>,
+          <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto font-normal">
+            Otomatisasi pengingat tagihan via{" "}
+            <span className="font-semibold text-[#141413]">WhatsApp Gateway</span>,
             pantau denah keterisian kamar 100% <em>real-time</em>, dan catat
-            uang jaminan deposit tanpa pernah ada selisih.
+            uang jaminan deposit secara presisi tanpa pernah ada selisih.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
             <Link
               href="/register"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-indigo-600/25 hover:bg-indigo-700 hover:shadow-indigo-600/35 transition-all active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#141413] px-7 py-4 text-sm font-semibold text-[#FAF8F5] shadow-md shadow-stone-900/10 hover:bg-stone-800 transition-all"
             >
               Mulai Uji Coba Gratis 14 Hari
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-4 text-[#C5A572]" />
             </Link>
             <Link
               href="/app"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 hover:text-slate-900 transition-all active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-stone-300 bg-white px-7 py-4 text-sm font-semibold text-[#141413] shadow-2xs hover:border-stone-400 hover:bg-stone-50 transition-all"
             >
-              <Sparkles className="size-4 text-indigo-600" />
               Buka Live Cockpit Demo
+              <ArrowUpRight className="size-4 text-stone-500" />
             </Link>
           </div>
 
           {/* Micro trust indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-2 text-xs font-medium text-slate-500">
+          <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-8 pt-3 text-xs font-medium text-stone-500">
             <span className="flex items-center gap-1.5">
-              <Check className="size-3.5 text-emerald-600" /> Tanpa Kartu Kredit
+              <Check className="size-3.5 text-[#8C6D3F]" /> Tanpa Kartu Kredit
             </span>
             <span className="flex items-center gap-1.5">
-              <Check className="size-3.5 text-emerald-600" /> WhatsApp Gateway Resmi
+              <Check className="size-3.5 text-[#8C6D3F]" /> WhatsApp Gateway Resmi
             </span>
             <span className="flex items-center gap-1.5">
-              <Check className="size-3.5 text-emerald-600" /> Mode Staf Ramah HP
+              <Check className="size-3.5 text-[#8C6D3F]" /> Mode Staf Ramah HP
             </span>
           </div>
         </div>
 
-        {/* Hero Interactive App Preview */}
-        <div className="mt-12 lg:mt-16 relative mx-auto max-w-5xl">
-          <div className="rounded-2xl border border-slate-200/80 bg-white/70 p-2 sm:p-4 shadow-2xl shadow-indigo-950/10 backdrop-blur-md">
+        {/* Hero Interactive App Preview — Bespoke Executive Terminal */}
+        <div className="mt-14 lg:mt-20 relative mx-auto max-w-5xl">
+          <div className="rounded-2xl border border-stone-300/80 bg-[#F2EFE9] p-2.5 sm:p-4 shadow-2xl shadow-stone-900/10">
             {/* Window bar mockup */}
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3 px-2">
-              <div className="flex items-center gap-1.5">
-                <span className="size-3 rounded-full bg-rose-400" />
-                <span className="size-3 rounded-full bg-amber-400" />
-                <span className="size-3 rounded-full bg-emerald-400" />
-                <span className="ml-3 font-mono text-[11px] text-slate-400">
+            <div className="flex items-center justify-between border-b border-stone-300/70 pb-3 px-2">
+              <div className="flex items-center gap-2">
+                <span className="size-2.5 rounded-full bg-stone-400" />
+                <span className="size-2.5 rounded-full bg-stone-400" />
+                <span className="size-2.5 rounded-full bg-stone-400" />
+                <span className="ml-2 font-mono text-[11px] text-stone-500 tracking-tight">
                   superkost.id/cockpit/mulyorejo-asri
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
-                <span className="inline-flex size-2 rounded-full bg-emerald-500 animate-ping" />
-                <span className="text-[11px] font-semibold text-emerald-700">
-                  Bot Aktif 08:00 WIB
+              <div className="flex items-center gap-2 text-xs font-medium text-stone-600">
+                <span className="inline-flex size-2 rounded-full bg-emerald-700" />
+                <span className="text-[11px] font-semibold text-stone-700">
+                  Penjadwalan Otomatis · 08:00 WIB
                 </span>
               </div>
             </div>
 
             {/* Dashboard Inner Preview */}
-            <div className="mt-3 rounded-xl bg-slate-900 p-4 sm:p-6 text-white overflow-hidden relative">
+            <div className="mt-3 rounded-xl bg-[#141413] p-5 sm:p-7 text-[#FAF8F5] overflow-hidden relative border border-stone-800">
               {/* Cockpit Mini Metrics */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <div className="rounded-lg bg-slate-800/80 border border-slate-700/60 p-3">
-                  <p className="text-[11px] text-slate-400 font-medium">
-                    Okupansi Real-time
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
+                <div className="rounded-xl bg-[#1C1C1A] border border-stone-800 p-4">
+                  <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
+                    Okupansi Real-Time
                   </p>
-                  <p className="font-display text-xl sm:text-2xl font-bold text-white mt-1">
+                  <p className="font-display text-xl sm:text-2xl font-bold text-[#FAF8F5] mt-1.5">
                     93.3%
                   </p>
-                  <p className="text-[10px] text-emerald-400 mt-0.5">
+                  <p className="text-[11px] text-[#C5A572] mt-1">
                     28 Kamar Terisi · 2 Kosong
                   </p>
                 </div>
-                <div className="rounded-lg bg-slate-800/80 border border-slate-700/60 p-3">
-                  <p className="text-[11px] text-slate-400 font-medium">
+                <div className="rounded-xl bg-[#1C1C1A] border border-stone-800 p-4">
+                  <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
                     Arus Kas Masuk (Nov)
                   </p>
-                  <p className="font-display text-xl sm:text-2xl font-bold text-emerald-400 mt-1">
+                  <p className="font-display text-xl sm:text-2xl font-bold text-[#FAF8F5] mt-1.5">
                     Rp36.250.000
                   </p>
-                  <p className="text-[10px] text-slate-300 mt-0.5">
+                  <p className="text-[11px] text-emerald-400/90 mt-1">
                     86% dari target tagihan
                   </p>
                 </div>
-                <div className="rounded-lg bg-slate-800/80 border border-slate-700/60 p-3">
-                  <p className="text-[11px] text-slate-400 font-medium">
+                <div className="rounded-xl bg-[#1C1C1A] border border-stone-800 p-4">
+                  <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
                     Deposit Terkunci
                   </p>
-                  <p className="font-display text-xl sm:text-2xl font-bold text-indigo-300 mt-1">
+                  <p className="font-display text-xl sm:text-2xl font-bold text-[#C5A572] mt-1.5">
                     Rp28.000.000
                   </p>
-                  <p className="text-[10px] text-slate-300 mt-0.5">
-                    Dipisahkan dari kas harian
+                  <p className="text-[11px] text-stone-400 mt-1">
+                    Terpisah dari kas harian
                   </p>
                 </div>
-                <div className="rounded-lg bg-slate-800/80 border border-slate-700/60 p-3">
-                  <p className="text-[11px] text-slate-400 font-medium">
-                    Jadwal Servis AC
+                <div className="rounded-xl bg-[#1C1C1A] border border-stone-800 p-4">
+                  <p className="text-[11px] text-stone-400 font-medium uppercase tracking-wider">
+                    Pemeliharaan Unit
                   </p>
-                  <p className="font-display text-xl sm:text-2xl font-bold text-amber-400 mt-1">
-                    1 AC Perlu Cuci
+                  <p className="font-display text-xl sm:text-2xl font-bold text-stone-200 mt-1.5">
+                    1 Unit AC
                   </p>
-                  <p className="text-[10px] text-slate-300 mt-0.5">
-                    Kamar 204 (Siklus 5 Bulan)
+                  <p className="text-[11px] text-amber-400/90 mt-1">
+                    Kamar 204 · Jadwal Servis
                   </p>
                 </div>
               </div>
 
               {/* Floor 1 Grid Preview */}
-              <div className="mt-4 pt-3 border-t border-slate-800">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-semibold text-slate-300">
-                    Visual Denah Kamar Lantai 1 (Simulasi Live)
+              <div className="mt-5 pt-4 border-t border-stone-800/90">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-medium text-stone-300 tracking-wide">
+                    Denah Kamar Lantai 1 — Ikhtisar Operasional
                   </span>
-                  <span className="text-[10px] text-indigo-400 font-mono">
-                    Auto-Sync
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#C5A572] font-medium">
+                    <ShieldCheck className="size-3.5" />
+                    Tersinkronisasi
                   </span>
                 </div>
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-2.5">
                   {[
-                    { no: "101", name: "Rafi H.", st: "Lunas", c: "bg-emerald-950/60 border-emerald-500/40 text-emerald-300" },
-                    { no: "102", name: "Aditya A.", st: "Lunas", c: "bg-emerald-950/60 border-emerald-500/40 text-emerald-300" },
-                    { no: "103", name: "Bagas P.", st: "Lunas", c: "bg-emerald-950/60 border-emerald-500/40 text-emerald-300" },
-                    { no: "104", name: "Salsabila", st: "Lunas", c: "bg-emerald-950/60 border-emerald-500/40 text-emerald-300" },
-                    { no: "105", name: "Farril N.", st: "Verifikasi", c: "bg-amber-950/60 border-amber-500/40 text-amber-300" },
-                    { no: "110", name: "Kosong", st: "+ Check-In", c: "bg-slate-800/80 border-dashed border-indigo-400/50 text-indigo-300" },
+                    {
+                      no: "101",
+                      name: "Rafi H.",
+                      st: "Lunas",
+                      c: "bg-[#1C241E] border-emerald-800/60 text-emerald-300/90",
+                    },
+                    {
+                      no: "102",
+                      name: "Aditya A.",
+                      st: "Lunas",
+                      c: "bg-[#1C241E] border-emerald-800/60 text-emerald-300/90",
+                    },
+                    {
+                      no: "103",
+                      name: "Bagas P.",
+                      st: "Lunas",
+                      c: "bg-[#1C241E] border-emerald-800/60 text-emerald-300/90",
+                    },
+                    {
+                      no: "104",
+                      name: "Salsabila",
+                      st: "Lunas",
+                      c: "bg-[#1C241E] border-emerald-800/60 text-emerald-300/90",
+                    },
+                    {
+                      no: "105",
+                      name: "Farril N.",
+                      st: "Verifikasi",
+                      c: "bg-[#262118] border-[#9A7B4F]/50 text-[#D8B884]",
+                    },
+                    {
+                      no: "110",
+                      name: "Tersedia",
+                      st: "+ Check-In",
+                      c: "bg-[#1C1C1A] border-dashed border-stone-700 text-stone-300",
+                    },
                   ].map((kmr) => (
                     <div
                       key={kmr.no}
-                      className={`rounded-lg border p-2 text-center text-xs transition-transform hover:scale-105 ${kmr.c}`}
+                      className={`rounded-lg border p-2.5 text-left text-xs transition-colors ${kmr.c}`}
                     >
-                      <p className="font-bold">Kmr {kmr.no}</p>
-                      <p className="text-[10px] truncate opacity-80">{kmr.name}</p>
-                      <span className="mt-1 inline-block text-[9px] font-semibold uppercase">
-                        {kmr.st}
-                      </span>
+                      <div className="flex items-center justify-between">
+                        <p className="font-bold text-white">#{kmr.no}</p>
+                        <span className="text-[9px] font-semibold uppercase tracking-wider opacity-90">
+                          {kmr.st}
+                        </span>
+                      </div>
+                      <p className="text-[11px] truncate opacity-75 mt-1">
+                        {kmr.name}
+                      </p>
                     </div>
                   ))}
                 </div>
-              </div>
-
-              {/* Floating notification badges with animation */}
-              <div className="hidden sm:flex absolute bottom-4 right-4 items-center gap-2 rounded-lg bg-emerald-600/95 px-3 py-2 text-xs font-semibold text-white shadow-xl backdrop-blur-md animate-bounce">
-                <MessageSquare className="size-3.5" />
-                <span>WA Notifikasi Otomatis H-3 Berhasil Terkirim</span>
               </div>
             </div>
           </div>
@@ -188,4 +214,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
