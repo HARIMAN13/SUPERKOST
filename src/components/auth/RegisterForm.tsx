@@ -194,11 +194,10 @@ export default function RegisterForm() {
           <div className="mt-6 flex items-center justify-center gap-3">
             <div className="flex items-center gap-2">
               <span
-                className={`flex size-6 items-center justify-center rounded-full text-xs font-bold ${
-                  step >= 1
+                className={`flex size-6 items-center justify-center rounded-full text-xs font-bold ${step >= 1
                     ? "bg-[#141413] text-[#FAF8F5]"
                     : "bg-stone-200 text-stone-600"
-                }`}
+                  }`}
               >
                 1
               </span>
@@ -209,11 +208,10 @@ export default function RegisterForm() {
             <span className="w-8 h-0.5 bg-stone-200" />
             <div className="flex items-center gap-2">
               <span
-                className={`flex size-6 items-center justify-center rounded-full text-xs font-bold ${
-                  step === 2
+                className={`flex size-6 items-center justify-center rounded-full text-xs font-bold ${step === 2
                     ? "bg-[#141413] text-[#FAF8F5]"
                     : "bg-stone-200 text-stone-600"
-                }`}
+                  }`}
               >
                 2
               </span>
