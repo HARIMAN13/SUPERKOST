@@ -68,7 +68,7 @@ function Shell() {
       <MobileDrawer />
 
       {/* Main container with responsive padding */}
-      <div className="lg:pl-[260px] flex flex-col min-h-screen pb-20 lg:pb-0">
+      <div className="lg:pl-[260px] flex flex-col min-h-screen pb-24 lg:pb-0">
         <Topbar />
         <main
           key={`${s.page}-${s.propId}`}
