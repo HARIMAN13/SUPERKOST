@@ -5,7 +5,7 @@ import { ArrowRight, ArrowUpRight, Check, ShieldCheck } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32 border-b border-stone-200/80">
+    <section className="relative overflow-hidden pt-7 pb-16 sm:pt-9 lg:pt-11 lg:pb-24 border-b border-stone-200/80">
       {/* Subtle architectural background grid */}
       <div
         className="pointer-events-none absolute inset-0 -z-10 opacity-[0.35]"
@@ -19,9 +19,9 @@ export default function HeroSection() {
       />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-7">
-          {/* Main Headline — Clean, authoritative, editorial luxury without neon AI gradients */}
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-[60px] font-bold tracking-[-0.035em] text-[#141413] leading-[1.08]">
+        <div className="text-center max-w-3xl mx-auto">
+          {/* Main Headline — Perfectly proportioned for 100% viewport fit */}
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-[56px] font-bold tracking-[-0.035em] text-[#141413] leading-[1.12]">
             Kelola Puluhan Kamar Kos{" "}
             <span className="text-[#8C6D3F] underline decoration-[#C5A572]/50 decoration-2 underline-offset-8">
               Tanpa Pusing Spreadsheet
@@ -30,7 +30,7 @@ export default function HeroSection() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto font-normal">
+          <p className="mt-5 text-base sm:text-[17px] text-stone-600 leading-relaxed max-w-2xl mx-auto font-normal">
             Otomatisasi pengingat tagihan via{" "}
             <span className="font-semibold text-[#141413]">WhatsApp Gateway</span>,
             pantau denah keterisian kamar 100% <em>real-time</em>, dan catat
@@ -38,25 +38,25 @@ export default function HeroSection() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
+          <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3.5">
             <Link
               href="/register"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#141413] px-7 py-4 text-sm font-semibold text-[#FAF8F5] shadow-md shadow-stone-900/10 hover:bg-stone-800 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-[#141413] px-6.5 py-3.5 text-sm font-semibold text-[#FAF8F5] shadow-md shadow-stone-900/10 hover:bg-stone-800 transition-all"
             >
               Mulai Uji Coba Gratis 14 Hari
               <ArrowRight className="size-4 text-[#C5A572]" />
             </Link>
             <Link
               href="/app"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-stone-300 bg-white px-7 py-4 text-sm font-semibold text-[#141413] shadow-2xs hover:border-stone-400 hover:bg-stone-50 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-stone-300 bg-white px-6.5 py-3.5 text-sm font-semibold text-[#141413] shadow-2xs hover:border-stone-400 hover:bg-stone-50 transition-all"
             >
               Buka Live Cockpit Demo
               <ArrowUpRight className="size-4 text-stone-500" />
             </Link>
           </div>
 
-          {/* Micro trust indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-8 pt-3 text-xs font-medium text-stone-500">
+          {/* Micro trust indicators — Visible above the fold at 100% zoom */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-5 sm:gap-8 text-xs font-medium text-stone-500">
             <span className="flex items-center gap-1.5">
               <Check className="size-3.5 text-[#8C6D3F]" /> Tanpa Kartu Kredit
             </span>
@@ -70,7 +70,7 @@ export default function HeroSection() {
         </div>
 
         {/* Hero Interactive App Preview — Bespoke Executive Terminal */}
-        <div className="mt-14 lg:mt-20 relative mx-auto max-w-5xl">
+        <div className="mt-10 lg:mt-12 relative mx-auto max-w-5xl">
           <div className="rounded-2xl border border-stone-300/80 bg-[#F2EFE9] p-2.5 sm:p-4 shadow-2xl shadow-stone-900/10">
             {/* Window bar mockup */}
             <div className="flex items-center justify-between border-b border-stone-300/70 pb-3 px-2">
